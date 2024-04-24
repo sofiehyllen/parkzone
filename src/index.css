@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap');
+@import url('https://use.typekit.net/jak0aup.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .font-h1 {
+    @apply font-mundial font-normal text-marine-800 capsize leading-10 text-5xl md:text-6xl
+  }
+  .font-h2 {
+    @apply font-mundial font-normal text-marine-800 capsize leading-10 text-4xl md:text-5xl
+  }
+  .font-h3 {
+    @apply font-mundial font-normal text-marine-800 capsize text-3xl
+  }
+  .font-h4 {
+    @apply font-league font-medium text-marine-800 capsize leading-6 text-xl
+  }
+  .font-h5 {
+    @apply font-league font-normal text-marine-800 leading-6 capsize text-base md:text-lg
+  }
+  .font-h6 {
+    @apply font-league font-medium text-marine-800 capsize text-sm 
+  }
+  .font-body-l {
+    @apply font-league font-light text-gray-900 capsize text-xl
+  }
+  .font-body-m {
+    @apply font-league font-light text-gray-900 capsize text-lg
+  }
+  .font-body-s {
+    @apply font-league font-light text-gray-900 capsize text-base
+  }
+  .font-body-xs {
+    @apply font-league font-light text-gray-900 capsize text-sm
+  }
+}
+
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+:root {
+  font-family: 'League Spartan', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--colors-marine-800);
+  background-color: white;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
