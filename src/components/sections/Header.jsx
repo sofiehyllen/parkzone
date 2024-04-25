@@ -87,10 +87,16 @@ export default function Header() {
             <Button size='sm' variant='tertiary' className='font-h6'>
               Log ind
             </Button>
-            <NavLink className='font-h5 text-marine-800' to='/blog'>
+            <NavLink
+              to='/blog'
+              className={({ isActive }) =>
+                ['text-red-500', isActive ? 'bg-sky-50' : '']
+                  .filter((className) => className !== '')
+                  .join(' ')
+              }>
               Blog
             </NavLink>
-            <NavLink className='font-h5' to='/omos'>
+            <NavLink className='font-h5 active:bg-sky-400' to='/omos'>
               Om os
             </NavLink>
             {isChecked ? (
