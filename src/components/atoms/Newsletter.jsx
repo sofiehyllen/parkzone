@@ -30,7 +30,7 @@ export default function Newsletter() {
             placeholder='Skriv din mail her'
             value={email}
             onChange={handleInput}
-            className='font-body-xs bg-transparent rounded-full py-2 pl-4 justify-between border-1 capsize inner-border-gray-200 w-80 placeholder-gray-500 focus:outline-0 focus:ring-1 focus:ring-sky-300'
+            className='font-body-xs bg-transparent rounded-full py-2.5 pl-4 justify-between border-1 capsize inner-border-gray-200 w-80 placeholder-gray-500 focus:outline-0 focus:ring-1 focus:ring-sky-300'
           />
           <Button
             size='sm'

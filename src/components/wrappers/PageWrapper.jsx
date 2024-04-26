@@ -3,7 +3,7 @@ import Breadcrumb from '../atoms/Breadcrumbs';
 
 const PageWrapper = ({ children }) => {
   return (
-    <div className='flex flex-col w-full min-h-screen px-10'>
+    <div className='flex flex-col w-full min-h-screen'>
       <Breadcrumb />
       <div>{children}</div>
     </div>

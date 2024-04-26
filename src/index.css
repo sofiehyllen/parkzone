@@ -29,14 +29,14 @@
   .font-body-l {
     @apply font-league font-light text-gray-900 capsize text-xl;
   }
-  .font-body-m {
-    @apply font-league font-light text-gray-900 capsize text-lg;
+  .font-body-md {
+    @apply font-league font-light text-gray-900 leading-6 capsize text-lg;
   }
   .font-body-s {
     @apply font-league font-light text-gray-900 capsize text-base;
   }
   .font-body-xs {
-    @apply font-league font-light text-gray-900 capsize text-sm;
+    @apply font-league font-light text-gray-900 leading-4 capsize text-sm;
   }
 }
 
@@ -66,10 +66,12 @@ h6 {
   font-weight: inherit;
 }
 
+
 img,
 video {
   max-width: 100%;
-  height: auto;
+  max-height: 100%;
+  display: block;
 }
 
 :root {

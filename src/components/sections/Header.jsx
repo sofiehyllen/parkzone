@@ -4,6 +4,7 @@ import { IoClose } from 'react-icons/io5';
 import { useState } from 'react';
 import Button from '../atoms/Button';
 import ToggleButton from '../atoms/ToggleButton';
+import clsx from 'clsx';
 
 //--- Header komponent ---//
 export default function Header() {
@@ -34,7 +35,7 @@ export default function Header() {
 
   // JSX-struktur for header
   return (
-    <section className='p-5 md:p-20'>
+    <section className='p-5 md:p-10'>
       {/* Overordnet container med header-indhold, inkl. logo og navigation */}
       <div className='flex items-center justify-between border-b border-gray-300 pb-2 md:pb-3'>
         {isChecked ? (
@@ -90,21 +91,43 @@ export default function Header() {
             <NavLink
               to='/blog'
               className={({ isActive }) =>
-                ['text-red-500', isActive ? 'bg-sky-50' : '']
-                  .filter((className) => className !== '')
-                  .join(' ')
+                clsx(
+                  'font-mundial text-base capsize px-2.5 pb-2 pt-1 rounded-sm text-gray-900',
+                  { 'bg-sky-50': isActive }
+                )
               }>
               Blog
             </NavLink>
-            <NavLink className='font-h5 active:bg-sky-400' to='/omos'>
+            <NavLink
+              to='/omos'
+              className={({ isActive }) =>
+                clsx(
+                  'font-mundial text-base capsize px-2.5 pb-2 pt-1 rounded-sm text-gray-900',
+                  { 'bg-sky-50': isActive }
+                )
+              }>
               Om os
             </NavLink>
             {isChecked ? (
-              <NavLink className='font-h5' to='/erhverv/kontakt'>
+              <NavLink
+                to='/erhverv/kontakt'
+                className={({ isActive }) =>
+                  clsx(
+                    'font-mundial text-base capsize px-2.5 pb-2 pt-1 rounded-sm text-gray-900',
+                    { 'bg-sky-50': isActive }
+                  )
+                }>
                 Kontakt
               </NavLink>
             ) : (
-              <NavLink className='font-h5' to='/privat/kontakt'>
+              <NavLink
+                to='/privat/kontakt'
+                className={({ isActive }) =>
+                  clsx(
+                    'font-mundial text-base capsize px-2.5 pb-2 pt-1 rounded-sm text-gray-900',
+                    { 'bg-sky-50': isActive }
+                  )
+                }>
                 Kontakt
               </NavLink>
             )}

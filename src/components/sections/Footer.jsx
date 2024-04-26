@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default function Footer() {
   return (
-    <div className='px-5 pt-10 w-full md:px-20 md:pt-16'>
+    <div className='px-5 pt-10 w-full md:px-10'>
       <div className='border-b-1 border-gray-300 flex flex-col items-center pb-10 md:flex-row md:justify-between md:space-x-32 md:items-end'>
         <div className='flex flex-col items-center pb-10 space-y-6 md:items-start md:pb-0'>
           <div className='w-36 h-7 bg-gray-500'>LOGO</div>
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
           <div className='space-y-6'>
             <h4 className='font-h4 uppercase'>Adresse</h4>
-            <div className='font-body-m'>
+            <div className='font-body-md'>
               <p className='text-gray-500'>Valhøjs Allé 174-176</p>
               <p className='text-gray-500'>2610 Rødovre</p>
             </div>
@@ -46,7 +46,7 @@ export default function Footer() {
         </div>
         <div className='space-y-6'>
           <h4 className='font-h4 uppercase'>Kontakt</h4>
-          <div className='font-body-m'>
+          <div className='font-body-md'>
             <div>
               <p className='text-gray-500'>
                 <a href='#'>+45 70 25 26 96</a>
