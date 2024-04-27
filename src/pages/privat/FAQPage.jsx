@@ -3,7 +3,7 @@ import PageWrapper from '../../components/wrappers/PageWrapper';
 
 export default function FAQPage() {
   return (
-    <PageWrapper>
+    <PageWrapper breadcrumb={true}>
       <div className='w-full bg-marine-800'>
         <h1 className='font-h1 text-white text-center py-20 px-10'>
           Hvordan kan vi hjælpe dig?

@@ -17,7 +17,9 @@ const Breadcrumb = () => {
 
   return (
     <div className='flex items-end justify-between w-full px-5 md:px-10 lg:px-20 pb-10'>
-      <div className='font-h4 flex space-x-2 md:space-x-5' onClick={previousPage}>
+      <div
+        className='font-h4 flex space-x-2 md:space-x-5'
+        onClick={previousPage}>
         <IoChevronBackOutline />
         <p>Tilbage</p>
       </div>

@@ -195,6 +195,7 @@ export default function ContactForm({ variant }) {
       <div className='space-y-6'>
         <div className='pt-6'>
           <RadioButton
+            value='datapolicy'
             type='checkbox'
             label='Jeg accepterer ParkZones persondatapolitik. Du kan læse om hvordan vi behandler dine personoplysninger'
             style='small'

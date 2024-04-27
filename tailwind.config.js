@@ -1,34 +1,37 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./src/**/*.{js,jsx}",
-    "./src/ui/**/*.{js,jsx}",
-    "./index.html"
-  ],
+  content: ['./src/**/*.{js,jsx}', './src/ui/**/*.{js,jsx}', './index.html'],
   theme: {
     fontFamily: {
-      'mundial': ['Mundial', 'sans-serif'],
-      'league': ['League Spartan', 'sans-serif'],
+      mundial: ['Mundial', 'sans-serif'],
+      league: ['League Spartan', 'sans-serif'],
     },
     fontMetrics: {
-			'league': {
-				capHeight: 1320,
-				ascent: 1400,
-				descent: -440,
-				lineGap: 0,
-				unitsPerEm: 2000,
-			},
-      'mundial': {
+      league: {
+        capHeight: 1320,
+        ascent: 1400,
+        descent: -440,
+        lineGap: 0,
+        unitsPerEm: 2000,
+      },
+      mundial: {
         capHeight: 1758,
-				ascent: 1908,
-				descent: -200,
-				lineGap: 133,
-				unitsPerEm: 2148,
-      }
-		},
-    extend: {    
+        ascent: 1908,
+        descent: -200,
+        lineGap: 133,
+        unitsPerEm: 2148,
+      },
+    },
+    screens: {
+      xs: '390px',
+      sm: '640px',
+      md: '768px',
+      lg: '1024px',
+      xl: '1280px',
+    },
+    extend: {
       colors: {
-        'gray': {
+        gray: {
           50: '#F8FAFC',
           100: '#F1F5F9',
           200: '#E2E8F0',
@@ -40,7 +43,7 @@ export default {
           800: '#131E31',
           900: '#0F172A',
         },
-        'marine': {
+        marine: {
           50: '#F2F7FF',
           100: '#DBE9FD',
           200: '#B3CFF8',
@@ -52,7 +55,7 @@ export default {
           800: '#0A113B',
           900: '#040921',
         },
-        'sky': {
+        sky: {
           50: '#EDF6FD',
           100: '#DAEEFA',
           200: '#ABDAF4',
@@ -64,23 +67,39 @@ export default {
           800: '#05486E',
           900: '#072D43',
         },
+        pumpkin: {
+          50: '#FEF6EC',
+          100: '#FDEBD5',
+          200: '#FBD6AD',
+          300: '#F7BB7B',
+          400: '#F39344',
+          500: '#EB7621',
+          600: '#DF5C16',
+          700: '#BA4010',
+          800: '#8B330D',
+          900: '#58200E',
+        },
       },
       borderWidth: {
-        '1': '1px',
-        '3': '3px',
+        1: '1px',
+        3: '3px',
       },
       fontSize: {
         '5xl': '42px',
-        '6xl': '48px'
+        '6xl': '48px',
       },
       borderRadius: {
-        'sm': '5px'
+        sm: '5px',
+      },
+      screens: {
+        '2xl': '1366px',
+        '3xl': '1536px',
+        '4xl': '1920px',
       },
     },
   },
   plugins: [
     require('tailwindcss-capsize'),
-    require("tailwindcss-inner-border"),
+    require('tailwindcss-inner-border'),
   ],
-}
-
+};

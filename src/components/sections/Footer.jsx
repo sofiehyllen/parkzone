@@ -1,13 +1,16 @@
 import Newsletter from '../atoms/Newsletter';
 import Button from '../atoms/Button';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo-regular.svg';
 
 export default function Footer() {
   return (
     <div className='px-5 pt-10 w-full md:px-10'>
       <div className='border-b-1 border-gray-300 flex flex-col items-center pb-10 md:flex-row md:justify-between md:space-x-32 md:items-end'>
         <div className='flex flex-col items-center pb-10 space-y-6 md:items-start md:pb-0'>
-          <div className='w-36 h-7 bg-gray-500'>LOGO</div>
+          <div>
+            <img src={logo} alt='ParkZone A/S Logo' />
+          </div>
           <p className='font-body-xs text-center max-w-screen-sm md:text-left'>
             ParkZone skaber plads. Plads til at de, der skal parkere, har
             mulighed for det. Plads til at grundejere kan fokusere på andet end

@@ -1,5 +1,5 @@
 import PageWrapper from '../../components/wrappers/PageWrapper';
 
 export default function SegmenterPage() {
-  return <PageWrapper>Segmenterside</PageWrapper>;
+  return <PageWrapper breadcrumb={true}>Segmenterside</PageWrapper>;
 }

@@ -2,8 +2,9 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
+import PropTypes from 'prop-types';
 
-const Accordion = (answer) => {
+const Accordion = ({ answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -76,4 +77,7 @@ const Accordion = (answer) => {
   );
 };
 
+Accordion.propTypes = {
+  answer: PropTypes.string.isRequired,
+};
 export default Accordion;

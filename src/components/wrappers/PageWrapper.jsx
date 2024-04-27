@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import Breadcrumb from '../atoms/Breadcrumbs';
 
-const PageWrapper = ({ children }) => {
+const PageWrapper = ({ children, breadcrumb }) => {
   return (
     <div className='flex flex-col w-full min-h-screen'>
-      <Breadcrumb />
+      {breadcrumb && <Breadcrumb />}
       <div>{children}</div>
     </div>
   );
@@ -12,6 +12,7 @@ const PageWrapper = ({ children }) => {
 
 PageWrapper.propTypes = {
   children: PropTypes.node,
+  breadcrumb: PropTypes.bool,
 };
 
 export default PageWrapper;

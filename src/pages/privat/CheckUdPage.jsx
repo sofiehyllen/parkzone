@@ -11,14 +11,14 @@ export default function CheckUdPage() {
     setSelectedDropdownOption(option);
   };
   return (
-    <PageWrapper>
+    <PageWrapper breadcrumb={true}>
       <div className='px-5 sm:px-16 md:px-20 lg:px-32'>
         <div className='relative max-w-screen-lg mx-auto'>
           <div className='rounded-3xl absolute -z-10 top-0 right-0 overflow-hidden sm:ml-20'>
             <img src={kameraparkering} alt='Kameraparkering' />
           </div>
           <div className='px-5 pt-40 sm:pt-10'>
-            <form className='bg-gray-100 w-fill p-5 md:p-7 lg:p-10 rounded-2xl max-w-sm mx-auto sm:mx-0'>
+            <form className='bg-gray-100 w-fill p-5 md:p-7 lg:p-10 rounded-2xl max-w-sm md:max-w-md mx-auto sm:mx-0'>
               <div className='space-y-3'>
                 <h4 className='font-h4 text-orange-600'>Check ud</h4>
                 <h2 className='font-h2'>Glemt at checke ud?</h2>
@@ -49,6 +49,8 @@ export default function CheckUdPage() {
                   onSelect={handleDropdownSelect}
                 />
                 <InputField
+                  type='text'
+                  id='licensePlate'
                   className='bg-gray-200 text-gray-400'
                   label='Søg efter nummerplade'
                   placeholder='F.eks. AB 12 345'

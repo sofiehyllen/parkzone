@@ -51,7 +51,7 @@ const button = tv({
   ],
   defaultVariants: {
     size: 'md',
-    color: 'primary',
+    variant: 'primary',
   },
 });
 

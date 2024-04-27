@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Button from '../atoms/Button';
 import ToggleButton from '../atoms/ToggleButton';
 import clsx from 'clsx';
+import logo from '../../assets/logo-regular.svg';
 
 //--- Header komponent ---//
 export default function Header() {
@@ -40,11 +41,11 @@ export default function Header() {
       <div className='flex items-center justify-between border-b border-gray-300 pb-2 md:pb-3'>
         {isChecked ? (
           <NavLink to='/erhverv'>
-            <img className='' alt='ParkZone logo' />
+            <img src={logo} alt='ParkZone A/S Logo' />
           </NavLink>
         ) : (
           <NavLink to='/privat'>
-            <img className='' alt='ParkZone logo' />
+            <img src={logo} alt='ParkZone A/S Logo' />
           </NavLink>
         )}
 
