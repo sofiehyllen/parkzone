@@ -17,7 +17,7 @@
       "unique": true,
       "required": true
     },
-    "description": {
+    "content": {
       "type": "blocks"
     },
     "coverImg": {
@@ -40,6 +40,39 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "articles"
+    },
+    "categoryText": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "personJob": {
+      "type": "string"
+    },
+    "personName": {
+      "type": "string"
+    },
+    "personEmail": {
+      "type": "email"
+    },
+    "personNumber": {
+      "type": "string"
+    },
+    "breadcrumbUrl": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "smallTitle": {
+      "type": "string",
+      "required": true
     }
   }
 }

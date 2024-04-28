@@ -101,5 +101,6 @@ export default {
   plugins: [
     require('tailwindcss-capsize'),
     require('tailwindcss-inner-border'),
+    require('@tailwindcss/typography'),
   ],
 };

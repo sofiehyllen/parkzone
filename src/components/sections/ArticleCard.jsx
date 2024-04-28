@@ -1,20 +1,50 @@
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import Category from '../atoms/Category';
 
 const ArticleCard = ({ articles }) => {
+  const orderArticles = articles.data.slice(0, -1).reverse();
+
   return (
-    <div>
-      {articles.data.map((article) => (
-        <Link key={article.id} to={`/blog/${article.id}`}>
-          <div className='bg-white rounded-xl overflow-hidden drop-shadow-md'>
-            <img
-              className='h-56 w-full object-cover'
-              src={`http://localhost:1337${article.attributes.coverImg.data[0].attributes.url}`}
-            />
-            <div className='p-8'>
-              <h3 className='font-bold text-2xl my-1'>
-                {article.attributes.title}
-              </h3>
+    <div className='w-fit grid grid-cols-3 gap-5 mx-auto'>
+      {orderArticles.map((article) => (
+        <Link key={article.id} to={`/blog/${article.id}`} className='w-fit'>
+          <div className='bg-white rounded-xl overflow-hidden max-w-xs '>
+            <div>
+              <img
+                className='object-cover h-40 w-100 object-right-top'
+                src={`http://localhost:1337${article.attributes.coverImg.data[0].attributes.url}`}
+              />
+            </div>
+            <div className='p-5'>
+              <div className='border-b-1 border-gray-300 space-y-4 pb-4'>
+                <h4 className='font-h4 leading-5'>
+                  {article.attributes.smallTitle}
+                </h4>
+                <p className='font-body-s pt-1 line-clamp-3'>
+                  {article.attributes.subtitle}
+                </p>
+              </div>
+              <div className='flex justify-between items-center pt-4'>
+                <Category
+                  color={
+                    article.attributes.categoryText === 'Nyheder'
+                      ? 'red'
+                      : article.attributes.categoryText === 'Finans'
+                      ? 'green'
+                      : 'orange'
+                  }>
+                  {article.attributes.categoryText}
+                </Category>
+                <div className='space-y-2 '>
+                  <p className='font-h6 text-gray-400'>
+                    {article.attributes.date}
+                  </p>
+                  <p className='font-h6 text-gray-400 text-right'>
+                    {article.attributes.year}
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </Link>

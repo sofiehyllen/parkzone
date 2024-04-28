@@ -1,7 +1,7 @@
 import ContactForm from '../../components/sections/ContactForm';
 import ContactInfo from '../../components/sections/ContactInfo';
 import PageWrapper from '../../components/wrappers/PageWrapper';
-import advice from '../../assets/v2advice.jpg';
+import advice from '../../assets/advice.jpg';
 
 export default function KontaktPageErhverv() {
   return (

@@ -6,6 +6,8 @@ const category = tv({
   variants: {
     color: {
       orange: 'text-pumpkin-500 bg-pumpkin-50',
+      green: 'text-green-500 bg-green-50',
+      red: 'text-red-500 bg-red-50',
     },
   },
   defaultVariants: {
@@ -21,9 +23,9 @@ const Category = ({ color, className, children }) => {
 };
 
 Category.propTypes = {
-  color: PropTypes.oneOf(['orange']),
+  color: PropTypes.oneOf(['orange', 'green', 'red']),
   className: PropTypes.string,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default Category;

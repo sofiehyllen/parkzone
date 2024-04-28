@@ -1,6 +1,6 @@
 import HeroCenter from '../../components/hero/HeroCenter';
 import PageWrapper from '../../components/wrappers/PageWrapper';
-import office from '../../assets/v2office.jpg';
+import office from '../../assets/office.jpg';
 import Button from '../../components/atoms/Button';
 
 export default function OmOsPage() {

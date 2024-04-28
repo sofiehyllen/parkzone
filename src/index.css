@@ -12,7 +12,7 @@
     @apply font-mundial font-normal text-marine-800 capsize leading-10 text-5xl md:text-6xl;
   }
   .font-h2 {
-    @apply font-mundial font-normal text-marine-800 capsize leading-10 text-4xl md:text-5xl;
+    @apply font-mundial font-normal text-marine-800 capsize text-3xl sm:text-4xl md:text-5xl;
   }
   .font-h3 {
     @apply font-mundial font-normal text-marine-800 capsize text-3xl;
@@ -66,12 +66,10 @@ h6 {
   font-weight: inherit;
 }
 
-
 img,
 video {
   max-width: 100%;
   max-height: 100%;
-  display: block;
 }
 
 :root {
