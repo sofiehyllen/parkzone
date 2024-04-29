@@ -18,14 +18,30 @@ const category = tv({
 const Category = ({ color, className, children }) => {
   const CategoryElement = category({ color });
   const combinedClassName = `${CategoryElement} ${className}`;
+  const ping = color === 'red';
 
-  return <h1 className={combinedClassName}>{children}</h1>;
+  return (
+    <div className='relative w-fit'>
+      <div>
+        <h1 className={combinedClassName}>{children}</h1>
+      </div>
+      {ping && (
+        <span className='absolute top-0 right-0'>
+          <span className='relative flex h-3 w-3'>
+            <span className='animate-ping absolute inline-flex h-full w-full rounded-full bg-red-300 opacity-75'></span>
+            <span className='relative inline-flex rounded-full h-3 w-3 bg-red-400'></span>
+          </span>
+        </span>
+      )}
+    </div>
+  );
 };
 
 Category.propTypes = {
   color: PropTypes.oneOf(['orange', 'green', 'red']),
   className: PropTypes.string,
   children: PropTypes.node,
+  ping: PropTypes.bool,
 };
 
 export default Category;

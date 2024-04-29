@@ -26,9 +26,9 @@ const ArticlePage = ({ articles }) => {
   return (
     <PageWrapper breadcrumb={true}>
       <div className='max-w-screen-2xl mx-auto flex flex-col items-center px-5 md:px-10'>
-        <div className='pb-10 md:pb-16 max-w-4xl'>
+        <div className='flex flex-col items-center pb-10 md:pb-16 max-w-4xl'>
           <Category
-            className='mx-auto mb-5'
+            className='mb-5'
             color={
               article.attributes.categoryText === 'Nyheder'
                 ? 'red'

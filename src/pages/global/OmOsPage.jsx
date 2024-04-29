@@ -60,7 +60,7 @@ export default function OmOsPage() {
         </div>
       </div>
 
-      <div className='flex flex-col pt-20 px-5 sm:px-10 md:flex-row md:space-x-5 lg:space-x-20 lg:px-32 max-w-screen-xl mx-auto'>
+      <div className='flex flex-col pt-20 px-5 sm:px-10 md:pt-32 md:flex-row md:space-x-5 lg:space-x-20 lg:px-32 max-w-screen-xl mx-auto'>
         <div className='md:w-1/2'>
           <h3 className='font-h3 pb-6'>ParkZone som virksomhed</h3>
           <p className='font-body-md'>
@@ -96,7 +96,7 @@ export default function OmOsPage() {
           </p>
         </div>
       </div>
-      <div className='pt-20 px-5 2xl:px-0 max-w-screen-2xl mx-auto'>
+      <div className='pt-20 px-5 2xl:px-0 md:pt-32 max-w-screen-2xl mx-auto'>
         <h2 className='font-h2 text-center pb-4'>Vores kerneværdier</h2>
         <p className='font-body-l text-center pb-8 sm:px-10 max-w-screen-md mx-auto'>
           Alle vores medarbejdere arbejder ud fra det samme værdisæt.

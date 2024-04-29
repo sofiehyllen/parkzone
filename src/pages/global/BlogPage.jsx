@@ -8,19 +8,22 @@ const BlogPage = ({ articles }) => {
   return (
     <PageWrapper breadcrumb={true}>
       <div className='flex flex-col items-center'>
-        {/*<h1 className='font-h1 pb-7'>Seneste nyt om ParkZone</h1>
-        <h3 className='font-body-l text-center w-1/2 pb-16'>
-          Her kan du læse de seneste nyheder og artikler om ParkZone, og få
-          indsigt og få indsigt i os som virksomheden og de produkter vi
-          tilbyder.{' '}
-  </h3>*/}
+        <h1 className='font-h1 pb-7 text-center px-5'>
+          Seneste nyt om ParkZone A/S
+        </h1>
+        <h3 className='font-body-l text-center px-5 md:w-4/5 lg:w-1/2 2xl:w-1/3 pb-8 sm:pb-16'>
+          Her på siden kan du læse de seneste nyheder og artikler om ParkZone,
+          og få indsigt i os som virksomheden og de produkter vi tilbyder.{' '}
+        </h3>
 
         <LatestArticle articles={articles ? articles : ''} />
-        <div className='flex w-full justify-between px-20 py-10'>
-          <h3 className='font-h2'>Seneste nyt</h3>
+        <div className='flex flex-col items-center sm:flex-row w-full sm:justify-between pb-10 sm:py-5 px-10 md:py-10 sm:mt-72 md:mt-60 2xl:mt-52 max-w-7xl'>
+          <h3 className='hidden text-center sm:text-left sm:flex font-h2 pb-5 sm:pb-0'>
+            Artikler
+          </h3>
           <FilterButton />
         </div>
-        <div className='py-14 pb-28 bg-gray-100 w-full'>
+        <div className='p-10 md::py-14 pb-28 bg-gray-100 w-full xl:px-0'>
           <ArticleCard articles={articles ? articles : ''} />
         </div>
       </div>
