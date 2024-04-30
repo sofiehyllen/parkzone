@@ -788,6 +788,43 @@ export interface PluginI18NLocale extends Schema.CollectionType {
   };
 }
 
+export interface ApiAddressAddress extends Schema.CollectionType {
+  collectionName: 'addresses';
+  info: {
+    singularName: 'address';
+    pluralName: 'addresses';
+    displayName: 'Addresses';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Attribute.String;
+    spaces: Attribute.Integer;
+    city: Attribute.Relation<
+      'api::address.address',
+      'manyToOne',
+      'api::city.city'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::address.address',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiArticleArticle extends Schema.CollectionType {
   collectionName: 'articles';
   info: {
@@ -872,6 +909,100 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
   };
 }
 
+export interface ApiCityCity extends Schema.CollectionType {
+  collectionName: 'cities';
+  info: {
+    singularName: 'city';
+    pluralName: 'cities';
+    displayName: 'Cities';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    areas: Attribute.Relation<
+      'api::city.city',
+      'oneToMany',
+      'api::address.address'
+    >;
+    cityName: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::city.city', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::city.city', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiParkingParking extends Schema.CollectionType {
+  collectionName: 'parkings';
+  info: {
+    singularName: 'parking';
+    pluralName: 'parkings';
+    displayName: 'Parking';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    cities: Attribute.Relation<
+      'api::parking.parking',
+      'oneToMany',
+      'api::city.city'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::parking.parking',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::parking.parking',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiSondergade17ASondergade17A extends Schema.SingleType {
+  collectionName: 'sondergade17as';
+  info: {
+    singularName: 'sondergade17a';
+    pluralName: 'sondergade17as';
+    displayName: 'sondergade17a';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    spaces: Attribute.Integer;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sondergade17a.sondergade17a',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sondergade17a.sondergade17a',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -890,8 +1021,12 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'plugin::i18n.locale': PluginI18NLocale;
+      'api::address.address': ApiAddressAddress;
       'api::article.article': ApiArticleArticle;
       'api::category.category': ApiCategoryCategory;
+      'api::city.city': ApiCityCity;
+      'api::parking.parking': ApiParkingParking;
+      'api::sondergade17a.sondergade17a': ApiSondergade17ASondergade17A;
     }
   }
 }

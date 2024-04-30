@@ -19,11 +19,9 @@ import BlogPage from './pages/global/BlogPage';
 import ArtikelPage from './pages/global/ArtikelPage';
 
 function App() {
-  let { loading, data, error } = useFetch(
-    'http://localhost:1337/api/articles?populate=*'
-  );
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
+  let { data } = useFetch('http://localhost:1337/api/articles?populate=*');
+  //if (loading) return <p>Loading...</p>;
+  //if (error) return <p>Error!</p>;
 
   return (
     <BrowserRouter>
