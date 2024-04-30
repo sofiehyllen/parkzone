@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "articles",
+  "info": {
+    "singularName": "article",
+    "pluralName": "articles",
+    "displayName": "Articles",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "content": {
+      "type": "blocks"
+    },
+    "coverImg": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "date": {
+      "type": "string",
+      "required": true
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::category.category",
+      "mappedBy": "articles"
+    },
+    "categoryText": {
+      "type": "string",
+      "required": true
+    },
+    "year": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "personJob": {
+      "type": "string"
+    },
+    "personName": {
+      "type": "string"
+    },
+    "personEmail": {
+      "type": "email"
+    },
+    "personNumber": {
+      "type": "string"
+    },
+    "breadcrumbUrl": {
+      "type": "uid",
+      "targetField": "title",
+      "required": true
+    },
+    "smallTitle": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
