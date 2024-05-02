@@ -1,27 +1,39 @@
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 import PropTypes from 'prop-types';
-import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import Category from '../../components/atoms/Category';
 import ImageWrapper from '../../components/wrappers/ImageWrapper';
-import quoteTop from '../../assets/quote-top.svg';
-import quoteBottom from '../../assets/quote-bottom.svg';
+//import quoteTop from '../../assets/quote-top.svg';
+//import quoteBottom from '../../assets/quote-bottom.svg';
 import IconCard from '../../components/atoms/IconCard';
 import { LuUserCircle2 } from 'react-icons/lu';
 import facebook from '../../assets/facebook.svg';
 import instagram from '../../assets/instagram.svg';
 import linkedin from '../../assets/linkedin.svg';
+import { domToReact } from 'html-react-parser';
+import HTMLReactParser from 'html-react-parser/lib/index';
 
 const ArticlePage = ({ articles }) => {
   const { id } = useParams();
 
   let article = {};
-  if (article) {
-    let arr = articles.data.filter((article) => article.id == id);
-    article = arr[0];
-  } else {
-    article = {};
-  }
+  let arr = articles.filter((article) => article.id == id);
+  article = arr[0];
+
+  const options = {
+    replace({ attribs, children }) {
+      if (!attribs) {
+        return;
+      }
+      if (attribs.class === 'wp-block-heading') {
+        return (
+          <h2 className='font-h3 pb-7 pt-20'>
+            {domToReact(children, options)}
+          </h2>
+        );
+      }
+    },
+  };
 
   return (
     <PageWrapper breadcrumb={true}>
@@ -30,28 +42,23 @@ const ArticlePage = ({ articles }) => {
           <Category
             className='mb-5'
             color={
-              article.attributes.categoryText === 'Nyheder'
+              article.acf.categoryText === 'Nyheder'
                 ? 'red'
-                : article.attributes.categoryText === 'Finans'
+                : article.acf.categoryText === 'Finans'
                 ? 'green'
                 : 'orange'
             }>
-            {article.attributes.categoryText}
+            {article.acf.categoryText}
           </Category>
-          <h1 className='font-h2 text-center pb-6'>
-            {article.attributes.title}
-          </h1>
+          <h1 className='font-h2 text-center pb-6'>{article.acf.title}</h1>
           <h6 className='font-h6 text-gray-400 text-center'>
-            {article.attributes.date}
+            {article.acf.date}
             <span className='text-gray-300 px-2.5'>&#9679;</span>
-            {article.attributes.year}
+            {article.acf.year}
           </h6>
         </div>
         <ImageWrapper className='mb-10 md:mb-20'>
-          <img
-            src={`http://localhost:1337${article.attributes.coverImg.data[0].attributes.url}`}
-            alt=''
-          />
+          <img src={article.acf.coverImg} alt='' />
         </ImageWrapper>
         <div className='flex flex-col px-5 md:px-10 lg:space-x-16 lg:flex-row'>
           <div className='shrink-0 space-y-14 h-full sticky top-20 pb-10 order-last min-w-96 lg:order-first'>
@@ -65,10 +72,10 @@ const ArticlePage = ({ articles }) => {
                       className='text-marine-400 h-7 w-auto'
                     />
                   }
-                  title={article.attributes.personJob}
-                  subtitle={article.attributes.personName}
-                  email={article.attributes.personEmail}
-                  phone={article.attributes.personNumber}
+                  title={article.acf.personJob}
+                  subtitle={article.acf.personName}
+                  email={article.acf.personEmail}
+                  phone={article.acf.personNumber}
                 />
               </div>
               <IconCard
@@ -99,9 +106,11 @@ const ArticlePage = ({ articles }) => {
               </div>
             </div>
           </div>
+          <div>{HTMLReactParser(article.content.rendered, options)}</div>
+          {/* <div>{HTMLReactParser(article.content.rendered)}</div>
           <div className='w-full pb-10 md:pb-16 lg:pb-0'>
             <BlocksRenderer
-              content={article.attributes.content}
+              content={article.acf.content}
               blocks={{
                 // You can use the default components to set class names...
                 paragraph: ({ children }) => (
@@ -153,7 +162,7 @@ const ArticlePage = ({ articles }) => {
                 ),
               }}
             />
-          </div>
+          </div>*/}
         </div>
       </div>
     </PageWrapper>

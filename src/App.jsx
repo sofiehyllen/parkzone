@@ -19,9 +19,12 @@ import BlogPage from './pages/global/BlogPage';
 import ArtikelPage from './pages/global/ArtikelPage';
 
 function App() {
-  let { data } = useFetch('http://localhost:1337/api/articles?populate=*');
-  //if (loading) return <p>Loading...</p>;
-  //if (error) return <p>Error!</p>;
+  let { loading, error, data } = useFetch(
+    'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed'
+  );
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error!</p>;
+  console.log(data)
 
   return (
     <BrowserRouter>
@@ -43,7 +46,7 @@ function App() {
         <Route path='/privat/kontrolafgift' element={<HomePagePrivat />} />
         <Route path='/privat/findparkering' element={<FindParkeringPage />} />
         <Route
-          path='/privat/parkeringsområde'
+          path='/privat/findparkering/:id'
           element={<ParkeringsområdePage />}
         />
         <Route path='/privat/checkud' element={<CheckUdPage />} />

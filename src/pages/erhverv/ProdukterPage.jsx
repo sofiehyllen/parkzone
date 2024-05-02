@@ -1,3 +1,4 @@
+import Button from '../../components/atoms/Button';
 import Tabs from '../../components/sections/Tabs';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 
@@ -96,20 +97,37 @@ export default function ProdukterPage() {
               Produkter og services tilpasset dine behov
             </h1>
             <p className='font-body-l pb-6'>
-              Vores parkeringsløsninger er udviklet i et tæt samarbejde med vores
-              kunder for at imødekomme deres unikke behov. Vi har løbende udvidet
-              vores produktportefølje for at skabe merværdi for vores kunder -
-              senest med facility service, sikkerhedsvagter samt brandsikring,
-              førstehjælp og hjertestartere.
+              Vores parkeringsløsninger er udviklet i et tæt samarbejde med
+              vores kunder for at imødekomme deres unikke behov. Vi har løbende
+              udvidet vores produktportefølje for at skabe merværdi for vores
+              kunder - senest med facility service, sikkerhedsvagter samt
+              brandsikring, førstehjælp og hjertestartere.
             </p>
             <p className='font-body-l'>
-              Vores team hjælper jer med at afdække jeres behov og sammensætte den
-              løsning, der skaber mest værdi for jer og jeres parkerende. Læs om
-              alle produkter og services vi tilbyder herunder.
+              Vores team hjælper jer med at afdække jeres behov og sammensætte
+              den løsning, der skaber mest værdi for jer og jeres parkerende.
+              Læs om alle produkter og services vi tilbyder herunder.
             </p>
           </div>
         </div>
         <Tabs tabs={tabs} />
+       <div className='px-20'>
+          <div className='w-full bg-gray-200 py-24 px-20 rounded-xl'>
+            <div className='w-1/2'>
+              <h2 className='font-h3 pb-6'>
+                Klar til at modtage et uforpligtende tilbud?
+              </h2>
+              <p className='font-body-md pb-8'>
+                Hvis du vil vide, hvordan vi kan hjælpe dig med at designe dit
+                parkeringsområde, så kontakt os i dag og få et uforpligtende
+                tilbud på en løsning til dig.
+              </p>
+              <Button size={'lg'} variant={'primary'}>
+                Kontakt
+              </Button>
+            </div>
+          </div>
+       </div>
       </div>
     </PageWrapper>
   );

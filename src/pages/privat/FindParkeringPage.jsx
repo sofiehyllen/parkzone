@@ -3,6 +3,8 @@ import FilterButton from '../../components/atoms/FilterButton';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 
 export default function FindParkeringPage() {
+
+
   return (
     <PageWrapper breadcrumb={true}>
       <div className='flex flex-col items-center sm:px-5 md:px-10'>

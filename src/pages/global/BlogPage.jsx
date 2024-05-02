@@ -21,7 +21,12 @@ const BlogPage = ({ articles }) => {
           <h3 className='hidden text-center sm:text-left sm:flex font-h2 pb-5 sm:pb-0'>
             Artikler
           </h3>
-          <FilterButton />
+          <FilterButton
+            heading1={'Alle'}
+            heading2={'Nyheder'}
+            heading3={'Finans'}
+            heading4={'Projekter'}
+          />
         </div>
         <div className='p-10 md::py-14 pb-28 bg-gray-100 w-full xl:px-0'>
           <ArticleCard articles={articles ? articles : ''} />
