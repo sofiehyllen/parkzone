@@ -20,11 +20,11 @@ import ArtikelPage from './pages/global/ArtikelPage';
 
 function App() {
   let { loading, error, data } = useFetch(
-    'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed'
+    'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7'
   );
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error!</p>;
-  console.log(data)
+  console.log(data);
 
   return (
     <BrowserRouter>

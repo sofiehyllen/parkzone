@@ -4,7 +4,7 @@ import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 import PropTypes from 'prop-types';
 
-const Accordion = ({ answer }) => {
+const Accordion = ({ items }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -12,10 +12,7 @@ const Accordion = ({ answer }) => {
       className=' bg-white p-5 rounded-sm max-w-lg mb-4 cursor-pointer'
       onClick={() => setIsOpen((prev) => !prev)}>
       <div className='flex justify-between items-start'>
-        <h5 className='font-h5 text-marine-800'>
-          Kan jeg stille spørgsmål angående en kontrolafgift, selvom jeg ikke
-          har et løbenummer?
-        </h5>
+        <h5 className='font-h5 text-marine-800'>{items.title}</h5>
         <AnimatePresence initial={false} mode='wait'>
           <motion.div
             key={isOpen ? 'minus' : 'plus'}
@@ -63,13 +60,8 @@ const Accordion = ({ answer }) => {
               height: 0,
               opacity: 0,
             }}
-            key={answer}>
-            <p className='font-body-s pt-5 text-gray-700'>
-              Ja, du kan sagtens stille spørgsmål angående en kontrolafgift,
-              selvom du ikke har et løbenummer. Husk at sætte hak ved feltet Ej
-              tildelt. Husk også at dobbelttjekke om dine kontaktoplysninger er
-              indtastet korrekt, da vi bruger dem til at kontakte dig.
-            </p>
+            key={items.title}>
+            <p className='font-body-s pt-5 text-gray-700'>{items.body}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -78,6 +70,10 @@ const Accordion = ({ answer }) => {
 };
 
 Accordion.propTypes = {
-  answer: PropTypes.string.isRequired,
+  items: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    body: PropTypes.string.isRequired,
+  }).isRequired,
 };
+
 export default Accordion;

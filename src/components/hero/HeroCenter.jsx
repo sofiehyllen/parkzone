@@ -35,6 +35,6 @@ HeroCenter.propTypes = {
   title: PropTypes.string.isRequired,
   subtitle: PropTypes.string,
   rubric: PropTypes.string,
-  image: PropTypes.object,
+  image: PropTypes.string,
   alt: PropTypes.string,
 };

@@ -96,6 +96,9 @@ export default {
         '3xl': '1536px',
         '4xl': '1920px',
       },
+      lineHeight: {
+        11: '46px',
+      },
     },
   },
   plugins: [

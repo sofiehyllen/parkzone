@@ -3,20 +3,11 @@ import PropTypes from 'prop-types';
 import Category from '../atoms/Category';
 
 const ArticleCard = ({ articles }) => {
-  //const screenWidth = window.innerWidth;
-
-  //let sliceStart = 0;
-  //let sliceEnd = -1;
-
-  //if (screenWidth >= 0 && screenWidth <= 639) {
-  //  sliceEnd = undefined;
-  //} else sliceEnd = -1;
-
-  //const orderArticles = articles.data.slice(sliceStart, sliceEnd).reverse();
+  const articlesArray = articles.slice(1);
 
   return (
     <div className='w-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto'>
-      {articles.map((article) => (
+      {articlesArray.map((article) => (
         <Link key={article.id} to={`/blog/${article.id}`} className='w-fit'>
           <div className='bg-white rounded-xl overflow-hidden max-w-xs '>
             <div>
