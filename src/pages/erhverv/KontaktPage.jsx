@@ -2,6 +2,7 @@ import ContactForm from '../../components/sections/ContactForm';
 import ContactInfo from '../../components/sections/ContactInfo';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 import advice from '../../assets/advice.jpg';
+import Doodle7 from '../../components/svg/Doodle7';
 
 export default function KontaktPageErhverv() {
   return (
@@ -11,8 +12,11 @@ export default function KontaktPageErhverv() {
           <div className='row-span-3'>
             <ContactForm variant='erhverv' />
           </div>
-          <div className='max-w-md rounded-2xl overflow-hidden'>
+          <div className='max-w-md rounded-2xl overflow-hidden relative'>
             <img src={advice} alt='' />
+            <div className='absolute bottom-0 -left-16 w-96 sm:w-[120%] sm:bottom-4'>
+              <Doodle7 color='#7CC9ED' />
+            </div>
           </div>
           <ContactInfo variant='erhverv' />
         </div>

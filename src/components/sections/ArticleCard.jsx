@@ -6,7 +6,7 @@ const ArticleCard = ({ articles }) => {
   const articlesArray = articles.slice(1);
 
   return (
-    <div className='w-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto'>
+    <div className='w-fit grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 mx-auto xl:gap-8'>
       {articlesArray.map((article) => (
         <Link key={article.id} to={`/blog/${article.id}`} className='w-fit'>
           <div className='bg-white rounded-xl overflow-hidden max-w-xs '>

@@ -28,13 +28,13 @@ function Filter({ onFilterChange }) {
   ];
 
   return (
-    <div className='grid grid-cols-2 w-full gap-y-1 bg-white rounded-md p-1'>
+    <div className='flex rounded-full w-fit gap-y-1 bg-white p-1 min-w-44'>
       {alphabetIntervals.map((interval) => (
         <button
           key={interval.label}
           onClick={() => onFilterChange(interval.range)}
           className={clsx(
-            'font-body-xs uppercase text-gray-500 px-2 py-1 rounded-full cursor-pointer hover:bg-sky-100',
+            'font-body-s uppercase text-gray-500 px-3.5 py-1.5 rounded-full cursor-pointer hover:bg-sky-100 md:font-body-xs md:px-2.5 md:py-1 xl:px-3',
             { 'bg-marine-100': onFilterChange === interval }
           )}>
           {interval.label}

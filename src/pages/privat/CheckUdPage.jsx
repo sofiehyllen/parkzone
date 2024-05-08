@@ -4,6 +4,7 @@ import InputField from '../../components/atoms/InputField';
 import Dropdown from '../../components/atoms/Dropdown';
 import { useState } from 'react';
 import Button from '../../components/atoms/Button';
+import Doodle5 from '../../components/svg/Doodle5';
 
 export default function CheckUdPage() {
   const [, setSelectedDropdownOption] = useState(null);
@@ -16,6 +17,9 @@ export default function CheckUdPage() {
         <div className='relative max-w-screen-lg mx-auto'>
           <div className='rounded-3xl absolute -z-10 top-0 right-0 overflow-hidden sm:ml-20'>
             <img src={kameraparkering} alt='Kameraparkering' />
+            <div className='absolute top-0 scale-75 rotate-110 right-0 sm:-right-32 sm:scale-125 sm:top-auto sm:bottom-10 sm:-rotate-30 xl:-right-0'>
+              <Doodle5 color='#4FBAE8' />
+            </div>
           </div>
           <div className='px-5 pt-40 sm:pt-10'>
             <form className='bg-gray-100 w-fill p-5 md:p-7 lg:p-10 rounded-2xl max-w-sm md:max-w-md mx-auto sm:mx-0'>

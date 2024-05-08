@@ -99,6 +99,17 @@ export default {
       lineHeight: {
         11: '46px',
       },
+      rotate: {
+        20: '20deg',
+        30: '30deg',
+        50: '50deg',
+        60: '60deg',
+        70: '70deg',
+        80: '80deg',
+        100: '100deg',
+        110: '110deg',
+        120: '120deg',
+      },
     },
   },
   plugins: [
