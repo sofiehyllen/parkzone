@@ -56,7 +56,7 @@ export default function Header() {
           <section className='flex md:hidden'>
             {/* Indhold af mobilmenu baseret på isNavOpen-tilstanden */}
             <div className={isNavOpen ? 'block' : 'hidden'}>
-              <div className='bg-gray-50 flex flex-col p-8 absolute w-10/12 h-screen top-0 left-0 z-50 shadow-lg'>
+              <div className='bg-white flex flex-col p-8 absolute w-10/12 h-screen top-0 left-0 z-50 shadow-lg'>
                 <div
                   className='absolute top-10 right-10 text-marine-800'
                   onClick={() => setIsNavOpen(false)}>

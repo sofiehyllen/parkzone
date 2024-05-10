@@ -11,7 +11,7 @@ export default function FindParkeringPage() {
       <div className='flex flex-col items-center px-5 w-full md:px-10 relative'>
         <div className='bg-marine-400 px-6 py-10 pb-44 w-full overflow-hidden rounded-xl sm:pt-20 max-w-screen-3xl'>
           <div className='relative w-fit mx-auto'>
-            <h1 className='font-h1 text-center pb-10 relative z-50 text-white sm:px-10'>
+            <h1 className='font-h1 text-center pb-10 relative z-40 text-white sm:px-10'>
               Find parkering nær dig
             </h1>
             <div>
@@ -29,11 +29,11 @@ export default function FindParkeringPage() {
           </div>
           <p className='font-body-h5 text-center max-w-screen-md text-white mx-auto relative z-40 sm:w-4/5 md:px-9'>
             ParkZone har p-pladser i hele Danmark – også en i nærheden af dig.
-            Vi udbyder to parkeringsløsninger på tværs af vores
-            parkeringsområder, periodeparkering og abonnementsparkering.
+            På siden for de enkelte områder kan du bl.a. få information omkring
+            priser, se områdets faciliteter, samt booke din næste parkering.
           </p>
         </div>
-        <div className='absolute z-50 top-72 pt-5 sm:top-60 md:w-full md:px-20 lg:px-40 xl:px-52'>
+        <div className='absolute z-40 top-72 pt-5 sm:top-60 md:w-full md:px-20 lg:px-40 xl:px-52'>
           <CitiesMap />
         </div>
       </div>

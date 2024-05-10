@@ -12,12 +12,12 @@ const button = tv({
         'inner-border-2 inner-border-marine-800 transition ease-in-out hover:inner-border-3',
       'tertiary-on-dark':
         'inner-border-2 inner-border-white transition ease-in-out hover:inner-border-3',
-      link: 'underline decoration-1 underline-offset-2 transition ease-in-out hover:text-gray-700 hover:decoration-gray-700',
+      link: 'underline decoration-1 underline-offset-2 transition ease-in-out font-normal hover:text-gray-700 hover:decoration-gray-700',
     },
     size: {
       sm: 'px-6 py-2.5 text-sm leading-none',
       md: 'px-7 py-3.5',
-      lg: 'px-9 py-4',
+      lg: 'px-9 py-5 text-lg font-medium',
     },
   },
   compoundVariants: [

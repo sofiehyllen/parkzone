@@ -39,7 +39,8 @@ export default function CitiesMap() {
       uniqueCitySet.add(parking.city);
     });
     // Convert the Set back to an array
-    return Array.from(uniqueCitySet);
+    const sortedCities = Array.from(uniqueCitySet).sort();
+    return sortedCities;
   }, [data]);
 
   // Jeg definerer filtreringen efter startbogstav
@@ -56,7 +57,7 @@ export default function CitiesMap() {
 
   return (
     <>
-    {/*Parkerings-finder for mobil */}
+      {/*Parkerings-finder for mobil */}
       <div className=' bg-marine-100 px-7 py-10 w-full rounded-xl flex flex-col items-center sm:w-96 md:hidden'>
         <div className='pb-3 sm:pb-5 '>
           <Filter onFilterChange={handleFilterChange} />

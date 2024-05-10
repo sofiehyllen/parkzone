@@ -11,7 +11,7 @@ const BlogPage = ({ articles }) => {
     <PageWrapper breadcrumb={true}>
       <div className='flex flex-col items-center'>
         <div className='w-fit mx-auto relative'>
-          <h1 className='font-h1 pb-10 text-center px-5 relative z-50'>
+          <h1 className='font-h1 pb-10 text-center px-5 relative z-40'>
             Seneste nyt om ParkZone A/S
           </h1>
           <div className='absolute top-10 right-8 w-80 sm:-top-1 sm:-right-1 md:right-2'>
@@ -30,7 +30,7 @@ const BlogPage = ({ articles }) => {
           </h3>
         </div>
         <div className='relative overflow-hidden bg-gray-100 w-full'>
-          <div className='p-10 md:py-14 pb-28 w-full xl:px-0 relative z-50'>
+          <div className='p-10 md:py-14 pb-28 w-full xl:px-0 relative z-40'>
             <ArticleCard articles={articles ? articles : ''} />
           </div>
           <div className='absolute -bottom-40 scale-150 -right-20 rotate-30 2xl:-bottom-20 2xl:-right-0'>

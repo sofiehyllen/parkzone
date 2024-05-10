@@ -15,10 +15,10 @@
     @apply font-mundial font-normal text-marine-800 capsize text-3xl sm:text-4xl md:text-5xl;
   }
   .font-h3 {
-    @apply font-mundial font-normal text-marine-800 capsize text-2xl sm:text-3xl;
+    @apply font-mundial font-normal text-marine-800 capsize text-2xl sm:text-3xl 4xl:text-4xl;
   }
   .font-h4 {
-    @apply font-league font-medium text-marine-800 capsize leading-6 text-xl;
+    @apply font-league font-medium text-marine-800 capsize leading-6 text-xl 4xl:text-2xl;
   }
   .font-h5 {
     @apply font-league font-normal text-marine-800  capsize text-base md:text-lg md:leading-6;
@@ -27,7 +27,7 @@
     @apply font-league font-medium text-marine-800 capsize text-sm;
   }
   .font-body-l {
-    @apply font-league font-light text-gray-900 capsize text-xl;
+    @apply font-league font-light text-gray-900 capsize text-xl 3xl:text-2xl;
   }
   .font-body-md {
     @apply font-league font-light text-gray-900 capsize text-lg;
