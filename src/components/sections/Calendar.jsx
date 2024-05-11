@@ -3,10 +3,12 @@ import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
 import TimePicker from '../atoms/TimePicker';
+import PropTypes from 'prop-types';
 
-const Calendar = () => {
+const Calendar = ({ type, id }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [arrivalDate, setArrivalDate] = useState(null);
+  const [departureDate, setDepartureDate] = useState(null);
 
   // Funktion som finder antallet af dage i en måned
   const getDaysInMonth = (year, month) => {
@@ -38,14 +40,41 @@ const Calendar = () => {
 
   // Funktion som styrer hvad der sker når der klikkes på en dato
   const handleDateClick = (day) => {
-    setSelectedDate(
-      new Date(currentMonth.getFullYear(), currentMonth.getMonth(), day)
+    const selectedDate = new Date(
+      currentMonth.getFullYear(),
+      currentMonth.getMonth(),
+      day
     );
+    if (type === 'arrival') {
+      setArrivalDate(selectedDate);
+    } else if (type === 'departure') {
+      setDepartureDate(selectedDate);
+    }
   };
 
   useEffect(() => {
-    console.log(selectedDate);
-  }, [selectedDate]);
+    const localStorageKey = (key) => `${key}_${id}`;
+
+    if (type === 'arrival') {
+      localStorage.setItem(
+        localStorageKey('arrivalDate'),
+        JSON.stringify(arrivalDate)
+      );
+    } else if (type === 'departure') {
+      localStorage.setItem(
+        localStorageKey('departureDate'),
+        JSON.stringify(departureDate)
+      );
+    }
+  }, [arrivalDate, departureDate, id, type]);
+
+  console.log(
+    type === 'arrival'
+      ? `Arrival date: ${arrivalDate}`
+      : type === 'departure'
+      ? `Departure date: ${departureDate}`
+      : ''
+  );
 
   // Funktion som renderer kalenderen
   const renderCalendar = () => {
@@ -80,10 +109,16 @@ const Calendar = () => {
           const isCurrentDate = dayCounter === currentMonth.getDate();
 
           const isSelectedDate =
-            selectedDate &&
-            selectedDate.getDate() === dayCounter &&
-            selectedDate.getMonth() === currentMonth.getMonth() &&
-            selectedDate.getFullYear() === currentMonth.getFullYear();
+            (type === 'arrival' &&
+              arrivalDate &&
+              arrivalDate.getDate() === dayCounter &&
+              arrivalDate.getMonth() === currentMonth.getMonth() &&
+              arrivalDate.getFullYear() === currentMonth.getFullYear()) ||
+            (type === 'departure' &&
+              departureDate &&
+              departureDate.getDate() === dayCounter &&
+              departureDate.getMonth() === currentMonth.getMonth() &&
+              departureDate.getFullYear() === currentMonth.getFullYear());
 
           // Rendering af en button for hver dag i måneden
           week.push(
@@ -114,6 +149,11 @@ const Calendar = () => {
 
   return (
     <div>
+      {type === 'arrival' ? (
+        <p className='font-h5 text-gray-800 pb-5'>Vælg ankomst</p>
+      ) : type === 'departure' ? (
+        <p className='font-h5 text-gray-800 pb-5'>Vælg afgang</p>
+      ) : null}
       <div className='max-w-fit bg-white p-4 rounded-xl shadow-md'>
         <div className='flex justify-between items-center py-2 pb-4'>
           <button
@@ -147,10 +187,15 @@ const Calendar = () => {
           </thead>
           <tbody>{renderCalendar()}</tbody>
         </table>
-        <TimePicker />
+        <TimePicker type={type} id={id} />
       </div>
     </div>
   );
+};
+
+Calendar.propTypes = {
+  type: PropTypes.oneOf(['arrival', 'departure']),
+  id: PropTypes.string.isRequired,
 };
 
 export default Calendar;

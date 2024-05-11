@@ -17,7 +17,6 @@ export default function ParkingPage() {
 
   const url = `https://firestore.googleapis.com/v1/projects/parkzone-f0f37/databases/(default)/documents/parking/${params.id}`;
 
-  // Fetch (GET) this single translation
   useEffect(() => {
     async function getData() {
       const response = await fetch(url);
@@ -184,7 +183,12 @@ export default function ParkingPage() {
                   </div>
                 </div>
               </div>
-              <PaymentFlow />
+              <PaymentFlow
+                map={data.fields.maps.stringValue}
+                address={data.fields.address.stringValue}
+                city={data.fields.city.stringValue}
+                hourPrice={data.fields.hourPrice.integerValue}
+              />
             </div>
           </div>
         </>
@@ -192,5 +196,3 @@ export default function ParkingPage() {
     </PageWrapper>
   );
 }
-
-// Define prop types for the component
