@@ -1,9 +1,10 @@
 import { tv } from 'tailwind-variants';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { BsArrowRight } from 'react-icons/bs';
 
 const button = tv({
-  base: 'rounded-full font-league text-base capsize w-fit',
+  base: 'rounded-full font-league text-base capsize w-fit ',
   variants: {
     variant: {
       primary: 'bg-marine-800 transition ease-in-out hover:text-gray-400',
@@ -17,7 +18,10 @@ const button = tv({
     size: {
       sm: 'px-6 py-2.5 text-sm leading-none',
       md: 'px-7 py-3.5',
-      lg: 'px-9 py-5 text-lg font-medium',
+      lg: 'px-8 py-4 text-lg font-medium',
+    },
+    icon: {
+      true: 'flex items-center',
     },
   },
   compoundVariants: [
@@ -48,6 +52,21 @@ const button = tv({
       size: 'lg',
       class: 'text-lg',
     },
+    {
+      icon: true,
+      size: 'sm',
+      class: 'pb-2 px-5',
+    },
+    {
+      icon: true,
+      size: 'md',
+      class: 'px-6 pt-2 pb-1.5',
+    },
+    {
+      icon: true,
+      size: 'lg',
+      class: 'px-7 pt-2.5 pb-1.5',
+    },
   ],
   defaultVariants: {
     size: 'md',
@@ -56,9 +75,18 @@ const button = tv({
 });
 
 const Button = (props) => {
-  const { size, variant, to, href, onClick, children, className, ...rest } =
-    props;
-  const buttonClass = button({ size, variant });
+  const {
+    size,
+    variant,
+    icon,
+    to,
+    href,
+    onClick,
+    children,
+    className,
+    ...rest
+  } = props;
+  const buttonClass = button({ size, variant, icon });
   const combinedClassName = `${buttonClass} ${className}`;
 
   if (to) {
@@ -82,6 +110,11 @@ const Button = (props) => {
   return (
     <button className={combinedClassName} onClick={onClick} {...rest}>
       {children}
+      {icon ? (
+        <div className='ml-2.5'>
+          <BsArrowRight />
+        </div>
+      ) : null}
     </button>
   );
 };
@@ -96,6 +129,7 @@ Button.propTypes = {
     'add',
     'link',
   ]),
+  icon: PropTypes.bool,
   to: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,

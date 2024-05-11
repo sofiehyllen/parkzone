@@ -1,4 +1,4 @@
-import ArticleCard from '../../components/sections/ArticleCard';
+import ArticleCard from '../../components/cards/ArticleCard';
 import LatestArticle from '../../components/sections/LatestArticle';
 import Doodle1 from '../../components/svg/Doodle1';
 import Doodle2 from '../../components/svg/Doodle2';

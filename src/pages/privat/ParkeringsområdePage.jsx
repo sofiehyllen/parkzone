@@ -8,6 +8,7 @@ import { FiCamera } from 'react-icons/fi';
 import { BiHandicap } from 'react-icons/bi';
 import { TbElevator } from 'react-icons/tb';
 import Button from '../../components/atoms/Button';
+import PaymentFlow from '../../components/sections/PaymentFlow';
 
 export default function ParkingPage() {
   const [data, setData] = useState(null);
@@ -49,7 +50,7 @@ export default function ParkingPage() {
                 <Doodle1 color='#DBE9FD' />
               </div>
             </div>
-            <div className='grid grid-cols-1 divide-y divide-marine-200 w-fit py-10 mx-auto sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:w-full sm:px-10 lg:py-20 max-w-screen-xl 2xl:px-28'>
+            <div className='grid grid-cols-1 divide-y divide-marine-200 w-fit py-10 mx-auto sm:grid-cols-3 sm:divide-y-0 sm:divide-x sm:w-full sm:px-10 lg:py-20 max-w-screen-xl xl:px-28'>
               <div className='flex flex-col sm:items-start py-9 sm:py-3 w-full'>
                 <div className='flex flex-col items-center'>
                   <p className='font-h2 sm:font-h4 pb-3 lg:font-h3'>
@@ -79,7 +80,7 @@ export default function ParkingPage() {
                 </div>
               </div>
             </div>
-            <div className='sm:px-10 lg:pb-20 mx-auto max-w-screen-xl 2xl:px-28'>
+            <div className='mx-auto max-w-screen-xl sm:px-10 lg:pb-20 xl:px-28'>
               <div className='grid grid-cols-1 lg:grid-cols-3 gap-x-10 2xl:gap-x-12'>
                 <div className='grid grid-cols-1 col-span-2'>
                   <div>
@@ -183,6 +184,7 @@ export default function ParkingPage() {
                   </div>
                 </div>
               </div>
+              <PaymentFlow />
             </div>
           </div>
         </>

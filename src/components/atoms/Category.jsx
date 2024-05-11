@@ -8,6 +8,8 @@ const category = tv({
       orange: 'text-pumpkin-500 bg-pumpkin-50',
       green: 'text-green-500 bg-green-50',
       red: 'text-red-500 bg-red-50',
+      darkBlue: 'text-white bg-marine-400',
+      lightBlue: 'text-marine-500 bg-marine-100',
     },
   },
   defaultVariants: {
@@ -38,7 +40,7 @@ const Category = ({ color, className, children }) => {
 };
 
 Category.propTypes = {
-  color: PropTypes.oneOf(['orange', 'green', 'red']),
+  color: PropTypes.oneOf(['orange', 'green', 'red', 'darkBlue', 'lightBlue']),
   className: PropTypes.string,
   children: PropTypes.node,
   ping: PropTypes.bool,

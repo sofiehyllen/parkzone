@@ -5,7 +5,7 @@ import Category from '../../components/atoms/Category';
 import ImageWrapper from '../../components/wrappers/ImageWrapper';
 //import quoteTop from '../../assets/quote-top.svg';
 //import quoteBottom from '../../assets/quote-bottom.svg';
-import IconCard from '../../components/atoms/IconCard';
+import IconCard from '../../components/cards/IconCard';
 import { LuUserCircle2 } from 'react-icons/lu';
 import facebook from '../../assets/facebook.svg';
 import instagram from '../../assets/instagram.svg';

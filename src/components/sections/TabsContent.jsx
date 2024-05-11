@@ -77,7 +77,23 @@ function TabsContent({ content }) {
 }
 
 TabsContent.propTypes = {
-  content: PropTypes.any,
+  content: PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string.isRequired,
+    boxText1: PropTypes.string.isRequired,
+    boxText2: PropTypes.string.isRequired,
+    boxText3: PropTypes.string.isRequired,
+    heading1: PropTypes.string.isRequired,
+    subheading1: PropTypes.string.isRequired,
+    smallTitle1: PropTypes.string.isRequired,
+    bodyText1: PropTypes.string.isRequired,
+    smallTitle2: PropTypes.string.isRequired,
+    bodyText2: PropTypes.string.isRequired,
+    heading2: PropTypes.string.isRequired,
+    subheading2: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    altText: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default TabsContent;

@@ -87,6 +87,7 @@ export default {
       fontSize: {
         '5xl': '42px',
         '6xl': '48px',
+        '7xl': '64px'
       },
       borderRadius: {
         sm: '5px',
