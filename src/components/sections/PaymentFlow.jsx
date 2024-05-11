@@ -4,6 +4,7 @@ import SubscriptionCard from '../cards/SubscriptionCard';
 import { BsArrowLeft } from 'react-icons/bs';
 import TypeCard from '../cards/TypeCard';
 import Calender from './Calender';
+import Button from '../atoms/Button';
 
 const PaymentFlow = () => {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -68,9 +69,13 @@ const PaymentFlow = () => {
         <p className='font-body-md text-center pt-5'>
           Hvor længe skal du parkere?
         </p>
-        <div>
-          <Calender />
+        <div className='flex space-x-16 pt-14 pb-10 w-fit mx-auto'>
+          <Calender type='arrival' />
+          <Calender type='departure' />
         </div>
+        <Button variant='primary' size='lg' icon={true} className='ml-auto'>
+          Næste
+        </Button>
       </div>
     </div>
   );

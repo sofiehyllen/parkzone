@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { IoIosArrowForward } from 'react-icons/io';
 import { IoIosArrowBack } from 'react-icons/io';
+import TimePicker from '../atoms/TimePicker';
 
 const Calendar = () => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
@@ -53,12 +54,12 @@ const Calendar = () => {
     const daysInMonth = getDaysInMonth(year, month);
     let firstDayOfMonth = getFirstDayOfMonth(year, month);
 
-    /* // Justering så månedens første dag er mandag
+    // Justering så månedens første dag er mandag
     if (firstDayOfMonth === 0) {
       firstDayOfMonth = 6; // Sunday
     } else {
       firstDayOfMonth -= 1;
-    }*/
+    }
 
     const calendar = [];
     // Variabel til at holde styr på hver dag i måneden
@@ -112,39 +113,42 @@ const Calendar = () => {
   };
 
   return (
-    <div className='max-w-fit bg-white p-4 rounded-xl shadow-md'>
-      <div className='flex justify-between items-center py-2 pb-4'>
-        <button
-          className='h-8 w-8 pr-0.5 rounded-full text-gray-400 border-1 border-gray-200 flex justify-center items-center hover:bg-gray-200 text-lg'
-          onClick={handlePrevMonth}>
-          <IoIosArrowBack />
-        </button>
-        <h2 className='font-mundial text-sm font-bold text-gray-600 capitalize'>{`${currentMonth.toLocaleString(
-          'default',
-          {
-            month: 'long',
-          }
-        )} ${currentMonth.getFullYear()}`}</h2>
-        <button
-          className='h-8 w-8 pl-0.5 rounded-full text-gray-400 border-1 border-gray-200 flex justify-center items-center hover:bg-gray-200 text-lg'
-          onClick={handleNextMonth}>
-          <IoIosArrowForward />
-        </button>
+    <div>
+      <div className='max-w-fit bg-white p-4 rounded-xl shadow-md'>
+        <div className='flex justify-between items-center py-2 pb-4'>
+          <button
+            className='h-8 w-8 pr-0.5 rounded-full text-gray-400 border-1 border-gray-200 flex justify-center items-center hover:bg-gray-200 text-lg'
+            onClick={handlePrevMonth}>
+            <IoIosArrowBack />
+          </button>
+          <h2 className='font-mundial text-sm font-bold text-gray-600 capitalize'>{`${currentMonth.toLocaleString(
+            'default',
+            {
+              month: 'long',
+            }
+          )} ${currentMonth.getFullYear()}`}</h2>
+          <button
+            className='h-8 w-8 pl-0.5 rounded-full text-gray-400 border-1 border-gray-200 flex justify-center items-center hover:bg-gray-200 text-lg'
+            onClick={handleNextMonth}>
+            <IoIosArrowForward />
+          </button>
+        </div>
+        <table className='table-auto mb-3'>
+          <thead>
+            <tr className='font-mundial text-gray-500 text-sm'>
+              <th className='size-8 font-light'>Ma</th>
+              <th className='size-8 font-light'>Ti</th>
+              <th className='size-8 font-light'>On</th>
+              <th className='size-8 font-light'>To</th>
+              <th className='size-8 font-light'>Fr</th>
+              <th className='size-8 font-light'>Lø</th>
+              <th className='size-8 font-light'>Sø</th>
+            </tr>
+          </thead>
+          <tbody>{renderCalendar()}</tbody>
+        </table>
+        <TimePicker />
       </div>
-      <table className='table-auto'>
-        <thead>
-          <tr className='font-mundial text-gray-500 text-sm'>
-            <th className='size-8 font-light'>Sø</th>
-            <th className='size-8 font-light'>Ma</th>
-            <th className='size-8 font-light'>Ti</th>
-            <th className='size-8 font-light'>On</th>
-            <th className='size-8 font-light'>To</th>
-            <th className='size-8 font-light'>Fr</th>
-            <th className='size-8 font-light'>Lø</th>
-          </tr>
-        </thead>
-        <tbody>{renderCalendar()}</tbody>
-      </table>
     </div>
   );
 };
