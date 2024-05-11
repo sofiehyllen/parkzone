@@ -4,7 +4,7 @@ import Button from '../atoms/Button';
 
 function TypeCard({ number, title, body, onClick }) {
   return (
-    <div className='relative overflow-hidden rounded-xl w-full'>
+    <div className='relative overflow-hidden rounded-xl w-full shadow-md'>
       <img className='absolute top-0 left-0' src={hashtag} alt='' />
       <div className='bg-white px-8 py-9 flex flex-col items-center w-full h-full'>
         <p className='font-mundial text-7xl font-semibold text-marine-300 w-full relative z-20'>

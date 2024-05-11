@@ -87,7 +87,7 @@ export default {
       fontSize: {
         '5xl': '42px',
         '6xl': '48px',
-        '7xl': '64px'
+        '7xl': '64px',
       },
       borderRadius: {
         sm: '5px',
@@ -110,6 +110,9 @@ export default {
         100: '100deg',
         110: '110deg',
         120: '120deg',
+      },
+      boxShadow: {
+        md: '1px 3px 9px 0 rgb(0 0 0 / 0.03)',
       },
     },
   },
