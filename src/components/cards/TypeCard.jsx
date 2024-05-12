@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import hashtag from '../../assets/hashtag.svg';
-import Button from '../atoms/Button';
+import Button from '../buttons/Button';
 
 function TypeCard({ number, title, body, onClick }) {
   return (

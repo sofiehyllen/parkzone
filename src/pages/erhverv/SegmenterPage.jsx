@@ -1,4 +1,4 @@
-import Button from '../../components/atoms/Button';
+import Button from '../../components/buttons/Button';
 import Doodle1 from '../../components/svg/Doodle1';
 import ImageWrapper from '../../components/wrappers/ImageWrapper';
 import PageWrapper from '../../components/wrappers/PageWrapper';

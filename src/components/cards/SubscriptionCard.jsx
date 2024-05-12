@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Category from '../atoms/Category';
 import clsx from 'clsx';
-import Button from '../atoms/Button';
+import Button from '../buttons/Button';
 import { FaCheck } from 'react-icons/fa6';
 
 function SubscriptionCard({ content }) {

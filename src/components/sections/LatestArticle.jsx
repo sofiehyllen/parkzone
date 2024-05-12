@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Category from '../atoms/Category';
 import ImageWrapper from '../wrappers/ImageWrapper';
-import Button from '../atoms/Button';
+import Button from '../buttons/Button';
 
 const LatestArticle = ({ articles }) => {
   if (!articles || !Array.isArray(articles) || articles.length === 0)

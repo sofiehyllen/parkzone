@@ -1,5 +1,5 @@
 import Newsletter from '../atoms/Newsletter';
-import Button from '../atoms/Button';
+import Button from '../buttons/Button';
 import { Link } from 'react-router-dom';
 import logo from '../../assets/logo-regular.svg';
 

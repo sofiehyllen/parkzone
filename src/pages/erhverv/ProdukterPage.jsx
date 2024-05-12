@@ -1,4 +1,3 @@
-import Button from '../../components/atoms/Button';
 import Tabs from '../../components/sections/Tabs';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 import talking from '../../assets/talking.jpg';
@@ -6,6 +5,7 @@ import ImageWrapper from '../../components/wrappers/ImageWrapper';
 import Doodle1 from '../../components/svg/Doodle1';
 import Doodle6 from '../../components/svg/Doodle6';
 import { tabs } from '../../staticData';
+import Button from '../../components/buttons/Button';
 
 export default function ProdukterPage() {
   return (

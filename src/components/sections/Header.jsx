@@ -2,8 +2,8 @@ import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiMenu } from 'react-icons/fi';
 import { IoCloseOutline } from 'react-icons/io5';
 import { useState } from 'react';
-import Button from '../atoms/Button';
-import ToggleButton from '../atoms/ToggleButton';
+import Button from '../buttons/Button';
+import ToggleButton from '../buttons/ToggleButton';
 import logo from '../../assets/logo-regular.svg';
 import CustomNavLink from '../atoms/Navlink';
 

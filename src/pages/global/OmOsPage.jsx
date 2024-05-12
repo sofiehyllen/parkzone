@@ -1,6 +1,6 @@
 import PageWrapper from '../../components/wrappers/PageWrapper';
 import office from '../../assets/office.jpg';
-import Button from '../../components/atoms/Button';
+import Button from '../../components/buttons/Button';
 import ImageWrapper from '../../components/wrappers/ImageWrapper';
 import Doodle7 from '../../components/svg/Doodle7';
 import { FaRegHeart } from 'react-icons/fa6';

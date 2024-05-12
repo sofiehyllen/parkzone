@@ -3,7 +3,7 @@ import kameraparkering from '../../assets/kameraparkering.jpg';
 import InputField from '../../components/atoms/InputField';
 import Dropdown from '../../components/atoms/Dropdown';
 import { useState } from 'react';
-import Button from '../../components/atoms/Button';
+import Button from '../../components/buttons/Button';
 import Doodle5 from '../../components/svg/Doodle5';
 
 export default function CheckUdPage() {

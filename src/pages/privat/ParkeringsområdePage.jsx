@@ -7,7 +7,7 @@ import { MdOutlineDirectionsCarFilled } from 'react-icons/md';
 import { FiCamera } from 'react-icons/fi';
 import { BiHandicap } from 'react-icons/bi';
 import { TbElevator } from 'react-icons/tb';
-import Button from '../../components/atoms/Button';
+import Button from '../../components/buttons/Button';
 import PaymentFlow from '../../components/sections/PaymentFlow';
 
 export default function ParkingPage() {

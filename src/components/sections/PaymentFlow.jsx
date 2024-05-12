@@ -2,21 +2,48 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import ProgressBar from '../atoms/ProgressBar';
 import SubscriptionCard from '../cards/SubscriptionCard';
-import { BsArrowLeft } from 'react-icons/bs';
 import TypeCard from '../cards/TypeCard';
 import Calendar from './Calendar';
-import Button from '../atoms/Button';
+import Button from '../buttons/Button';
 import InputField from '../atoms/InputField';
-import RadioButton from '../atoms/RadioButton';
+import RadioButton from '../buttons/RadioButton';
 import pin from '../../assets/pin.svg';
+import BackButton from '../buttons/BackButton';
 
 const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [previousOptions, setPreviousOptions] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
-  //const [isDatesSelected, setIsDatesSelected] = useState(false);
-  //const [arrivalDate, setArrivalDate] = useState(null);
-  //const [departureDate, setDepartureDate] = useState(null);
+  const [error, setError] = useState(null);
+
+  // Fetch arrival date and time from localStorage
+  const storedArrivalDate = localStorage.getItem('arrivalDate_arrivalCalendar');
+  const storedArrivalTime = localStorage.getItem('arrivalTime_arrivalCalendar');
+
+  // Fetch departure date and time from localStorage
+  const storedDepartureDate = localStorage.getItem(
+    'departureDate_departureCalendar'
+  );
+  const storedDepartureTime = localStorage.getItem(
+    'departureTime_departureCalendar'
+  );
+
+  //Formattering af datoen hentet fra localeStorage
+  const formattedArrivalDate = storedArrivalDate
+    ? new Date(storedArrivalDate).toLocaleDateString('da-DK', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : null;
+
+  const formattedDepartureDate = storedDepartureDate
+    ? new Date(storedDepartureDate).toLocaleDateString('da-DK', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+      })
+    : null;
 
   useEffect(() => {
     setCurrentStep(previousOptions.length + 1);
@@ -34,24 +61,24 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     setCurrentStep(currentStep - 1);
   };
 
-  /*  // Update isDatesSelected whenever arrivalDate or departureDate changes
-  useEffect(() => {
-    setIsDatesSelected(arrivalDate !== null && departureDate !== null);
-  }, [arrivalDate, departureDate]);
-  console.log(
-    `Are the dates selected: ${isDatesSelected} = ${arrivalDate} & ${departureDate}`
-  );
-
-  // Function to handle the "next" button click
-  const handleNextClick = (option) => {
-    if (isDatesSelected) {
-      handleOptionSelect(option);
+  const handleNextClick = () => {
+    if (
+      storedDepartureDate < storedArrivalDate ||
+      (storedDepartureDate === storedArrivalDate &&
+        storedDepartureTime < storedArrivalTime)
+    ) {
+      setError('Departure date cannot be before arrival date');
+      setTimeout(() => {
+        setError(null);
+      }, 5000);
     } else {
-      // Display an error message or prevent navigation
-      alert('Please select arrival and departure dates before proceeding.');
+      setError(null);
+      // Move to the next step
+      handleOptionSelect('userInfo');
     }
-  };*/
+  };
 
+  // 1. step i betalingsflow - Periodeparkering eller abonnement
   const renderOptionsView = () => (
     <div className='flex flex-col items-center justify-center px-16'>
       <div className='w-full'>
@@ -76,45 +103,32 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     </div>
   );
 
+  // 2. step i betalingsflow - Periodeparkering
   const renderTimeperiodView = () => (
     <div className='flex flex-col items-center justify-center'>
       <ProgressBar currentStep={1} />
       <div className='w-full relative'>
-        <button
-          className='flex items-center absolute top-0 left-0'
-          onClick={handleBack}>
-          <BsArrowLeft
-            strokeWidth={1}
-            size={12}
-            className='mr-1 text-gray-400'
-          />
-          <p className='font-h6 text-gray-400 uppercase'>Tilbage</p>
-        </button>
+        <div className='absolute top-2 left-0'>
+          <BackButton onClick={handleBack} className='font-h5 text-gray-500' />
+        </div>
         <p className='font-h3 text-center'>Periodeparkering</p>
         <p className='font-body-md text-center pt-5'>
           Hvor længe skal du parkere?
         </p>
         <div className='flex space-x-16 pt-14 pb-10 w-fit mx-auto'>
-          <Calendar
-            type='arrival'
-            id='arrivalCalendar'
-            //setArrivalDate={setArrivalDate}
-          />
-          <Calendar
-            type='departure'
-            id='departureCalendar'
-            //setDepartureDate={setDepartureDate}
-          />
+          <Calendar type='arrival' id='arrivalCalendar' />
+          <Calendar type='departure' id='departureCalendar' />
         </div>
         <Button
           variant='primary'
           size='lg'
           icon={true}
           className='ml-auto'
-          onClick={() => handleOptionSelect('userInfo')}>
+          onClick={handleNextClick}>
           Næste
         </Button>
       </div>
+      {error && <div>{error}</div>}
     </div>
   );
 
@@ -146,20 +160,14 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     buttonClick: () => handleOptionSelect('userInfo'),
   };
 
+  // 2. step i betalingsflow - Abonnement
   const renderSubscriptionView = () => (
     <div className='flex flex-col items-center justify-center'>
       <ProgressBar currentStep={1} />
       <div className='w-full relative'>
-        <button
-          className='flex items-center absolute top-0 left-0'
-          onClick={handleBack}>
-          <BsArrowLeft
-            strokeWidth={1}
-            size={12}
-            className='mr-1 text-gray-400'
-          />
-          <p className='font-h6 text-gray-400 uppercase'>Tilbage</p>
-        </button>
+        <div className='absolute top-2 left-0'>
+          <BackButton onClick={handleBack} className='font-h5 text-gray-500' />
+        </div>
         <p className='font-h3 text-center'>Abonnement</p>
         <p className='font-body-md text-center pt-5'>
           Hvilken type abonnement har du brug for?
@@ -173,20 +181,14 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     </div>
   );
 
+  // 3. step i betalingsflow - Personlige oplysninger
   const renderUserInfo = () => (
     <div className='flex flex-col items-center justify-center'>
       <ProgressBar currentStep={2} />
       <div className='w-full relative'>
-        <button
-          className='flex items-center absolute top-0 left-0'
-          onClick={handleBack}>
-          <BsArrowLeft
-            strokeWidth={1}
-            size={12}
-            className='mr-1 text-gray-400'
-          />
-          <p className='font-h6 text-gray-400 uppercase'>Tilbage</p>
-        </button>
+        <div className='absolute top-2 left-0'>
+          <BackButton onClick={handleBack} className='font-h5 text-gray-500' />
+        </div>
         <p className='font-h3 text-center'>Dine oplysninger</p>
         <p className='font-body-md text-center pt-5 pb-14'>
           Indtast dine oplysninger
@@ -281,11 +283,15 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                 <div className='pt-12 space-y-4 pb-7 border-b-1 border-gray-200'>
                   <div className='flex justify-between'>
                     <p className='font-body-s'>Fra</p>
-                    <p className='font-h5'>11. maj 2024 - kl. 08:30</p>
+                    <p className='font-h5'>
+                      {formattedArrivalDate} - kl. {storedArrivalTime}
+                    </p>
                   </div>
                   <div className='flex justify-between '>
                     <p className='font-body-s'>Til</p>
-                    <p className='font-h5'>12. maj 2024 - kl. 10:00</p>
+                    <p className='font-h5'>
+                      {formattedDepartureDate} - kl. {storedDepartureTime}
+                    </p>
                   </div>
                 </div>
                 <div className='py-7 border-b-1 border-gray-200'>
@@ -331,7 +337,7 @@ PaymentFlow.propTypes = {
   map: PropTypes.string,
   address: PropTypes.string,
   city: PropTypes.string,
-  hourPrice: PropTypes.number,
+  hourPrice: PropTypes.string,
 };
 
 export default PaymentFlow;

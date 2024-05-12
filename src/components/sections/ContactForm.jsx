@@ -2,9 +2,9 @@ import { useState } from 'react';
 import InputField from '../atoms/InputField';
 import Dropdown from '../atoms/Dropdown';
 import PropTypes from 'prop-types';
-import RadioButton from '../atoms/RadioButton';
-import Button from '../atoms/Button';
+import RadioButton from '../buttons/RadioButton';
 import { FiPlus } from 'react-icons/fi';
+import Button from '../buttons/Button';
 
 export default function ContactForm({ variant }) {
   const [selectedRadioOption, setSelectedRadioOption] = useState(null);

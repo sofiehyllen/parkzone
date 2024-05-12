@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { IoChevronBackOutline } from 'react-icons/io5';
+import BackButton from '../buttons/BackButton';
 
 const Breadcrumb = () => {
   const location = useLocation();
@@ -16,13 +16,8 @@ const Breadcrumb = () => {
   };
 
   return (
-    <div className='flex sm:items-end justify-between w-full px-5 md:px-10 pb-10'>
-      <div
-        className='font-h4 flex space-x-2 md:space-x-5 cursor-pointer'
-        onClick={previousPage}>
-        <IoChevronBackOutline />
-        <p>Tilbage</p>
-      </div>
+    <div className='flex sm:items-end justify-between w-full px-5 md:px-10 pb-10 relative '>
+      <BackButton onClick={previousPage} className='text-gray-800 font-h4' />
       <nav aria-label='Breadcrumb'>
         <ol className='list-none p-0 sm:inline-flex space-y-1 sm:space-y-0'>
           <li className='flex items-center justify-end'>

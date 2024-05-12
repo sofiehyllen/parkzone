@@ -1,109 +1,44 @@
-import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-const TimePicker = ({ type, id }) => {
-  const [arrivalHour, setArrivalHour] = useState(0);
-  const [arrivalMinute, setArrivalMinute] = useState(0);
-  const [departureHour, setDepartureHour] = useState(0);
-  const [departureMinute, setDepartureMinute] = useState(0);
-
-  // Function to handle hour selection
-  const handleHourChange = (event) => {
-    if (type === 'arrival') {
-      setArrivalHour(parseInt(event.target.value));
-    } else if (type === 'departure') {
-      setDepartureHour(parseInt(event.target.value));
-    }
-  };
-
-  // Function to handle minute selection
-  const handleMinuteChange = (event) => {
-    if (type === 'arrival') {
-      setArrivalMinute(parseInt(event.target.value));
-    } else if (type === 'departure') {
-      setDepartureMinute(parseInt(event.target.value));
-    }
-  };
-
-  useEffect(() => {
-    const localStorageKey = (key) => `${key}_${id}`;
-
-    if (type === 'arrival') {
-      localStorage.setItem(
-        localStorageKey('arrivalHour'),
-        JSON.stringify(arrivalHour)
-      );
-      localStorage.setItem(
-        localStorageKey('arrivalMinute'),
-        JSON.stringify(arrivalMinute)
-      );
-    } else if (type === 'departure') {
-      localStorage.setItem(
-        localStorageKey('departureHour'),
-        JSON.stringify(departureHour)
-      );
-      localStorage.setItem(
-        localStorageKey('departureMinute'),
-        JSON.stringify(departureMinute)
-      );
-    }
-  }, [arrivalHour, arrivalMinute, departureHour, departureMinute, id, type]);
-
-  console.log(
-    type === 'arrival'
-      ? `Arrival time: ${arrivalHour} : ${arrivalMinute}`
-      : type === 'departure'
-      ? `Departure time: ${departureHour} : ${departureMinute}`
-      : ''
-  );
-
+function TimePicker({ id, value, onChange }) {
   return (
-    <div className='flex items-center justify-between'>
-      <p className='font-h6 text-gray-800'>Tidspunkt:</p>
-      <div>
-        <select
-          value={
-            type === 'arrival'
-              ? arrivalHour
-              : type === 'departure'
-              ? departureHour
-              : ''
-          }
-          onChange={handleHourChange}
-          className='bg-gray-100 font-league text-xs text-gray-600 pb-1.5 pt-2 pr-2.5 px-1.5 rounded-sm outline-none cursor-pointer hover:bg-gray-200  border-transparent border-r-8  placeholder:text-red-500'>
-          {[...Array(24).keys()].map((hour) => (
-            <option key={hour} value={hour}>
-              {hour < 10 ? `0${hour}` : hour}
-            </option>
-          ))}
-        </select>
-        <span className='font-league text-xs text-gray-600 px-1'> : </span>
-        <select
-          value={
-            type === 'arrival'
-              ? arrivalMinute
-              : type === 'departure'
-              ? departureMinute
-              : ''
-          }
-          onChange={handleMinuteChange}
-          className='bg-gray-100 font-league text-xs text-gray-600 pb-1.5 pt-2 pr-2.5 px-1.5 rounded-sm  outline-none cursor-pointer hover:bg-gray-200  border-transparent border-r-8'>
-          {[...Array(60).keys()]
-            .filter((minute) => minute % 5 === 0)
-            .map((minute) => (
-              <option key={minute} value={minute}>
-                {minute < 10 ? `0${minute}` : minute}
-              </option>
-            ))}
-        </select>
+    <form className='flex items-center justify-between w-full'>
+      <label htmlFor={id} className='font-h5 text-gray-800'>
+        Tidspunkt:
+      </label>
+      <div className='relative'>
+        <div className='absolute inset-y-0 end-0 top-0 flex items-center pe-3.5 pointer-events-none'>
+          <svg
+            className='w-4 h-4 text-gray-500 '
+            aria-hidden='true'
+            xmlns='http://www.w3.org/2000/svg'
+            fill='currentColor'
+            viewBox='0 0 24 24'>
+            <path
+              fillRule='evenodd'
+              d='M2 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10S2 17.523 2 12Zm11-4a1 1 0 1 0-2 0v4a1 1 0 0 0 .293.707l3 3a1 1 0 0 0 1.414-1.414L13 11.586V8Z'
+              clipRule='evenodd'
+            />
+          </svg>
+        </div>
+        <input
+          id={id}
+          aria-label='Time'
+          type='time'
+          className='bg-gray-100 font-league text-sm capsize text-gray-600 px-3 p-3 rounded-md outline-none focus:outline-sky-200 focus:outline-2 focus:-outline-offset-2'
+          value={value}
+          onChange={onChange}
+          required
+        />
       </div>
-    </div>
+    </form>
   );
-};
+}
 
 TimePicker.propTypes = {
-  type: PropTypes.oneOf(['arrival', 'departure']).isRequired,
   id: PropTypes.string.isRequired,
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
 };
 
 export default TimePicker;
