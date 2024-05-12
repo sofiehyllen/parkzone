@@ -19,6 +19,7 @@ const InputField = ({
         id={id}
         placeholder={placeholder}
         className={`appearance-none font-body-xs text-xs p-3 w-full rounded-sm placeholder:translate-y-0.5 text-gray-400 bg-gray-100 outline-none  focus:outline-sky-200 focus:outline-2 focus:-outline-offset-2 ${className}`}
+        required
       />
     </div>
   );

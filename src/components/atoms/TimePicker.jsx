@@ -1,6 +1,17 @@
 import PropTypes from 'prop-types';
 
 function TimePicker({ id, value, onChange }) {
+  const formatTime = (time) => {
+    const hours = String(time.getHours()).padStart(2, '0');
+    const minutes = String(time.getMinutes()).padStart(2, '0');
+    return `${hours}:${minutes}`;
+  };
+
+  // Handle change event of the input
+  const handleChange = (event) => {
+    // Parse the time string and call onChange with the formatted time
+    onChange(event.target.value);
+  };
   return (
     <form className='flex items-center justify-between w-full'>
       <label htmlFor={id} className='font-h5 text-gray-800'>
@@ -26,8 +37,8 @@ function TimePicker({ id, value, onChange }) {
           aria-label='Time'
           type='time'
           className='bg-gray-100 font-league text-sm capsize text-gray-600 px-3 p-3 rounded-md outline-none focus:outline-sky-200 focus:outline-2 focus:-outline-offset-2'
-          value={value}
-          onChange={onChange}
+          value={formatTime(value)}
+          onChange={handleChange}
           required
         />
       </div>
@@ -37,7 +48,7 @@ function TimePicker({ id, value, onChange }) {
 
 TimePicker.propTypes = {
   id: PropTypes.string.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.any,
   onChange: PropTypes.func.isRequired,
 };
 

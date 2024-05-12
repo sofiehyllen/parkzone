@@ -14,36 +14,58 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [previousOptions, setPreviousOptions] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
-  const [error, setError] = useState(null);
+  //const [error, setError] = useState(null);
 
   // Fetch arrival date and time from localStorage
-  const storedArrivalDate = localStorage.getItem('arrivalDate_arrivalCalendar');
-  const storedArrivalTime = localStorage.getItem('arrivalTime_arrivalCalendar');
+  const storedArrivalDateAndTime = localStorage.getItem(
+    'arrivalDateAndTime_arrivalCalendar'
+  );
 
   // Fetch departure date and time from localStorage
-  const storedDepartureDate = localStorage.getItem(
-    'departureDate_departureCalendar'
-  );
-  const storedDepartureTime = localStorage.getItem(
-    'departureTime_departureCalendar'
+  const storedDepartureDateAndTime = localStorage.getItem(
+    'departureDateAndTime_departureCalendar'
   );
 
   //Formattering af datoen hentet fra localeStorage
-  const formattedArrivalDate = storedArrivalDate
-    ? new Date(storedArrivalDate).toLocaleDateString('da-DK', {
+  const formattedArrivalDateAndTime = storedArrivalDateAndTime
+    ? new Date(storedArrivalDateAndTime).toLocaleDateString('da-DK', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
       })
     : null;
 
-  const formattedDepartureDate = storedDepartureDate
-    ? new Date(storedDepartureDate).toLocaleDateString('da-DK', {
+  const formattedDepartureDateAndTime = storedDepartureDateAndTime
+    ? new Date(storedDepartureDateAndTime).toLocaleDateString('da-DK', {
         year: 'numeric',
         month: 'long',
         day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
       })
     : null;
+
+  const arrivalDate = new Date(storedArrivalDateAndTime);
+  const departureDate = new Date(storedDepartureDateAndTime);
+
+  const timeDifference = Math.abs(departureDate - arrivalDate);
+  console.log('Time diff:', timeDifference);
+
+  const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
+  const minutesDifference = Math.floor((timeDifference / (1000 * 60)) % 60);
+  const totalTimeInHours = hoursDifference + minutesDifference / 60;
+  console.log('Time in hours:', hoursDifference);
+
+  const formattedHours = String(hoursDifference).padStart(2, '0');
+  const formattedMinutes = String(minutesDifference).padStart(2, '0');
+  const formattedDifference = `${formattedHours}:${formattedMinutes}`;
+  console.log('Formatted difference:', formattedDifference);
+
+  let parkingPrice = Math.abs(totalTimeInHours * hourPrice);
+  parkingPrice = parkingPrice.toFixed(2);
+  console.log('Parking price:', parkingPrice);
 
   useEffect(() => {
     setCurrentStep(previousOptions.length + 1);
@@ -61,12 +83,8 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     setCurrentStep(currentStep - 1);
   };
 
-  const handleNextClick = () => {
-    if (
-      storedDepartureDate < storedArrivalDate ||
-      (storedDepartureDate === storedArrivalDate &&
-        storedDepartureTime < storedArrivalTime)
-    ) {
+  /* const handleNextClick = () => {
+    if (storedDepartureDateAndTime < storedArrivalDateAndTime) {
       setError('Departure date cannot be before arrival date');
       setTimeout(() => {
         setError(null);
@@ -76,7 +94,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
       // Move to the next step
       handleOptionSelect('userInfo');
     }
-  };
+  };*/
 
   // 1. step i betalingsflow - Periodeparkering eller abonnement
   const renderOptionsView = () => (
@@ -124,11 +142,11 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
           size='lg'
           icon={true}
           className='ml-auto'
-          onClick={handleNextClick}>
+          onClick={() => handleOptionSelect('userInfo')}>
           Næste
         </Button>
       </div>
-      {error && <div>{error}</div>}
+      {/*{error && <div>{error}</div>}*/}
     </div>
   );
 
@@ -204,6 +222,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                     id='firstName'
                     type='text'
                     placeholder='Fornavn'
+                    
                   />
                   <InputField
                     label='Efternavn'
@@ -283,21 +302,26 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                 <div className='pt-12 space-y-4 pb-7 border-b-1 border-gray-200'>
                   <div className='flex justify-between'>
                     <p className='font-body-s'>Fra</p>
-                    <p className='font-h5'>
-                      {formattedArrivalDate} - kl. {storedArrivalTime}
-                    </p>
+                    <p className='font-h5'>{formattedArrivalDateAndTime}</p>
                   </div>
                   <div className='flex justify-between '>
                     <p className='font-body-s'>Til</p>
-                    <p className='font-h5'>
-                      {formattedDepartureDate} - kl. {storedDepartureTime}
-                    </p>
+                    <p className='font-h5'>{formattedDepartureDateAndTime}</p>
                   </div>
                 </div>
-                <div className='py-7 border-b-1 border-gray-200'>
+                <div className='py-7 space-y-2.5 border-b-1 border-gray-200'>
                   <div className='flex justify-between'>
-                    <p className='font-body-s'>Timetakst</p>
-                    <p className='font-body-s'>{hourPrice},00 kr.</p>
+                    <p className='font-h5'>Antal timer</p>
+                    <p className='font-h5'>{formattedDifference}</p>
+                  </div>
+                  <div className='flex justify-between pl-5'>
+                    <div className='flex items-center'>
+                      <p className='font-league text-base font-light capsize pr-2'>
+                        x
+                      </p>
+                      <p className='font-body-md'>Timetakst</p>
+                    </div>
+                    <p className='font-body-md'>DKK {hourPrice},00</p>
                   </div>
                 </div>
                 <div className='pt-7 flex justify-between'>
@@ -305,7 +329,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                     <p className='font-h4 text-2xl'>Total</p>
                     <p className='font-body-md pt-2'>Inkl. moms</p>
                   </div>
-                  <p className='font-h4 text-2xl'>DKK 490,00</p>
+                  <p className='font-h4 text-2xl'>DKK {parkingPrice}</p>
                 </div>
               </div>
             </div>
@@ -337,7 +361,7 @@ PaymentFlow.propTypes = {
   map: PropTypes.string,
   address: PropTypes.string,
   city: PropTypes.string,
-  hourPrice: PropTypes.string,
+  hourPrice: PropTypes.any,
 };
 
 export default PaymentFlow;

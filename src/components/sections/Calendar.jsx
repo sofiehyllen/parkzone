@@ -6,10 +6,8 @@ import TimePicker from '../atoms/TimePicker';
 
 const Calendar = ({ type, id }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [arrivalDate, setArrivalDate] = useState(new Date());
-  const [arrivalTime, setArrivalTime] = useState('12:00');
-  const [departureDate, setDepartureDate] = useState(new Date());
-  const [departureTime, setDepartureTime] = useState('12:00');
+  const [arrivalDateAndTime, setArrivalDateAndTime] = useState(new Date());
+  const [departureDateAndTime, setDepartureDateAndTime] = useState(new Date());
 
   // Funktion som finder antallet af dage i en måned
   const getDaysInMonth = (year, month) => {
@@ -47,33 +45,59 @@ const Calendar = ({ type, id }) => {
       day
     );
     if (type === 'arrival') {
-      setArrivalDate(selectedDate);
+      setArrivalDateAndTime((prevValue) => {
+        const newDateAndTime = new Date(prevValue);
+        newDateAndTime.setFullYear(selectedDate.getFullYear());
+        newDateAndTime.setMonth(selectedDate.getMonth());
+        newDateAndTime.setDate(selectedDate.getDate());
+        return newDateAndTime;
+      });
     } else if (type === 'departure') {
-      setDepartureDate(selectedDate);
+      setDepartureDateAndTime((prevValue) => {
+        const newDateAndTime = new Date(prevValue);
+        newDateAndTime.setFullYear(selectedDate.getFullYear());
+        newDateAndTime.setMonth(selectedDate.getMonth());
+        newDateAndTime.setDate(selectedDate.getDate());
+        return newDateAndTime;
+      });
     }
   };
 
-  const handleArrivalTimeChange = (event) => {
-    const newTime = event.target.value;
-    setArrivalTime(newTime);
-  };
-
-  const handleDepartureTimeChange = (event) => {
-    const newTime = event.target.value;
-    setDepartureTime(newTime);
+  const handleTimeChange = (timeString, type) => {
+    // Parse the time string to extract hours and minutes
+    const [hours, minutes] = timeString.split(':').map(Number);
+    if (type === 'arrival') {
+      setArrivalDateAndTime((prevValue) => {
+        const newDateTime = new Date(prevValue);
+        newDateTime.setHours(hours);
+        newDateTime.setMinutes(minutes);
+        return newDateTime;
+      });
+    } else if (type === 'departure') {
+      setDepartureDateAndTime((prevValue) => {
+        const newDateTime = new Date(prevValue);
+        newDateTime.setHours(hours);
+        newDateTime.setMinutes(minutes);
+        return newDateTime;
+      });
+    }
   };
 
   useEffect(() => {
     const localStorageKey = (key) => `${key}_${id}`;
 
     if (type === 'arrival') {
-      localStorage.setItem(localStorageKey('arrivalDate'), arrivalDate);
-      localStorage.setItem(localStorageKey('arrivalTime'), arrivalTime);
+      localStorage.setItem(
+        localStorageKey('arrivalDateAndTime'),
+        arrivalDateAndTime
+      );
     } else if (type === 'departure') {
-      localStorage.setItem(localStorageKey('departureDate'), departureDate);
-      localStorage.setItem(localStorageKey('departureTime'), departureTime);
+      localStorage.setItem(
+        localStorageKey('departureDateAndTime'),
+        departureDateAndTime
+      );
     }
-  }, [arrivalDate, arrivalTime, departureDate, departureTime, id, type]);
+  }, [arrivalDateAndTime, departureDateAndTime, id, type]);
 
   // Funktion som renderer kalenderen
   const renderCalendar = () => {
@@ -109,15 +133,17 @@ const Calendar = ({ type, id }) => {
 
           const isSelectedDate =
             (type === 'arrival' &&
-              arrivalDate &&
-              arrivalDate.getDate() === dayCounter &&
-              arrivalDate.getMonth() === currentMonth.getMonth() &&
-              arrivalDate.getFullYear() === currentMonth.getFullYear()) ||
+              arrivalDateAndTime &&
+              arrivalDateAndTime.getDate() === dayCounter &&
+              arrivalDateAndTime.getMonth() === currentMonth.getMonth() &&
+              arrivalDateAndTime.getFullYear() ===
+                currentMonth.getFullYear()) ||
             (type === 'departure' &&
-              departureDate &&
-              departureDate.getDate() === dayCounter &&
-              departureDate.getMonth() === currentMonth.getMonth() &&
-              departureDate.getFullYear() === currentMonth.getFullYear());
+              departureDateAndTime &&
+              departureDateAndTime.getDate() === dayCounter &&
+              departureDateAndTime.getMonth() === currentMonth.getMonth() &&
+              departureDateAndTime.getFullYear() ===
+                currentMonth.getFullYear());
 
           // Rendering af en button for hver dag i måneden
           week.push(
@@ -191,15 +217,15 @@ const Calendar = ({ type, id }) => {
             {type === 'arrival' && (
               <TimePicker
                 id='arrivalTime'
-                value={arrivalTime}
-                onChange={handleArrivalTimeChange}
+                value={arrivalDateAndTime}
+                onChange={(time) => handleTimeChange(time, 'arrival')}
               />
             )}
             {type === 'departure' && (
               <TimePicker
                 id='departureTime'
-                value={departureTime}
-                onChange={handleDepartureTimeChange}
+                value={departureDateAndTime}
+                onChange={(time) => handleTimeChange(time, 'departure')}
               />
             )}
           </div>
