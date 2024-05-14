@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Button from '../buttons/Button';
+import Alert from './Alert';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
@@ -7,6 +8,7 @@ export default function Newsletter() {
 
   function handleInput(event) {
     setEmail(event.target.value);
+    setIsEmailValid(true); // Reset email validation on input change
   }
 
   function handleSubmit(event) {
@@ -16,7 +18,6 @@ export default function Newsletter() {
       setIsEmailValid(false);
     } else {
       setIsEmailValid(true);
-      alert(`Thank you for subscribing with ${email}`);
       setEmail('');
     }
   }
@@ -41,10 +42,10 @@ export default function Newsletter() {
           </Button>
         </form>
         {!isEmailValid ? (
-          <p className='font-body-xs text-right pt-1'>
-            Indtast venligst en gyldig e-mail adresse
-          </p>
-        ) : null}
+          <Alert type='error' message='Please enter a valid email address' />
+        ) : (
+          <Alert type='success' message='Thank you for subscribing!' />
+        )}
       </div>
     </>
   );

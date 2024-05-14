@@ -3,13 +3,17 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiPlus } from 'react-icons/fi';
 import { FiMinus } from 'react-icons/fi';
 import PropTypes from 'prop-types';
+import clsx from 'clsx';
 
-const Accordion = ({ title, body, image, altText }) => {
+const Accordion = ({ title, body, image, altText, color }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div
-      className=' bg-white p-5 rounded-sm max-w-2xl w-full mb-4 cursor-pointer'
+      className={clsx(
+        ' p-5 rounded-sm max-w-2xl w-full mb-4 cursor-pointer',
+        color
+      )}
       onClick={() => setIsOpen((prev) => !prev)}>
       <div className='flex justify-between items-start'>
         <h5 className='font-h4 font-normal text-marine-800'>{title}</h5>
@@ -63,7 +67,11 @@ const Accordion = ({ title, body, image, altText }) => {
               }}
               key={title}
               className='relative'>
-              <p className='relative z-40 font-body-md pt-6 text-gray-700 whitespace-pre-line'>
+              <p
+                className={clsx(
+                  'relative z-40 font-body-md pt-6  whitespace-pre-line',
+                  color === 'bg-sky-50' ? 'text-gray-900' : 'text-gray-700'
+                )}>
                 {body}
               </p>
               <div>
@@ -86,6 +94,7 @@ Accordion.propTypes = {
   body: PropTypes.string.isRequired,
   image: PropTypes.string,
   altText: PropTypes.string,
+  color: PropTypes.string,
 };
 
 export default Accordion;

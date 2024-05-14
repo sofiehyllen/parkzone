@@ -10,6 +10,7 @@ const category = tv({
       red: 'text-red-500 bg-red-50',
       darkBlue: 'text-white bg-marine-400',
       lightBlue: 'text-marine-500 bg-marine-100',
+      skyBlue: 'text-sky-500 bg-sky-50',
     },
   },
   defaultVariants: {

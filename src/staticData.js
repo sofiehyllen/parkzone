@@ -305,3 +305,27 @@ export const segmenter2 = [
     body: 'Vores brugervenlige og tidsbesparende parkeringsløsninger gør det nemt og bekvemt for studerende, ansatte og besøgende på uddannelsesinstitutioner at parkere. Vi sikrer overblikket og styringen af den store volumen af køretøjer og sørger for, at de, der skal parkere, nemt har mulighed for det. Vi tilbyder smarte og fleksible parkeringsløsninger, som blandt andet giver mulighed for, at studerende og andre besøgende kan modtage digitale p-tilladelser allerede inden de starter på studiet eller kommer på besøg. \n \n Med vores digitale p-tilladelsessystem, ParkCare, kan vi nemt håndtere p-tilladelser til dem, I ønsker, skal kunne anvende jeres parkeringsområde. Med ParkCare er det muligt at udstede og håndtere "permanente" p-tilladelser til studerende og ansatte, som skal parkere fast på parkeringsområdet. \n \n Derudover kan ParkCare håndtere integrationer op mod jeres systemer. Dette gør det bl.a. muligt for studerende og ansatte at registrere deres parkering via jeres intranet, Lectio eller andre systemer.',
   },
 ];
+
+export const subscriptions = [
+  {
+    category: 'basis',
+    vehicle: 'Personbil',
+    type: 'Døgnparkering',
+    price: 1299,
+    buttonSize: 'md',
+  },
+  {
+    category: 'basis',
+    vehicle: 'Motorcykel',
+    type: 'Døgnparkering',
+    price: 529,
+    buttonSize: 'md',
+  },
+  {
+    category: 'premium',
+    vehicle: 'Personbil',
+    type: 'VIP - Døgnparkering',
+    price: 2599,
+    buttonSize: 'lg',
+  },
+];

@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
 
-export default function Doodle2({ color }) {
+export default function Doodle2({ color, className }) {
   return (
     <svg
+    className={className}
       id='Lag_2'
       xmlns='http://www.w3.org/2000/svg'
       width='327'
@@ -84,4 +85,5 @@ export default function Doodle2({ color }) {
 
 Doodle2.propTypes = {
   color: PropTypes.string,
+  className: PropTypes.string,
 };

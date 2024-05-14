@@ -12,9 +12,22 @@ import instagram from '../../assets/instagram.svg';
 import linkedin from '../../assets/linkedin.svg';
 import { domToReact } from 'html-react-parser';
 import HTMLReactParser from 'html-react-parser/lib/index';
+import useFetch from '../../hooks/useFetch';
 
-const ArticlePage = ({ articles }) => {
+const ArticlePage = () => {
   const { id } = useParams();
+
+  let { loading, error, data } = useFetch(
+    'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7'
+  );
+  if (loading)
+    return <h1 className='font-h1 pl-5 mx-auto pt-40'>Indlæser...</h1>;
+  if (error)
+    return (
+      <h1 className='font-h1 pl-5 mx-auto pt-40'>Kunne ikke hente data</h1>
+    );
+
+  let articles = data;
 
   let article = {};
   let arr = articles.filter((article) => article.id == id);
@@ -57,9 +70,11 @@ const ArticlePage = ({ articles }) => {
             {article.acf.year}
           </h6>
         </div>
-        <ImageWrapper className='mb-10 md:mb-20'>
-          <img src={article.acf.coverImg} alt='' />
-        </ImageWrapper>
+        <ImageWrapper
+          className='mb-10 md:mb-20'
+          image={article.acf.coverImg}
+          size='lg'
+        />
         <div className='flex flex-col px-5 md:px-10 lg:space-x-16 lg:flex-row'>
           <div className='shrink-0 space-y-14 h-full sticky top-20 pb-10 order-last min-w-96 lg:order-first'>
             <div className='max-w-96 mx-auto'>

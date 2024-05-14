@@ -4,7 +4,6 @@ import { TbChecks } from 'react-icons/tb';
 import { IoSparkles } from 'react-icons/io5';
 import { FaRegThumbsUp } from 'react-icons/fa6';
 import Doodle3 from '../svg/Doodle3';
-import Doodle7 from '../svg/Doodle7';
 import ImageWrapper from '../wrappers/ImageWrapper';
 
 function TabsContent({ content }) {
@@ -40,12 +39,14 @@ function TabsContent({ content }) {
               <h3 className='font-h3 pb-8'>{content.heading1}</h3>
               <p className='font-body-l'>{content.subheading1}</p>
             </div>
-            <ImageWrapper className='relative'>
-              <div className='absolute bottom-5 left- scale-150 rotate-12 sm:w-9/12 sm:bottom-8'>
-                <Doodle7 color='#7AA9EF' />
-              </div>
-              <img src={content.image} alt={content.altText} />
-            </ImageWrapper>
+            <ImageWrapper
+              className='relative'
+              image={content.image}
+              alt={content.altText}
+              size='md'
+              color='#7AA9EF'
+            />
+
             <div>
               <h5 className='font-h4 pb-5'>{content.smallTitle1}</h5>
               <p className='font-body-l'>{content.bodyText1}</p>

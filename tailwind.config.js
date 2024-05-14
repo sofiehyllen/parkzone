@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./src/**/*.{js,jsx}', './src/ui/**/*.{js,jsx}', './index.html'],
+  content: [
+    './src/**/*.{js,jsx}',
+    './src/ui/**/*.{js,jsx}',
+    './src/svg/**/*.{js,jsx}',
+    './index.html',
+  ],
   theme: {
     fontFamily: {
       mundial: ['Mundial', 'sans-serif'],
@@ -79,6 +84,8 @@ export default {
           800: '#8B330D',
           900: '#58200E',
         },
+        succes: '#80AF35',
+        error: '#EF4444',
       },
       borderWidth: {
         1: '1px',
@@ -99,6 +106,7 @@ export default {
       },
       lineHeight: {
         11: '46px',
+        12: '52px',
       },
       rotate: {
         20: '20deg',
@@ -113,6 +121,16 @@ export default {
       },
       boxShadow: {
         md: '1px 3px 9px 0 rgb(0 0 0 / 0.03)',
+        lg: '2px 4px 7px 0 rgb(0 0 0 / 0.045)',
+      },
+      scale: {
+        160: '1.60',
+        170: '1.70',
+        180: '1.80',
+        190: '1.90',
+        200: '2.00',
+        225: '2.25',
+        250: '2.50',
       },
     },
   },

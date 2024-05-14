@@ -4,36 +4,43 @@ import clsx from 'clsx';
 import Button from '../buttons/Button';
 import { FaCheck } from 'react-icons/fa6';
 
-function SubscriptionCard({ content }) {
+function SubscriptionCard({
+  category,
+  vehicle,
+  type,
+  price,
+  buttonSize,
+  buttonClick,
+}) {
   return (
     <div
       className={clsx(
         'w-full h-fit flex flex-col px-7 py-8 rounded-xl',
-        content.category === 'premium' ? 'bg-marine-100' : 'bg-white'
+        category === 'premium' ? 'bg-marine-100' : 'bg-white'
       )}>
       <div className='flex justify-end'>
-        <Category color={content.categoryColor}>{content.category}</Category>
+        <Category color={category === 'premium' ? 'darkBlue' : 'lightBlue'}>
+          {category}
+        </Category>
       </div>
       <div className='pt-4 pb-7 space-y-1.5'>
-        <p className='font-h4'>{content.vehicle}</p>
-        <p className='font-body-s'>{content.type}</p>
+        <p className='font-h4'>{vehicle}</p>
+        <p className='font-body-s'>{type}</p>
       </div>
       <div className='pb-7 border-b-1 border-gray-300'>
         <p
           className={clsx(
             'font-h6',
-            content.category === 'premium' ? 'text-marine-400' : 'text-gray-400'
+            category === 'premium' ? 'text-marine-400' : 'text-gray-400'
           )}>
           fra
         </p>
         <div className='flex items-end space-x-2.5'>
-          <p className='font-h3'>{content.price} kr.</p>
+          <p className='font-h3'>{price} kr.</p>
           <p
             className={clsx(
               'font-h4',
-              content.category === 'premium'
-                ? 'text-marine-400'
-                : 'text-gray-400'
+              category === 'premium' ? 'text-marine-400' : 'text-gray-400'
             )}>
             / md
           </p>
@@ -52,7 +59,7 @@ function SubscriptionCard({ content }) {
           </div>
           <p className='font-body-xs'>Fri parkering hele døgnet</p>
         </div>
-        {content.category === 'premium' ? (
+        {category === 'premium' ? (
           <div className='space-y-3'>
             <div className='flex space-x-2'>
               <div className='size-3.5 flex place-items-center flex-shrink-0 rounded-full bg-marine-800 '>
@@ -74,9 +81,9 @@ function SubscriptionCard({ content }) {
       <div className='w-full flex justify-center'>
         <Button
           variant='primary'
-          size={content.buttonSize}
+          size={buttonSize}
           icon={true}
-          onClick={content.buttonClick}>
+          onClick={buttonClick}>
           Vælg
         </Button>
       </div>
@@ -85,7 +92,12 @@ function SubscriptionCard({ content }) {
 }
 
 SubscriptionCard.propTypes = {
-  content: PropTypes.object.isRequired,
+  category: PropTypes.string.isRequired,
+  vehicle: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  price: PropTypes.number.isRequired,
+  buttonSize: PropTypes.string.isRequired,
+  buttonClick: PropTypes.func.isRequired,
 };
 
 export default SubscriptionCard;

@@ -16,7 +16,7 @@ export default function SegmenterPage() {
               <h2 className='font-h1 pb-8 text-center lg:text-left lg:font-h2 2xl:font-h1 2xl:pb-12'>
                 Skræddersyede løsninger til alle erhverv
               </h2>
-              <p className='font-body-l font-normal pb-8 text-center lg:text-left'>
+              <p className='font-body-l  pb-8 text-center lg:text-left'>
                 Med en daglig administration af ca. 150.000 p-pladser fordelt
                 over hele landet er vi et af de førende parkeringsselskaber i
                 Danmark. Vi har stor erfaring med at levere løsninger og
@@ -38,22 +38,25 @@ export default function SegmenterPage() {
             <div className='absolute -bottom-full -left-20 -rotate-45 scale-125 sm:w-3/4 md:scale-105 md:rotate-30 md:-right-32 md:left-auto lg:w-1/2 xl:top-32 xl:-right-5'>
               <Doodle1 color='#EDF6FD' />
             </div>
-            <ImageWrapper className='relative rounded-r-none ml-5 self-end sm:ml-10 md:rounded-r-none lg:rounded-r-none lg:place-self-center lg:h-80 lg:w-9/12 xl:w-full 2xl:h-full '>
-              <img
-                src={tilbud}
-                alt='Snak i parkeringskælder'
-                className='h-full w-full object-cover object-left'
-              />
-            </ImageWrapper>
+            <ImageWrapper
+              image={tilbud}
+              size='md'
+              alt='Oplæg om parkingsløsning'
+              className='relative rounded-r-none ml-5 self-end sm:ml-10 md:rounded-r-none lg:rounded-r-none lg:place-self-center lg:h-80 lg:w-9/12 xl:w-full 2xl:h-full'
+            />
           </div>
           <div className='relative z-40 px-5 pt-10 w-full sm:px-16 sm:pt-14 md:px-24 lg:flex lg:px-20 lg:space-x-5 lg:pt-20 xl:pt-28 xl:px-24 2xl:px-36 4xl:px-60'>
             <div className='grid grid-cols-1 h-min w-full'>
               {segmenter1.map((segmenter, index) => (
                 <div key={index} className='w-full flex justify-center'>
-                  <Accordion title={segmenter.title} body={segmenter.body} />
+                  <Accordion
+                    title={segmenter.title}
+                    body={segmenter.body}
+                    color='bg-white'
+                  />
                 </div>
               ))}
-            </div>
+            </div> 
             <div className='grid grid-cols-1 h-min w-full'>
               {segmenter2.map((segmenter, index) => (
                 <div key={index} className='w-full flex justify-center'>
@@ -61,6 +64,7 @@ export default function SegmenterPage() {
                     title={segmenter.title}
                     body={segmenter.body}
                     image={segmenter.image}
+                    color='bg-white'
                   />
                 </div>
               ))}

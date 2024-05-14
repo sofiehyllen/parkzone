@@ -9,12 +9,15 @@ import InputField from '../atoms/InputField';
 import RadioButton from '../buttons/RadioButton';
 import pin from '../../assets/pin.svg';
 import BackButton from '../buttons/BackButton';
+import { subscriptions } from '../../staticData';
 
 const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [previousOptions, setPreviousOptions] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   //const [error, setError] = useState(null);
+  //const [previousView, setPreviousView] = useState(null);
+  const [selectedSubscription, setSelectedSubscription] = useState(null);
 
   // Fetch arrival date and time from localStorage
   const storedArrivalDateAndTime = localStorage.getItem(
@@ -51,21 +54,17 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const departureDate = new Date(storedDepartureDateAndTime);
 
   const timeDifference = Math.abs(departureDate - arrivalDate);
-  console.log('Time diff:', timeDifference);
 
   const hoursDifference = Math.floor(timeDifference / (1000 * 60 * 60));
   const minutesDifference = Math.floor((timeDifference / (1000 * 60)) % 60);
   const totalTimeInHours = hoursDifference + minutesDifference / 60;
-  console.log('Time in hours:', hoursDifference);
 
   const formattedHours = String(hoursDifference).padStart(2, '0');
   const formattedMinutes = String(minutesDifference).padStart(2, '0');
   const formattedDifference = `${formattedHours}:${formattedMinutes}`;
-  console.log('Formatted difference:', formattedDifference);
 
   let parkingPrice = Math.abs(totalTimeInHours * hourPrice);
   parkingPrice = parkingPrice.toFixed(2);
-  console.log('Parking price:', parkingPrice);
 
   useEffect(() => {
     setCurrentStep(previousOptions.length + 1);
@@ -83,18 +82,15 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     setCurrentStep(currentStep - 1);
   };
 
-  /* const handleNextClick = () => {
-    if (storedDepartureDateAndTime < storedArrivalDateAndTime) {
-      setError('Departure date cannot be before arrival date');
-      setTimeout(() => {
-        setError(null);
-      }, 5000);
-    } else {
-      setError(null);
-      // Move to the next step
-      handleOptionSelect('userInfo');
-    }
-  };*/
+  const handlePreviousView = (previousType, option) => {
+    // setPreviousView(previousType);
+    setSelectedOption(option);
+  };
+
+  const handleSubscriptionSelect = (subscription) => {
+    setSelectedSubscription(subscription);
+    setSelectedOption('userInfo');
+  };
 
   // 1. step i betalingsflow - Periodeparkering eller abonnement
   const renderOptionsView = () => (
@@ -142,41 +138,13 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
           size='lg'
           icon={true}
           className='ml-auto'
-          onClick={() => handleOptionSelect('userInfo')}>
+          onClick={() => handlePreviousView('timeperiodType', 'userInfo')}>
           Næste
         </Button>
       </div>
       {/*{error && <div>{error}</div>}*/}
     </div>
   );
-
-  const subscriptionCard1 = {
-    category: 'basis',
-    categoryColor: 'lightBlue',
-    vehicle: 'Personbil',
-    type: 'Døgnparkering',
-    price: 1299,
-    buttonSize: 'md',
-    buttonClick: () => handleOptionSelect('userInfo'),
-  };
-  const subscriptionCard2 = {
-    category: 'basis',
-    categoryColor: 'lightBlue',
-    vehicle: 'Motorcykel',
-    type: 'Døgnparkering',
-    price: 529,
-    buttonSize: 'md',
-    buttonClick: () => handleOptionSelect('userInfo'),
-  };
-  const subscriptionCard3 = {
-    category: 'premium',
-    categoryColor: 'darkBlue',
-    vehicle: 'Personbil',
-    type: 'VIP - Døgnparkering',
-    price: 2599,
-    buttonSize: 'lg',
-    buttonClick: () => handleOptionSelect('userInfo'),
-  };
 
   // 2. step i betalingsflow - Abonnement
   const renderSubscriptionView = () => (
@@ -192,9 +160,17 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
         </p>
       </div>
       <div className='flex space-x-9 pt-14'>
-        <SubscriptionCard content={subscriptionCard1} />
-        <SubscriptionCard content={subscriptionCard2} />
-        <SubscriptionCard content={subscriptionCard3} />
+        {subscriptions.map((subscription, index) => (
+          <SubscriptionCard
+            key={index}
+            category={subscription.category}
+            vehicle={subscription.vehicle}
+            type={subscription.type}
+            price={subscription.price}
+            buttonSize={subscription.buttonSize}
+            buttonClick={() => handleSubscriptionSelect(subscription)}
+          />
+        ))}
       </div>
     </div>
   );
@@ -222,7 +198,6 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                     id='firstName'
                     type='text'
                     placeholder='Fornavn'
-                    
                   />
                   <InputField
                     label='Efternavn'
@@ -299,38 +274,53 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                   {address},
                 </p>
                 <p className='font-h3 text-right pt-2'>{city}</p>
-                <div className='pt-12 space-y-4 pb-7 border-b-1 border-gray-200'>
-                  <div className='flex justify-between'>
-                    <p className='font-body-s'>Fra</p>
-                    <p className='font-h5'>{formattedArrivalDateAndTime}</p>
-                  </div>
-                  <div className='flex justify-between '>
-                    <p className='font-body-s'>Til</p>
-                    <p className='font-h5'>{formattedDepartureDateAndTime}</p>
-                  </div>
-                </div>
-                <div className='py-7 space-y-2.5 border-b-1 border-gray-200'>
-                  <div className='flex justify-between'>
-                    <p className='font-h5'>Antal timer</p>
-                    <p className='font-h5'>{formattedDifference}</p>
-                  </div>
-                  <div className='flex justify-between pl-5'>
-                    <div className='flex items-center'>
-                      <p className='font-league text-base font-light capsize pr-2'>
-                        x
+
+                {selectedSubscription ? (
+                  <div className='pt-12 space-y-4 pb-7 border-b-1 border-gray-200'>
+                    <div className='flex justify-between'>
+                      <p className='font-body-s'>
+                        {selectedSubscription.category}
                       </p>
-                      <p className='font-body-md'>Timetakst</p>
                     </div>
-                    <p className='font-body-md'>DKK {hourPrice},00</p>
                   </div>
-                </div>
-                <div className='pt-7 flex justify-between'>
+                ) : (
                   <div>
-                    <p className='font-h4 text-2xl'>Total</p>
-                    <p className='font-body-md pt-2'>Inkl. moms</p>
+                    <div className='pt-12 space-y-4 pb-7 border-b-1 border-gray-200'>
+                      <div className='flex justify-between'>
+                        <p className='font-body-s'>Fra</p>
+                        <p className='font-h5'>{formattedArrivalDateAndTime}</p>
+                      </div>
+                      <div className='flex justify-between '>
+                        <p className='font-body-s'>Til</p>
+                        <p className='font-h5'>
+                          {formattedDepartureDateAndTime}
+                        </p>
+                      </div>
+                    </div>
+                    <div className='py-7 space-y-2.5 border-b-1 border-gray-200'>
+                      <div className='flex justify-between'>
+                        <p className='font-h5'>Antal timer</p>
+                        <p className='font-h5'>{formattedDifference}</p>
+                      </div>
+                      <div className='flex justify-between pl-5'>
+                        <div className='flex items-center'>
+                          <p className='font-league text-base font-light capsize pr-2'>
+                            x
+                          </p>
+                          <p className='font-body-md'>Timetakst</p>
+                        </div>
+                        <p className='font-body-md'>DKK {hourPrice},00</p>
+                      </div>
+                    </div>
+                    <div className='pt-7 flex justify-between'>
+                      <div>
+                        <p className='font-h4 text-2xl'>Total</p>
+                        <p className='font-body-md pt-2'>Inkl. moms</p>
+                      </div>
+                      <p className='font-h4 text-2xl'>DKK {parkingPrice}</p>
+                    </div>
                   </div>
-                  <p className='font-h4 text-2xl'>DKK {parkingPrice}</p>
-                </div>
+                )}
               </div>
             </div>
           </div>

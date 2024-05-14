@@ -2,7 +2,6 @@ import PageWrapper from '../../components/wrappers/PageWrapper';
 import office from '../../assets/office.jpg';
 import Button from '../../components/buttons/Button';
 import ImageWrapper from '../../components/wrappers/ImageWrapper';
-import Doodle7 from '../../components/svg/Doodle7';
 import { FaRegHeart } from 'react-icons/fa6';
 import { PiHandHeartBold } from 'react-icons/pi';
 import { IoBulbOutline } from 'react-icons/io5';
@@ -16,18 +15,18 @@ export default function OmOsPage() {
     <PageWrapper breadcrumb={true}>
       <div className='flex flex-col items-center w-fit mx-auto px-5 sm:px-10 lg:px-20'>
         <h1 className='font-h1'>Hvem er vi?</h1>
-        <p className='font-body-l pt-6 pb-10 text-center max-w-screen-md sm:w-4/5'>
+        <p className='font-body-l pt-6 pb-10 text-center max-w-screen-md sm:w-4/5 xl:pb-20'>
           Hos ParkZone tilbyder vi brugervenlige løsninger, der forenkler
           parkering i din dagligdag. Med vores innovative teknologi stræber vi
           efter at levere førsteklasses parkeringstjenester, der gør parkering
           til en ubesværet oplevelse for alle.
         </p>
-        <ImageWrapper className='relative'>
-          <img src={office} alt='Kontorfællesskab' className='w-full h-full' />
-          <div className='absolute bottom-2 scale-125 rotate-12 sm:w-9/12 sm:bottom-8'>
-            <Doodle7 color='#7AA9EF' />
-          </div>
-        </ImageWrapper>
+        <ImageWrapper
+          color='#7AA9EF'
+          alt='Kontorfællesskab'
+          image={office}
+          size='lg'
+        />
       </div>
       <div className='px-14 pt-10 max-w-screen-xl mx-auto sm:px-36 md:px-10 md:pt-5 lg:px-12'>
         <div className='flex flex-col items-center justify-center w-full max-w-screen-xl pt-5 md:flex-row space-y-7 md:space-y-0 md:items-start mx-auto'>
@@ -74,7 +73,7 @@ export default function OmOsPage() {
         </div>
       </div>
 
-      <div className='flex flex-col mt-20 px-7 py-8 mx-5 bg-marine-100 rounded-xl relative overflow-hidden sm:px-12 sm:py-14 lg:flex-row lg:space-x-12 lg:px-16 lg:mx-10 xl:mx-20 xl:mt-28 max-w-screen-3xl 3xl:px-20 3xl:space-x-20 2xl:mx-auto'>
+      <div className='flex flex-col mt-20 px-7 py-8 mx-5 bg-marine-50 rounded-xl relative overflow-hidden sm:px-12 sm:py-14 lg:flex-row lg:space-x-12 lg:px-16 lg:mx-10 xl:mx-20 xl:mt-28 max-w-screen-3xl 3xl:px-20 3xl:space-x-20 2xl:mx-auto'>
         <div className='w-full relative z-40'>
           <h3 className='font-h2 pb-6 lg:pb-10'>Vores virksomhed</h3>
           <p className='font-body-l text-justify hyphens-auto'>
@@ -109,11 +108,11 @@ export default function OmOsPage() {
             parkere.
           </p>
         </div>
-        <div className='absolute top-20 -right-10 rotate-12 sm:scale-150 md: md: md:-right-0 md:-rotate-45 lg:w-1/2 lg:-top-40 xl:-top-64 xl:-left-32'>
-          <Doodle1 color='#B3CFF8' />
+        <div className='absolute top-20 -right-10 rotate-12 sm:scale-150 md: md: md:-right-0 md:-rotate-45 lg:w-1/2 lg:-top-40 xl:-top-40 xl:-left-20 2xl:scale-180 2xl:-left-0'>
+          <Doodle1 color='#DBE9FD' />
         </div>
-        <div className='absolute -bottom-28 -left-10 -rotate-12 sm:scale-150 md:-bottom-40 md:-rotate-120 md:left-0 lg:-left-40 lg: xl:-top-64 xl:-left-32 3xl:-left-52'>
-          <Doodle2 color='#B3CFF8' />
+        <div className='absolute -bottom-28 -left-10 -rotate-12 sm:scale-150 md:-bottom-40 md:-rotate-120 md:left-0 lg:-left-40 lg: xl:-left-0 xl:right-52 xl:bottom-52 xl:scale-180 2xl:bottom-96'>
+          <Doodle2 color='#DBE9FD' />
         </div>
       </div>
       <div className='pt-20 px-5 2xl:px-0 md:pt-32 max-w-screen-3xl mx-auto'>

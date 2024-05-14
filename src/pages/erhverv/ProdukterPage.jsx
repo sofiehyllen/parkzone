@@ -38,7 +38,7 @@ export default function ProdukterPage() {
         </div>
         <Tabs tabs={tabs} />
         <div className='mx-5 pb-36 md:mx-10 relative md:pb-0 xl:mx-20 3xl:mx-40'>
-          <div className='md:mr-10 xl:mr-20 3xl:mr-40'>
+          <div className='md:mr-10 xl:mr-20 3xl:mr-40 '>
             <div className='w-full bg-marine-300 py-12 px-10 rounded-2xl overflow-hidden h-fit relative md:py-14 md:px-10 xl:px-20 xl:py-20'>
               <div className='md:w-1/2 relative z-40 pb-28 md:pb-0'>
                 <h2 className='font-h2 pb-6 text-white lg:pr-3'>
@@ -58,13 +58,13 @@ export default function ProdukterPage() {
               </div>
             </div>
           </div>
-          <ImageWrapper className='absolute h-60 top-96 mx-10 sm:h-72 sm:top-80 sm:mx-20 md:mx-0 md:top-11 md:right-0 md:w-2/4 md:h-96 lg:h-80'>
-            <img
-              src={talking}
+          <div className='absolute h-60 top-96 mx-10 sm:h-72 sm:top-80 sm:mx-20 md:mx-0 md:top-11 md:right-0 md:w-2/4 md:h-96 lg:h-80'>
+            <ImageWrapper
+              image={talking}
+              size='lg'
               alt='Snak i parkeringskælder'
-              className='h-full w-full object-cover object-left-top'
             />
-          </ImageWrapper>
+          </div>
         </div>
       </div>
     </PageWrapper>

@@ -9,7 +9,7 @@
 
 @layer base {
   .font-h1 {
-    @apply font-mundial font-normal text-marine-800 capsize leading-11 text-4xl sm:text-5xl md:text-6xl;
+    @apply font-mundial font-normal text-marine-800 capsize  text-4xl sm:text-5xl md:text-6xl md:leading-12;
   }
   .font-h2 {
     @apply font-mundial font-normal text-marine-800 capsize text-3xl sm:text-4xl md:text-5xl;

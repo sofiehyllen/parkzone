@@ -2,7 +2,7 @@ import ContactForm from '../../components/sections/ContactForm';
 import ContactInfo from '../../components/sections/ContactInfo';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 import driver from '../../assets/driver.jpg';
-import Doodle7 from '../../components/svg/Doodle7';
+import ImageWrapper from '../../components/wrappers/ImageWrapper';
 
 export default function KontaktPagePrivat() {
   return (
@@ -12,12 +12,14 @@ export default function KontaktPagePrivat() {
           <div className='row-span-3'>
             <ContactForm variant='privat' />
           </div>
-          <div className='max-w-md rounded-2xl overflow-hidden relative'>
-            <div className='absolute bottom-0 -left-16 w-96 sm:w-[120%] sm:bottom-4'>
-              <Doodle7 color='#7CC9ED' />
-            </div>
-            <img src={driver} alt='' />
-          </div>
+          <ImageWrapper
+            className='max-w-md'
+            color='#7CC9ED'
+            size='md'
+            image={driver}
+            alt='Mand kørende i bil'
+          />
+
           <ContactInfo variant='privat' />
         </div>
       </div>

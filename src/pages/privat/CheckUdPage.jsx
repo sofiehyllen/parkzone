@@ -22,23 +22,23 @@ export default function CheckUdPage() {
             </div>
           </div>
           <div className='px-5 pt-40 sm:pt-10'>
-            <form className='bg-gray-100 w-fill p-5 md:p-7 lg:p-10 rounded-2xl max-w-sm md:max-w-md mx-auto sm:mx-0'>
+            <form className='bg-gray-50 w-fill p-5 md:p-7 lg:p-10 rounded-2xl max-w-sm md:max-w-md mx-auto sm:mx-0'>
               <div className='space-y-3'>
                 <h4 className='font-h4 text-orange-600'>Check ud</h4>
                 <h2 className='font-h2'>Glemt at checke ud?</h2>
               </div>
-              <div className='space-y-6 pt-10 border-b-1 border-gray-300 pb-6 mb-6'>
+              <div className='space-y-6 pt-10 border-b-1 border-gray-200 pb-6 mb-6'>
                 <p className='font-body-md'>
                   Skulle du glemme at betale inden udkørsel, kan du i op til 48
                   timer efter endt parkering checke ud af parkeringen her -
                   selvfølgelig helt uden ekstra gebyrer.
                 </p>
               </div>
-              <div className='border-b-1 border-gray-300 pb-3'>
+              <div className='border-b-1 border-gray-200 pb-3'>
                 <Dropdown
                   label='Parkeringsområde'
                   placeholder='Vælg parkeringsområde'
-                  className='bg-gray-200 text-gray-500'
+                  className='bg-white '
                   dropdownOptions={[
                     'Fields',
                     'Bruuns Galleri',
@@ -55,7 +55,7 @@ export default function CheckUdPage() {
                 <InputField
                   type='text'
                   id='licensePlate'
-                  className='bg-gray-200 text-gray-400'
+                  className='bg-white '
                   label='Søg efter nummerplade'
                   placeholder='F.eks. AB 12 345'
                 />

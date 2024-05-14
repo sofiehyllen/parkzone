@@ -119,12 +119,6 @@ export default function Header() {
                       <div className='pl-2.5 pb-2 flex flex-col space-y-5'>
                         <CustomNavLink
                           onClick={() => setIsNavOpen(false)}
-                          to='/privat/homepage'
-                          variant='secondary'>
-                          Kontrolafgift
-                        </CustomNavLink>
-                        <CustomNavLink
-                          onClick={() => setIsNavOpen(false)}
                           to='/privat/findparkering'
                           variant='secondary'>
                           Find parkering
@@ -196,9 +190,6 @@ export default function Header() {
           </div>
         ) : (
           <div className='flex space-x-10'>
-            <CustomNavLink to='/privat/homepage' variant='secondary'>
-              Kontrolafgift
-            </CustomNavLink>
             <CustomNavLink to='/privat/findparkering' variant='secondary'>
               Find parkering
             </CustomNavLink>

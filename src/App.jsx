@@ -14,36 +14,21 @@ import Footer from './components/sections/Footer';
 import KontaktPagePrivat from './pages/privat/KontaktPage';
 import KontaktPageErhverv from './pages/erhverv/KontaktPage';
 import ScrollToTop from './components/functions/ScrollToTop';
-import useFetch from './hooks/useFetch';
 import BlogPage from './pages/global/BlogPage';
 import ArtikelPage from './pages/global/ArtikelPage';
 
 function App() {
-  let { loading, error, data } = useFetch(
-    'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7'
-  );
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error!</p>;
-  console.log(data);
-
   return (
     <BrowserRouter>
       <ScrollToTop />
       <Header />
       <Routes>
         <Route path='/' element={<HomePagePrivat />} />
-        <Route
-          path='/blog'
-          element={<BlogPage articles={data ? data : ''} />}
-        />
-        <Route
-          path='/blog/:id'
-          element={<ArtikelPage articles={data ? data : ''} />}
-        />
+        <Route path='/blog' element={<BlogPage />} />
+        <Route path='/blog/:id' element={<ArtikelPage />} />
         <Route path='/omos' element={<OmOsPage />} />
         <Route path='/privat' element={<HomePagePrivat />} />
         <Route path='/privat/kontakt' element={<KontaktPagePrivat />} />
-        <Route path='/privat/kontrolafgift' element={<HomePagePrivat />} />
         <Route path='/privat/findparkering' element={<FindParkeringPage />} />
         <Route
           path='/privat/findparkering/:id'

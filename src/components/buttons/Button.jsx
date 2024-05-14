@@ -94,6 +94,11 @@ const Button = (props) => {
       <Link to={to} {...rest}>
         <button onClick={onClick} className={combinedClassName}>
           {children}
+          {icon ? (
+            <div className='ml-2.5'>
+              <BsArrowRight />
+            </div>
+          ) : null}
         </button>
       </Link>
     );
@@ -102,6 +107,11 @@ const Button = (props) => {
       <a href={href} {...rest}>
         <button onClick={onClick} className={combinedClassName}>
           {children}
+          {icon ? (
+            <div className='ml-2.5'>
+              <BsArrowRight />
+            </div>
+          ) : null}
         </button>
       </a>
     );
