@@ -132,6 +132,9 @@ export default {
         225: '2.25',
         250: '2.50',
       },
+      spacing: {
+        18: '72px',
+      },
     },
   },
   plugins: [

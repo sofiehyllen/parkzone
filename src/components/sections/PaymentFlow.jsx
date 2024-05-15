@@ -16,6 +16,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const [previousOptions, setPreviousOptions] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedSubscription, setSelectedSubscription] = useState(null);
+  const currentDate = new Date();
 
   // Fetch arrival date and time from localStorage
   const storedArrivalDateAndTime = localStorage.getItem(
@@ -71,6 +72,11 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const handleOptionSelect = (option) => {
     setPreviousOptions([...previousOptions, selectedOption]);
     setSelectedOption(option);
+  };
+
+  const handlePeriodeSelect = (option) => {
+    setPreviousOptions([...previousOptions, selectedOption]);
+    setSelectedOption(option);
     setSelectedSubscription(null);
   };
 
@@ -87,6 +93,27 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     setSelectedOption('userInfo');
   };
 
+  const subscriptionStart = new Date(currentDate);
+  subscriptionStart.setDate(currentDate.getDate() + 1);
+
+  const subscriptionEnd = new Date(currentDate);
+  subscriptionEnd.setMonth(currentDate.getMonth() + 1);
+
+  const formattedSubscriptionStart = subscriptionStart.toLocaleDateString(
+    'da-DK',
+    {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }
+  );
+
+  const formattedSubscriptionEnd = subscriptionEnd.toLocaleDateString('da-DK', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+  });
+
   // 1. step i betalingsflow - Periodeparkering eller abonnement
   const renderOptionsView = () => (
     <div className='flex flex-col items-center justify-center'>
@@ -99,7 +126,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
             number='01'
             title='Periodeparkering'
             body='Med periodeparkering kan du parkere din bil på en af vores p-pladser indenfor en bestemt tidsperiode. Hvor længe perioden skal vare er helt op til dig. Det kan være tre kvarter, en enkelt dag eller flere uger.'
-            onClick={() => handleOptionSelect('timeperiod')}
+            onClick={() => handlePeriodeSelect('timeperiod')}
           />
           <TypeCard
             number='02'
@@ -267,10 +294,66 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
               <p className='font-h3 text-right pt-2'>{city}</p>
 
               {selectedSubscription ? (
-                <div className='pt-12 space-y-4 pb-7 border-b-1 border-gray-200'>
-                  <div className='flex justify-between'>
-                    <p className='font-body-s'>
-                      {selectedSubscription.category}
+                <div>
+                  <div className='pt-12 pb-7 border-b-1 border-gray-200'>
+                    <div className='flex items-end'>
+                      <p className='font-h5'>Abonnement -</p>
+                      <p className='font-h6 pl-1 uppercase text-marine-500'>
+                        {selectedSubscription.category}
+                      </p>
+                    </div>
+                    <div className='space-y-3 pt-4 '>
+                      <div className='flex items-start w-full'>
+                        <div className='flex items-center'>
+                          <p className='font-body-s pr-1'>1</p>
+                          <p className='font-league text-base font-light capsize pr-2'>
+                            x
+                          </p>
+                        </div>
+                        <div className='w-full'>
+                          <p className='font-body-s pb-3'>
+                            {selectedSubscription.type}
+                          </p>
+                          <div className='flex justify-between items-end'>
+                            <p className='font-body-s'>
+                              {selectedSubscription.vehicle}
+                            </p>
+                            <p className='font-body-md'>
+                              DKK {selectedSubscription.price},00
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className='flex items-start pt-3'>
+                        <div className='flex items-center'>
+                          <p className='font-body-s pr-1'>1</p>
+                          <p className='font-league text-base font-light capsize pr-2'>
+                            x
+                          </p>
+                        </div>
+                        <p className='font-body-s pb-3'>Startgebyr</p>
+                        <p className='font-body-md ml-auto'>DKK 250,00</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div className='space-y-4 py-7 border-b-1 border-gray-200'>
+                    <p className='font-h5 pb-2'>Første periode</p>
+                    <div className='flex justify-between'>
+                      <p className='font-body-s'>Fra</p>
+                      <p className='font-h5'>{formattedSubscriptionStart}</p>
+                    </div>
+                    <div className='flex justify-between'>
+                      <p className='font-body-s'>Til</p>
+                      <p className='font-h5'>{formattedSubscriptionEnd}</p>
+                    </div>
+                  </div>
+                  <div className='pt-7 flex justify-between'>
+                    <div>
+                      <p className='font-h4 text-2xl'>Total</p>
+                      <p className='font-body-md pt-2'>Inkl. moms</p>
+                    </div>
+                    <p className='font-h4 text-2xl'>
+                      DKK {selectedSubscription.price + 250}
                     </p>
                   </div>
                 </div>
@@ -319,20 +402,83 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
         size='lg'
         icon={true}
         className='mt-16 md:ml-auto'
-        onClick={() => handleOptionSelect('userInfo')}>
+        onClick={() => handleOptionSelect('payment')}>
         Til betaling
       </Button>
     </div>
   );
 
+  const renderPaymentView = () => {
+    return (
+      <div className='flex flex-col items-center justify-center'>
+        <ProgressBar currentStep={1} />
+        <div className='w-full relative pb-10'>
+          <div className='absolute bottom-20 sm:top-2 left-0'>
+            <BackButton
+              onClick={handleBack}
+              className='font-h5 text-gray-500'
+            />
+          </div>
+          <p className='font-h3 text-center'>Betaling</p>
+          <p className='font-body-md text-center pt-5'>
+            Indtast dine kortoplysninger
+          </p>
+        </div>
+        <form className='w-1/2 bg-white px-10 py-8 rounded-lg'>
+          <InputField
+            label='Kortnummer'
+            id='cardNumber'
+            placeholder='Kortnummer'
+            type='text'
+          />
+          <div className='flex pb-5'>
+            <div className='flex relative pr-20'>
+              <div className='w-12'>
+                <InputField
+                  label='Udløbsdato'
+                  id='expire'
+                  placeholder='MM'
+                  type='number'
+                />
+              </div>
+              <div className='absolute left-14 bottom-0 w-12'>
+                <InputField
+                  label=' .'
+                  id='expire2'
+                  placeholder='YY'
+                  type='number'
+                />
+              </div>
+            </div>
+            <InputField
+              label='CVV/CVD'
+              id='cvv'
+              placeholder='Kortnummer'
+              type='text'
+            />
+          </div>
+          <div className='w-fit mx-auto'>
+            <Button type='submit' variant='primary' size='md'>
+              Betal{' '}
+              {selectedSubscription
+                ? selectedSubscription.price + 250
+                : parkingPrice}
+            </Button>
+          </div>
+        </form>
+      </div>
+    );
+  };
+
   return (
     <div
       id='paymentFlow'
-      className='bg-marine-50 md:rounded-xl my-28 px-5 py-10 sm:px-10 md:py-16 lg:px-20  relative'>
+      className='bg-marine-50 md:rounded-xl my-28 px-5 py-10 sm:px-10 md:py-16 lg:px-20 relative'>
       {selectedOption === null && renderOptionsView()}
       {selectedOption === 'timeperiod' && renderTimeperiodView()}
       {selectedOption === 'subscription' && renderSubscriptionView()}
       {selectedOption === 'userInfo' && renderUserInfo()}
+      {selectedOption === 'payment' && renderPaymentView()}
     </div>
   );
 };
