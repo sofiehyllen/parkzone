@@ -7,8 +7,10 @@ const ProgressBar = ({ currentStep }) => {
       <ol className='flex items-center w-full font-h6 uppercase text-gray-300'>
         <li
           className={clsx(
-            "flex w-36 relative text-marine-400 after:content-[''] after:w-40 after:h-0.5  after:inline-block after:absolute lg:after:top-8 after:top-3 after:left-9",
-            currentStep === 2 ? 'after:bg-marine-400' : 'after:bg-gray-300'
+            "flex relative text-marine-400 after:content-[''] after:h-0.5 after:inline-block after:absolute after:top-8 after:left-9 w-24 after:w-28 sm:w-36 sm:after:w-40",
+            currentStep === 3 || currentStep === 4
+              ? 'after:bg-marine-400'
+              : 'after:bg-gray-300'
           )}>
           <div className='block z-10 '>
             Produkt
@@ -19,11 +21,11 @@ const ProgressBar = ({ currentStep }) => {
         </li>
         <li
           className={clsx(
-            "flex w-44 relative  after:content-[''] after:w-40 after:h-0.5  after:inline-block after:absolute lg:after:top-8 after:top-3 after:left-16",
-            currentStep === 2
+            "flex relative  after:content-[''] after:h-0.5  after:inline-block after:absolute after:top-8 after:left-16 after:w-28 w-36 sm:w-48 sm:after:w-40",
+            currentStep === 3
               ? 'text-marine-400 after:bg-gray-300'
-              : currentStep === 3
-              ? 'after:bg-marine-400'
+              : currentStep === 4
+              ? 'after:bg-marine-400 text-marine-400'
               : 'after:bg-gray-300'
           )}>
           <div className='block z-10'>
@@ -31,36 +33,16 @@ const ProgressBar = ({ currentStep }) => {
             <span
               className={clsx(
                 'size-4 border-2 rounded-full flex justify-center items-center mx-auto mt-1 bg-marine-50',
-                currentStep === 2 ? 'border-marine-400' : 'border-gray-300'
+                currentStep === 3 || currentStep === 4
+                  ? 'border-marine-400'
+                  : 'border-gray-300'
               )}>
               <div
                 className={clsx(
                   'rounded-full size-2 bg-marine-400',
-                  currentStep === 2 ? 'bg-marine-400' : 'bg-transparent'
-                )}></div>
-            </span>
-          </div>
-        </li>
-        <li
-          className={clsx(
-            "flex w-48 relative  after:content-[''] after:w-40 after:h-0.5  after:inline-block after:absolute lg:after:top-8 after:top-3 after:left-14",
-            currentStep === 3
-              ? 'text-marine-400 after:bg-gray-300'
-              : currentStep === 4
-              ? 'after:bg-marine-400'
-              : 'after:bg-gray-300'
-          )}>
-          <div className='block z-10'>
-            Ordreroversigt
-            <span
-              className={clsx(
-                'size-4 border-2 rounded-full flex justify-center items-center mx-auto mt-1 bg-marine-50',
-                currentStep === 3 ? 'border-marine-400' : 'border-gray-300'
-              )}>
-              <div
-                className={clsx(
-                  'rounded-full size-2 bg-marine-400',
-                  currentStep === 3 ? 'bg-marine-400' : 'bg-transparent'
+                  currentStep === 3 || currentStep === 4
+                    ? 'bg-marine-400'
+                    : 'bg-transparent'
                 )}></div>
             </span>
           </div>
@@ -68,21 +50,19 @@ const ProgressBar = ({ currentStep }) => {
         <li
           className={clsx(
             'flex',
-            currentStep === 3
-              ? 'text-marine-400 after:bg-marine-400'
-              : 'text-gray-300 after:bg-gray-300'
+            currentStep === 4 ? 'text-marine-400 ' : 'text-gray-300 '
           )}>
           <div className='block z-10'>
             Betaling
             <span
               className={clsx(
                 'size-4 border-2 rounded-full flex justify-center items-center mx-auto mt-1 bg-marine-50',
-                currentStep === 3 ? 'border-marine-400' : 'border-gray-300'
+                currentStep === 4 ? 'border-marine-400' : 'border-gray-300'
               )}>
               <div
                 className={clsx(
                   'rounded-full size-2 bg-marine-400',
-                  currentStep === 3 ? 'bg-marine-400' : 'bg-transparent'
+                  currentStep === 4 ? 'bg-marine-400' : 'bg-transparent'
                 )}></div>
             </span>
           </div>

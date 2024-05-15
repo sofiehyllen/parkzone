@@ -14,7 +14,6 @@ const InputField = ({
   const [isValid, setIsValid] = useState(true);
 
   const handleInputChange = (event) => {
-    // Validate input here, for example:
     const inputValue = event.target.value;
     const isValidInput = inputValue.trim().length > 0; // Example validation, change as needed
     setIsValid(isValidInput);
@@ -50,7 +49,7 @@ InputField.propTypes = {
   type: PropTypes.string.isRequired,
   description: PropTypes.string,
   className: PropTypes.string,
-  value: PropTypes.func,
+  value: PropTypes.any,
 };
 
 export default InputField;

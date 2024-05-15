@@ -152,7 +152,7 @@ export default function ParkingPage() {
                     </div>
                   </div>
                 </div>
-                <div className='grid grid-cols-1 mt-16 border-t-1 border-gray-200 h-fit w-[114%] px-5 sm:w-[109%] lg:border-0 lg:mt-0 lg:w-full'>
+                <div className='grid grid-cols-1 mt-16 border-t-1 border-gray-200 h-fit w-[114%] px-5 sm:w-[109%] lg:border-0 lg:mt-0 lg:px-0 lg:w-full'>
                   <div className='flex flex-wrap justify-center gap-x-4 gap-y-2 py-10 px-4 sm:pt-16 lg:gap-x-8 lg:px-0 lg:pt-10'>
                     <div className='flex flex-col items-center px-2 lg:px-0'>
                       <MdOutlineDirectionsCarFilled className='h-12 lg:h-10 w-auto text-marine-800' />

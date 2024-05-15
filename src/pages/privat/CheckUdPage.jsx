@@ -52,13 +52,20 @@ export default function CheckUdPage() {
                   ]}
                   onSelect={handleDropdownSelect}
                 />
-                <InputField
-                  type='text'
-                  id='licensePlate'
-                  className='bg-white '
-                  label='Søg efter nummerplade'
-                  placeholder='F.eks. AB 12 345'
-                />
+                <div className='flex items-center space-x-5'>
+                  <InputField
+                    type='text'
+                    id='licensePlate'
+                    className='bg-white '
+                    label='Søg efter nummerplade'
+                    placeholder='F.eks. AB 12 345'
+                  />
+                  <div>
+                    <Button type='submit' size='sm' variant='secondary'>
+                      Søg
+                    </Button>
+                  </div>
+                </div>
               </div>
               <p className='font-body-s pt-6 pb-3'>
                 Kan din nummerplade ikke findes i systemet?

@@ -54,7 +54,7 @@ export default function ContactForm({ variant }) {
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={(event) => handleSubmit(event)}
       className='bg-white w-fill p-5 md:p-7 lg:p-10 rounded-2xl min-w-80 max-w-md'>
       <div className='space-y-3'>
         <h4 className='font-h4 text-orange-600'>Kontakt os</h4>

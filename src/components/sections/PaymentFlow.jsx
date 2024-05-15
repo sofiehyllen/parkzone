@@ -10,12 +10,16 @@ import RadioButton from '../buttons/RadioButton';
 import pin from '../../assets/pin.svg';
 import BackButton from '../buttons/BackButton';
 import { subscriptions } from '../../staticData';
+import { FaRegHeart } from 'react-icons/fa6';
 
 const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const [selectedOption, setSelectedOption] = useState(null);
   const [previousOptions, setPreviousOptions] = useState([]);
   const [currentStep, setCurrentStep] = useState(1);
   const [selectedSubscription, setSelectedSubscription] = useState(null);
+  const [isChecked, setIsChecked] = useState(false);
+
+  console.log(isChecked);
   const currentDate = new Date();
 
   // Fetch arrival date and time from localStorage
@@ -93,6 +97,10 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
     setSelectedOption('userInfo');
   };
 
+  const handleRadioButtonChange = (event) => {
+    setIsChecked(event.target.checked);
+  };
+
   const subscriptionStart = new Date(currentDate);
   subscriptionStart.setDate(currentDate.getDate() + 1);
 
@@ -142,7 +150,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   // 2. step i betalingsflow - Periodeparkering
   const renderTimeperiodView = () => (
     <div className='flex flex-col items-center justify-center'>
-      <ProgressBar currentStep={1} />
+      <ProgressBar currentStep={2} />
       <div className='w-full relative'>
         <div className='absolute bottom-20 sm:top-2 left-0'>
           <BackButton onClick={handleBack} className='font-h5 text-gray-500' />
@@ -170,7 +178,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   // 2. step i betalingsflow - Abonnement
   const renderSubscriptionView = () => (
     <div className='flex flex-col items-center justify-center'>
-      <ProgressBar currentStep={1} />
+      <ProgressBar currentStep={2} />
       <div className='w-full relative'>
         <div className='absolute bottom-20 sm:top-2 left-0'>
           <BackButton onClick={handleBack} className='font-h5 text-gray-500' />
@@ -199,7 +207,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   // 3. step i betalingsflow - Personlige oplysninger
   const renderUserInfo = () => (
     <div className='flex flex-col items-center justify-center'>
-      <ProgressBar currentStep={2} />
+      <ProgressBar currentStep={3} />
       <div className='w-full relative'>
         <div className='absolute bottom-36 sm:top-2 left-0'>
           <BackButton onClick={handleBack} className='font-h5 text-gray-500' />
@@ -212,7 +220,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
       <div className='flex flex-col space-y-14 w-full sm:px-20 md:flex-row md:px-0 md:space-y-0 md:space-x-5 '>
         <div className='w-full lg:w-7/12'>
           <p className='font-h4 pb-4'>Dine oplysninger</p>
-          <div className='bg-white rounded-xl p-7 pb-10 lg:p-10'>
+          <form className='bg-white rounded-xl p-7 pb-10 lg:p-10'>
             <div className='border-b-1 border-gray-200 pb-4 mb-6'>
               <div className='flex space-x-3'>
                 <InputField
@@ -274,8 +282,10 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
               type='checkbox'
               label='Jeg accepterer ParkZones persondatapolitik. Du kan læse om hvordan vi behandler dine personoplysninger'
               style='small'
+              checked={isChecked}
+              onChange={handleRadioButtonChange}
             />
-          </div>
+          </form>
         </div>
         <div className='md:w-11/12 lg:w-5/12 lg:px-3.5'>
           <p className='font-h4 pb-4'>Ordreroversigt</p>
@@ -353,7 +363,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                       <p className='font-body-md pt-2'>Inkl. moms</p>
                     </div>
                     <p className='font-h4 text-2xl'>
-                      DKK {selectedSubscription.price + 250}
+                      DKK {selectedSubscription.price + 250},00
                     </p>
                   </div>
                 </div>
@@ -401,8 +411,8 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
         variant='primary'
         size='lg'
         icon={true}
-        className='mt-16 md:ml-auto'
-        onClick={() => handleOptionSelect('payment')}>
+        onClick={() => handleOptionSelect('payment')}
+        className='mt-16 md:ml-auto'>
         Til betaling
       </Button>
     </div>
@@ -411,8 +421,8 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const renderPaymentView = () => {
     return (
       <div className='flex flex-col items-center justify-center'>
-        <ProgressBar currentStep={1} />
-        <div className='w-full relative pb-10'>
+        <ProgressBar currentStep={4} />
+        <div className='w-full relative pb-20'>
           <div className='absolute bottom-20 sm:top-2 left-0'>
             <BackButton
               onClick={handleBack}
@@ -424,7 +434,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
             Indtast dine kortoplysninger
           </p>
         </div>
-        <form className='w-1/2 bg-white px-10 py-8 rounded-lg'>
+        <form className='w-1/2 bg-white px-10 py-8 rounded-lg mb-10'>
           <InputField
             label='Kortnummer'
             id='cardNumber'
@@ -433,7 +443,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
           />
           <div className='flex pb-5'>
             <div className='flex relative pr-20'>
-              <div className='w-12'>
+              <div className='w-14'>
                 <InputField
                   label='Udløbsdato'
                   id='expire'
@@ -441,9 +451,9 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
                   type='number'
                 />
               </div>
-              <div className='absolute left-14 bottom-0 w-12'>
+              <div className='absolute left-16 bottom-0 w-14'>
                 <InputField
-                  label=' .'
+                  label=''
                   id='expire2'
                   placeholder='YY'
                   type='number'
@@ -458,14 +468,42 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
             />
           </div>
           <div className='w-fit mx-auto'>
-            <Button type='submit' variant='primary' size='md'>
+            <Button
+              type='submit'
+              variant='primary'
+              size='md'
+              onClick={() => handleOptionSelect('thankYou')}>
               Betal{' '}
               {selectedSubscription
                 ? selectedSubscription.price + 250
-                : parkingPrice}
+                : parkingPrice}{' '}
+              kr.
             </Button>
           </div>
         </form>
+      </div>
+    );
+  };
+
+  const renderThankYouView = () => {
+    return (
+      <div className='flex flex-col items-center justify-center w-7/12 mx-auto py-20'>
+        <div className='py-16 px-16 bg-white rounded-2xl'>
+          <p className='font-h1 text-center pb-10'>Tak for din booking!</p>
+          <p className='font-body-l text-center pb-10'>
+            Din booking er registreret og du vil inden for kort tid modtage en
+            kvittering på din mail.
+          </p>
+          <div className='bg-sky-100 size-12 rounded-full flex justify-center items-center mx-auto'>
+            <FaRegHeart className='text-marine-400 size-5' />
+          </div>
+          <p className='font-body-xs text-center pt-20'>
+            Skal du parkere andre steder? Gå tilbage til{' '}
+            <Button size='sm' variant='link' to='/privat/findparkering'>
+              Find parkering
+            </Button>
+          </p>
+        </div>
       </div>
     );
   };
@@ -479,6 +517,7 @@ const PaymentFlow = ({ map, address, city, hourPrice }) => {
       {selectedOption === 'subscription' && renderSubscriptionView()}
       {selectedOption === 'userInfo' && renderUserInfo()}
       {selectedOption === 'payment' && renderPaymentView()}
+      {selectedOption === 'thankYou' && renderThankYouView()}
     </div>
   );
 };
