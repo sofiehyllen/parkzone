@@ -9,9 +9,11 @@ import { BiHandicap } from 'react-icons/bi';
 import { TbElevator } from 'react-icons/tb';
 import Button from '../../components/buttons/Button';
 import PaymentFlow from '../../components/sections/PaymentFlow';
+import Alert from '../../components/atoms/Alert';
 
 export default function ParkingPage() {
   const [data, setData] = useState(null);
+  const [alertVisible, setAlertVisible] = useState(false);
 
   const params = useParams();
 
@@ -24,17 +26,37 @@ export default function ParkingPage() {
       setData(data);
     }
     getData();
+
+    getData();
+
+    const timeoutId = setTimeout(() => {
+      setAlertVisible(true);
+    }, 5000);
+
+    return () => clearTimeout(timeoutId);
   }, [url]);
+
+  function handleCloseAlert() {
+    setAlertVisible(false);
+  }
+
+  const scrollToPaymentFlow = () => {
+    const paymentFlowSection = document.getElementById('paymentFlow');
+    if (paymentFlowSection) {
+      paymentFlowSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    setAlertVisible(false);
+  };
 
   return (
     <PageWrapper breadcrumb={true}>
       {data && (
         <>
-          <div className='px-5 md:px-10 max-w-screen-3xl mx-auto'>
-            <div className='bg-marine-200 rounded-xl px-5 md:px-10 pb-5 pt-20 relative overflow-hidden xl:pt-28'>
+          <div className=' md:px-10 max-w-screen-3xl mx-auto'>
+            <div className=' bg-marine-200 sm:px-5 sm:rounded-xl px-5 md:px-10 pb-5 pt-20 relative overflow-hidden xl:pt-28'>
               <div className='relative z-50'>
                 <p className='font-h4 text-marine-500 pb-2'>Parkering ved</p>
-                <h1 className='font-h1 leading-8 pb-1'>
+                <h1 className='font-h1 leading-8 pb-1 pr-10'>
                   {data.fields.address.stringValue}
                 </h1>
                 <h2 className='font-h3'>{data.fields.city.stringValue}</h2>
@@ -79,9 +101,9 @@ export default function ParkingPage() {
                 </div>
               </div>
             </div>
-            <div className='mx-auto max-w-screen-xl sm:px-10 lg:pb-20 xl:px-28'>
-              <div className='grid grid-cols-1 lg:grid-cols-3 gap-x-10 2xl:gap-x-12'>
-                <div className='grid grid-cols-1 col-span-2'>
+            <div className='mx-auto max-w-screen-xl lg:pb-20 xl:px-28'>
+              <div className='grid grid-cols-1 lg:grid-cols-3 gap-x-10  sm:px-10 2xl:gap-x-12'>
+                <div className='grid grid-cols-1 col-span-2 px-5'>
                   <div>
                     <h5 className='font-h4 pb-4'>Om området</h5>
                     <div className='space-y-7'>
@@ -93,17 +115,23 @@ export default function ParkingPage() {
                       </p>
                     </div>
                   </div>
-                  <div className='px-7 py-10 bg-marine-100 rounded-xl my-14 relative overflow-hidden'>
-                    <div className='relative z-50 flex flex-col items-center'>
-                      <h6 className='font-h3 text-center pb-4'>
-                        Skal du parkere her?
-                      </h6>
-                      <p className='font-body-md text-center'>
-                        Book din parkering i forvejen så du undgår at bruge tid
-                        på billetkøb og parkeringsregler når du er fremme.
-                      </p>
-                      <Button variant={'primary'} size={'lg'} className='mt-8'>
-                        Book her
+                  <div className='px-7 py-10 bg-marine-100 rounded-xl my-14 relative overflow-hidden md:px-10'>
+                    <div className='w-full relative z-50 flex flex-col items-center md:flex-row md:justify-center'>
+                      <div className='md:pr-10'>
+                        <h6 className='font-h4 text-center pb-4 md:text-left'>
+                          Har du spørgsmål til dette område?
+                        </h6>
+                        <p className='font-body-md text-center md:text-left'>
+                          Vores team sidder klar til at hjælpe dig, hvis du har
+                          spørgsmål omkring vores forskellige områder.
+                        </p>
+                      </div>
+                      <Button
+                        variant={'tertiary'}
+                        size={'md'}
+                        className='mt-8 md:mt-0 w-full'
+                        to='/privat/kontakt'>
+                        Kontakt os
                       </Button>
                     </div>
                     <div className='absolute -rotate-45 left-0 top-0 scale-125  xl:scale-125 2xl:scale-150 3xl:left-20'>
@@ -124,7 +152,7 @@ export default function ParkingPage() {
                     </div>
                   </div>
                 </div>
-                <div className='grid grid-cols-1 mt-16 border-t-1 border-gray-200 h-fit w-[114%] sm:w-[109%] lg:border-0 lg:mt-0 lg:w-full'>
+                <div className='grid grid-cols-1 mt-16 border-t-1 border-gray-200 h-fit w-[114%] px-5 sm:w-[109%] lg:border-0 lg:mt-0 lg:w-full'>
                   <div className='flex flex-wrap justify-center gap-x-4 gap-y-2 py-10 px-4 sm:pt-16 lg:gap-x-8 lg:px-0 lg:pt-10'>
                     <div className='flex flex-col items-center px-2 lg:px-0'>
                       <MdOutlineDirectionsCarFilled className='h-12 lg:h-10 w-auto text-marine-800' />
@@ -191,6 +219,17 @@ export default function ParkingPage() {
               />
             </div>
           </div>
+          <Alert
+            type='default'
+            title='Skal du parkere her?'
+            text='Book din parkering på forhånd og spar tid på billetkøb og
+                parkeringsregler når du er fremme.'
+            onClose={handleCloseAlert}
+            isVisible={alertVisible}>
+            <Button size='sm' variant='primary' onClick={scrollToPaymentFlow}>
+              Book
+            </Button>
+          </Alert>
         </>
       )}
     </PageWrapper>

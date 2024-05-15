@@ -4,22 +4,36 @@ import Alert from './Alert';
 
 export default function Newsletter() {
   const [email, setEmail] = useState('');
-  const [isEmailValid, setIsEmailValid] = useState(true);
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [alertType, setAlertType] = useState('');
+  const [alertTitle, setAlertTitle] = useState('');
+  const [alertText, setAlertText] = useState('');
 
   function handleInput(event) {
     setEmail(event.target.value);
-    setIsEmailValid(true); // Reset email validation on input change
   }
 
   function handleSubmit(event) {
     event.preventDefault();
 
     if (email === '' || !/\S+@\S+\.\S+/.test(email)) {
-      setIsEmailValid(false);
+      setAlertVisible(true);
+      setAlertType('error');
+      setAlertTitle('Ugyldig email');
+      setAlertText('Indtast venligt en gyldig email');
+      setTimeout(() => setAlertVisible(false), 3000);
     } else {
-      setIsEmailValid(true);
       setEmail('');
+      setAlertVisible(true);
+      setAlertType('success');
+      setAlertTitle('Tak for din tilmelding');
+      setAlertText('Du er nu tilmeldt vores nyhedsbrev');
+      setTimeout(() => setAlertVisible(false), 3000);
     }
+  }
+
+  function handleCloseAlert() {
+    setAlertVisible(false);
   }
 
   return (
@@ -40,12 +54,14 @@ export default function Newsletter() {
             className='absolute right-1 top-1'>
             Tilmeld
           </Button>
+          <Alert
+            isVisible={alertVisible}
+            type={alertType}
+            title={alertTitle}
+            text={alertText}
+            onClose={handleCloseAlert}
+          />
         </form>
-        {!isEmailValid ? (
-          <Alert type='error' message='Please enter a valid email address' />
-        ) : (
-          <Alert type='success' message='Thank you for subscribing!' />
-        )}
       </div>
     </>
   );

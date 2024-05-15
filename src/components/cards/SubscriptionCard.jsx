@@ -15,7 +15,7 @@ function SubscriptionCard({
   return (
     <div
       className={clsx(
-        'w-full h-fit flex flex-col px-7 py-8 rounded-xl',
+        'w-full h-fit flex flex-col px-7 py-8 md:py-6 md:px-4 lg:px-7 lg:py-8 rounded-xl',
         category === 'premium' ? 'bg-marine-100' : 'bg-white'
       )}>
       <div className='flex justify-end'>

@@ -16,6 +16,7 @@ import KontaktPageErhverv from './pages/erhverv/KontaktPage';
 import ScrollToTop from './components/functions/ScrollToTop';
 import BlogPage from './pages/global/BlogPage';
 import ArtikelPage from './pages/global/ArtikelPage';
+import PaymentFlow from './components/sections/PaymentFlow';
 
 function App() {
   return (
@@ -33,6 +34,10 @@ function App() {
         <Route
           path='/privat/findparkering/:id'
           element={<ParkeringsområdePage />}
+        />
+        <Route
+          path='/privat/findparkering/:id/paymentFlow'
+          element={<PaymentFlow />}
         />
         <Route path='/privat/checkud' element={<CheckUdPage />} />
         <Route path='/privat/FAQ' element={<FAQPage />} />

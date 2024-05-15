@@ -5,12 +5,22 @@ import PropTypes from 'prop-types';
 import RadioButton from '../buttons/RadioButton';
 import { FiPlus } from 'react-icons/fi';
 import Button from '../buttons/Button';
+import Alert from '../atoms/Alert';
 
 export default function ContactForm({ variant }) {
-  const [selectedRadioOption, setSelectedRadioOption] = useState(null);
+  const [selectedRadioOption, setSelectedRadioOption] = useState('abonnement');
+  const [alertVisible, setAlertVisible] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+  const [alertType, setAlertType] = useState('');
+  const [alertTitle, setAlertTitle] = useState('');
+  const [alertText, setAlertText] = useState('');
 
   const handleOptionChange = (event) => {
     setSelectedRadioOption(event.target.value);
+  };
+
+  const handleRadioButtonChange = (event) => {
+    setIsChecked(event.target.checked);
   };
 
   const [, setSelectedDropdownOption] = useState(null);
@@ -18,8 +28,34 @@ export default function ContactForm({ variant }) {
     setSelectedDropdownOption(option);
   };
 
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (!isChecked) {
+      setAlertVisible(true);
+      setAlertType('error');
+      setAlertTitle('Manglende accept af persondatapolitik');
+      setAlertText(
+        'Venligst acceptér vilkårene og betingelserne for at fortsætte.'
+      );
+      setTimeout(() => setAlertVisible(false), 5000);
+    } else {
+      setAlertVisible(true);
+      setAlertType('success');
+      setAlertTitle('Tak for at kontakte os!');
+      setAlertText('Din kontaktformular er afsendt og du hører fra os snarest');
+      setTimeout(() => setAlertVisible(false), 5000);
+    }
+  }
+
+  function handleCloseAlert() {
+    setAlertVisible(false);
+  }
+
   return (
-    <form className='bg-white w-fill p-5 md:p-7 lg:p-10 rounded-2xl min-w-80 max-w-md'>
+    <form
+      onSubmit={handleSubmit}
+      className='bg-white w-fill p-5 md:p-7 lg:p-10 rounded-2xl min-w-80 max-w-md'>
       <div className='space-y-3'>
         <h4 className='font-h4 text-orange-600'>Kontakt os</h4>
         <h2 className='font-h2'>Hvordan kan vi hjælpe dig?</h2>
@@ -38,16 +74,16 @@ export default function ContactForm({ variant }) {
           <div className='space-x-5'>
             <RadioButton
               type='radio'
-              value='kontrolafgift'
-              label='Kontrolafgift'
-              checked={selectedRadioOption === 'kontrolafgift'}
+              value='abonnement'
+              label='Abonnement'
+              checked={selectedRadioOption === 'abonnement'}
               onChange={handleOptionChange}
             />
             <RadioButton
               type='radio'
-              value='abonnement'
-              label='Abonnement'
-              checked={selectedRadioOption === 'abonnement'}
+              value='kontrolafgift'
+              label='Kontrolafgift'
+              checked={selectedRadioOption === 'kontrolafgift'}
               onChange={handleOptionChange}
             />
           </div>
@@ -187,6 +223,7 @@ export default function ContactForm({ variant }) {
       <div className='pb-4 border-b-1 border-gray-300'>
         <h6 className='font-h6 pb-1.5'>Besked</h6>
         <textarea
+          {...(variant === 'privat' ? { required: true } : {})}
           name='message'
           id='message'
           placeholder='Har du nogle bemærkninger kan de skrives her'
@@ -199,12 +236,21 @@ export default function ContactForm({ variant }) {
             type='checkbox'
             label='Jeg accepterer ParkZones persondatapolitik. Du kan læse om hvordan vi behandler dine personoplysninger'
             style='small'
+            checked={isChecked}
+            onChange={handleRadioButtonChange}
           />
         </div>
         <Button type='submit' size='md' variant='primary'>
           Send
         </Button>
       </div>
+      <Alert
+        isVisible={alertVisible}
+        type={alertType}
+        title={alertTitle}
+        text={alertText}
+        onClose={handleCloseAlert}
+      />
     </form>
   );
 }

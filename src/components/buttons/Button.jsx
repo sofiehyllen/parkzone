@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 
 const button = tv({
-  base: 'rounded-full font-league text-base capsize w-fit ',
+  base: 'rounded-full font-league text-base capsize w-fit text-nowrap',
   variants: {
     variant: {
       primary: 'bg-marine-800 transition ease-in-out hover:text-gray-400',

@@ -9,7 +9,7 @@ import Check from '../../components/atoms/Check';
 export default function HomePageErhverv() {
   return (
     <PageWrapper breadcrumb={false}>
-      <div className='bg-marine-50 relative overflow-hidden pb-10 sm:pb-16 md:flex lg:py-24 xl:py-32 3xl:py-44 4xl:py-60'>
+      <div className=' relative overflow-hidden pb-10 sm:pb-16 md:flex lg:py-24 xl:py-32 3xl:py-44 4xl:py-60'>
         <div className='md:pr-20 xl:w-11/12 xl:pl-20   4xl:w-10/12  md:place-self-center'>
           <Hero
             color='lightBlue'

@@ -24,7 +24,7 @@ export default function HomePagePrivat() {
   return (
     <PageWrapper breadcrumb={false}>
       <div className='pt-5 pb-24  md:flex md:items-center xl:pt-10 xl:pb-40 '>
-        <div className='w-full px-5 flex flex-col items-center md:items-start md:px-0 md:min-w-96 md:max-w-96 md:ml-20 lg:ml-32 xl:max-w-screen-sm xl:w-10/12 2xl:w-8/12 3xl:w-6/12 3xl:ml-48'>
+        <div className='w-full px-5 flex flex-col items-center md:items-start md:px-0 md:min-w-96 md:max-w-96 md:ml-20 lg:ml-32 xl:max-w-screen-sm xl:w-10/12 xl:pb-20 2xl:w-8/12 2xl:pb-32 3xl:w-6/12 3xl:ml-48'>
           <h1 className='font-h1 text-center pb-8 md:text-left md:font-h2 lg:font-h1 lg:pb-12'>
             Spar tid og besvær med ParkZone Go
           </h1>

@@ -41,7 +41,14 @@ const Category = ({ color, className, children }) => {
 };
 
 Category.propTypes = {
-  color: PropTypes.oneOf(['orange', 'green', 'red', 'darkBlue', 'lightBlue']),
+  color: PropTypes.oneOf([
+    'orange',
+    'green',
+    'red',
+    'darkBlue',
+    'lightBlue',
+    'skyBlue',
+  ]),
   className: PropTypes.string,
   children: PropTypes.node,
   ping: PropTypes.bool,

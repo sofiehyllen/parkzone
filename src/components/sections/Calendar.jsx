@@ -175,11 +175,13 @@ const Calendar = ({ type, id }) => {
   return (
     <>
       <div>
-        {type === 'arrival' ? (
-          <p className='font-h5 text-gray-800 pb-5'>Vælg ankomst</p>
-        ) : type === 'departure' ? (
-          <p className='font-h5 text-gray-800 pb-5'>Vælg afgang</p>
-        ) : null}
+        <p className='font-h4 md:font-h5 text-gray-800 pb-5 text-center sm:text-left'>
+          {type === 'arrival'
+            ? 'Vælg ankomst'
+            : type === 'departure'
+            ? 'Vælg afgang'
+            : null}
+        </p>
         <div className='max-w-fit bg-white p-4 rounded-xl shadow-md'>
           <div className='flex justify-between items-center py-2 pb-4'>
             <button

@@ -84,7 +84,7 @@ export default {
           800: '#8B330D',
           900: '#58200E',
         },
-        succes: '#80AF35',
+        success: '#80AF35',
         error: '#EF4444',
       },
       borderWidth: {
