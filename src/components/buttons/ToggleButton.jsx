@@ -37,7 +37,7 @@ export default function ToggleButton({ isChecked, handleToggle }) {
         <span
           className={clsx(
             'z-30 pt-1.5 pb-2 md:pt-1 md:pb-1.5 rounded-full w-20 md:w-16 font-mundial capsize text-base md:text-xs text-center transform transition-colors duration-300',
-            isChecked ? ' text-marine-800' : 'text-sky-200'
+            isChecked ? ' text-marine-800' : 'text-sky-100'
           )}>
           Erhverv
         </span>

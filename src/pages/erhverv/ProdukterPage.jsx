@@ -1,7 +1,6 @@
 import Tabs from '../../components/sections/Tabs';
 import PageWrapper from '../../components/wrappers/PageWrapper';
 import talking from '../../assets/talking.jpg';
-import ImageWrapper from '../../components/wrappers/ImageWrapper';
 import Doodle1 from '../../components/svg/Doodle1';
 import Doodle6 from '../../components/svg/Doodle6';
 import { tabs } from '../../staticData';
@@ -37,14 +36,14 @@ export default function ProdukterPage() {
           </div>
         </div>
         <Tabs tabs={tabs} />
-        <div className='mx-5 pb-36 md:mx-10 relative md:pb-0 xl:mx-20 3xl:mx-40'>
-          <div className='md:mr-10 xl:mr-20 3xl:mr-40 '>
+        <div className='mx-5 pb-16 md:mx-10 relative md:pb-0 lg:mb-16 xl:mx-20 3xl:mx-40'>
+          <div className='sm:px-10 md:px-0 md:mr-10 xl:mr-20 3xl:mr-40 '>
             <div className='w-full bg-marine-300 py-12 px-10 rounded-2xl overflow-hidden h-fit relative md:py-14 md:px-10 xl:px-20 xl:py-20'>
-              <div className='md:w-1/2 relative z-40 pb-28 md:pb-0'>
+              <div className='md:w-1/2 relative z-40 md:pb-0'>
                 <h2 className='font-h2 pb-6 text-white lg:pr-3'>
                   Klar til at modtage et uforpligtende tilbud?
                 </h2>
-                <p className='font-h5  pb-8 text-white pr-12 md:font-h4 md:text-white md:pr-5 lg:pr-10'>
+                <p className='font-h5  pb-8 text-white pr-12  md:pr-5 lg:pr-10'>
                   Hvis du vil vide, hvordan vi kan hjælpe dig med at designe dit
                   parkeringsområde, så kontakt os i dag og få et uforpligtende
                   tilbud på en løsning til dig.
@@ -53,16 +52,16 @@ export default function ProdukterPage() {
                   Kontakt os
                 </Button>
               </div>
-              <div className='absolute top-64 -right-10 h-72 rotate-12 md:w-96 md:h-96 md:top-52 md:-left-28 md:-right-0 md:-rotate-45 xl:top-32 xl:-left-24'>
+              <div className='absolute top-40 -right-10 h-72 rotate-12 md:w-96 md:h-96 md:top-52 md:-left-28 md:-right-0 md:-rotate-45 xl:top-32 xl:-left-24'>
                 <Doodle1 color='#B3CFF8' />
               </div>
             </div>
           </div>
-          <div className='absolute h-60 top-96 mx-10 sm:h-72 sm:top-80 sm:mx-20 md:mx-0 md:top-11 md:right-0 md:w-2/4 md:h-96 lg:h-80'>
-            <ImageWrapper
-              image={talking}
-              size='lg'
+          <div className='hidden md:block absolute right-0 top-14 w-1/2 h-96 lg:h-full '>
+            <img
+              src={talking}
               alt='Snak i parkeringskælder'
+              className='h-full w-full object-cover object-center rounded-2xl '
             />
           </div>
         </div>

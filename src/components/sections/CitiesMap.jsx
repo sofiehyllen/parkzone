@@ -47,6 +47,7 @@ export default function CitiesMap() {
   const handleFilterChange = useCallback((range) => {
     setFilterRange(range);
   }, []);
+  console.log(filterRange);
 
   const filteredCities = useMemo(() => {
     if (filterRange.length === 0) return uniqueCities;
@@ -60,7 +61,10 @@ export default function CitiesMap() {
       {/*Parkerings-finder for mobil */}
       <div className=' bg-sky-100 px-7 py-10 w-full rounded-xl flex flex-col items-center sm:w-96 md:hidden'>
         <div className='pb-3 sm:pb-5 '>
-          <Filter onFilterChange={handleFilterChange} />
+          <Filter
+            onFilterChange={handleFilterChange}
+            activeRange={filterRange}
+          />
         </div>
         <div className='space-y-6 w-full px-5 pt-5 md:hidden'>
           {selectedCity && ( // Render back button if a city is selected
@@ -104,18 +108,21 @@ export default function CitiesMap() {
       <div className='hidden md:flex rounded-xl overflow-hidden w-full shadow-sm max-w-screen-lg mx-auto'>
         <div className=' bg-sky-100 px-6 py-8 w-2/5 min-w-36 flex flex-col lg:w-2/6 lg:px-4 xl:px-8 xl:py-10'>
           <div className='pb-6 place-self-center xl:pb-8'>
-            <Filter onFilterChange={handleFilterChange} />
+            <Filter
+              onFilterChange={handleFilterChange}
+              activeRange={filterRange}
+            />
           </div>
-          <div className='space-y-5 px-2'>
+          <div className='space-y-6 px-2 xl:px-4'>
             {filteredCities &&
               filteredCities.map((city) => (
                 <div
                   key={city}
                   onClick={() => setSelectedCity(city)}
                   className={clsx(
-                    'flex flex-row items-center w-full border-b-1 border-marine-200 font-body-s hover:bg-marine-100 cursor-pointer xl:font-body-md'
+                    'flex flex-row items-center w-full border-b-1 border-marine-200 cursor-pointer hover:scale-105 transition-transform ease-in-out duration-300'
                   )}>
-                  <h4 className='pr-2'>{city}</h4>
+                  <h4 className='pr-2 font-body-md pb-1.5 '>{city}</h4>
                   <FaArrowRightLong className='ml-auto text-xs text-marine-300' />
                 </div>
               ))}

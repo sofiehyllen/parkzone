@@ -5,8 +5,8 @@ import { FAQ1, FAQ2 } from '../../staticData';
 
 export default function FAQPage() {
   return (
-    <PageWrapper breadcrumb={true}>
-      <div className='w-full bg-sky-300 relative overflow-hidden'>
+    <PageWrapper breadcrumb={true} >
+      <div className='w-full bg-sky-300 relative overflow-hidden mt-10'>
         <h1 className='font-h1 text-white text-center py-20 px-10 relative z-50 lg:py-28'>
           Hvordan kan vi hjælpe dig?
         </h1>
@@ -14,7 +14,7 @@ export default function FAQPage() {
           <Doodle7 color='#4FBAE8' />
         </div>
       </div>
-      <div className='bg-sky-50 px-5 py-10 w-full sm:px-16 md:px-24 lg:flex lg:px-20 lg:space-x-5 xl:px-32 2xl:px-40 3xl:px-72'>
+      <div className='bg-sky-50 px-5 py-10 w-full mb-10 sm:px-16 md:px-24 lg:mb-16 lg:flex lg:px-20 lg:space-x-5 xl:px-32 2xl:px-40 3xl:px-72 3xl:mb-24'>
         <div className='grid grid-cols-1 h-min w-full'>
           {FAQ1.map((FAQ1, index) => (
             <div key={index} className='w-full flex justify-center'>

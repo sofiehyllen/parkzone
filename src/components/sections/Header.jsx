@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <section className='p-5 md:p-10'>
       {/* Overordnet container med header-indhold, inkl. logo og navigation */}
-      <div className='flex items-center justify-between border-b border-gray-300 pb-2 md:pb-3'>
+      <div className='flex items-center justify-between border-b border-gray-200 pb-2 md:pb-3'>
         <div className='order-last md:order-first'>
           {isChecked ? (
             <NavLink to='/erhverv'>

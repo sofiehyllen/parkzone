@@ -25,6 +25,7 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<HomePagePrivat />} />
+        <Route path='*' element={<HomePagePrivat />} />
         <Route path='/blog' element={<BlogPage />} />
         <Route path='/blog/:id' element={<ArtikelPage />} />
         <Route path='/omos' element={<OmOsPage />} />

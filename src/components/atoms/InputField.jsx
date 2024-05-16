@@ -1,6 +1,6 @@
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import { useState } from 'react';
+import clsx from "clsx";
+import PropTypes from "prop-types";
+import { useState } from "react";
 
 const InputField = ({
   label,
@@ -20,20 +20,20 @@ const InputField = ({
   };
 
   return (
-    <div className='flex flex-col pb-4 w-full'>
-      <label htmlFor={id} className='appearance-none font-h6 pb-1.5'>
+    <div className="flex w-full flex-col pb-4">
+      <label htmlFor={id} className="font-h6 appearance-none pb-1.5">
         {label}
       </label>
-      {description && <p className='font-body-xs pb-1.5'>{description}</p>}
+      {description && <p className="font-body-xs pb-1.5">{description}</p>}
       <input
         value={value}
         type={type}
         id={id}
         placeholder={placeholder}
         className={clsx(
-          'appearance-none font-body-xs text-xs p-3 w-full border-none rounded-sm  placeholder:translate-y-0.5 text-gray-400 bg-gray-100 outline-none focus:outline-sky-200 focus:outline-2 focus:-outline-offset-2',
+          "font-body-s w-full appearance-none rounded-sm border-none bg-gray-100 p-2 px-3 text-gray-800  outline-none placeholder:translate-y-0.5 placeholder:font-light placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:-outline-offset-2 focus:outline-sky-200",
           className,
-          !isValid && 'outline-error outline-2 -outline-offset-2'
+          !isValid && "outline-2 -outline-offset-2 outline-error",
         )}
         onChange={handleInputChange}
         required

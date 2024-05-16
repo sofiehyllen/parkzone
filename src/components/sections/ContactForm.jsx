@@ -1,19 +1,19 @@
-import { useState } from 'react';
-import InputField from '../atoms/InputField';
-import Dropdown from '../atoms/Dropdown';
-import PropTypes from 'prop-types';
-import RadioButton from '../buttons/RadioButton';
-import { FiPlus } from 'react-icons/fi';
-import Button from '../buttons/Button';
-import Alert from '../atoms/Alert';
+import { useState } from "react";
+import InputField from "../atoms/InputField";
+import Dropdown from "../atoms/Dropdown";
+import PropTypes from "prop-types";
+import RadioButton from "../buttons/RadioButton";
+import { FiPlus } from "react-icons/fi";
+import Button from "../buttons/Button";
+import Alert from "../atoms/Alert";
 
 export default function ContactForm({ variant }) {
-  const [selectedRadioOption, setSelectedRadioOption] = useState('abonnement');
+  const [selectedRadioOption, setSelectedRadioOption] = useState("abonnement");
   const [alertVisible, setAlertVisible] = useState(false);
   const [isChecked, setIsChecked] = useState(false);
-  const [alertType, setAlertType] = useState('');
-  const [alertTitle, setAlertTitle] = useState('');
-  const [alertText, setAlertText] = useState('');
+  const [alertType, setAlertType] = useState("");
+  const [alertTitle, setAlertTitle] = useState("");
+  const [alertText, setAlertText] = useState("");
 
   const handleOptionChange = (event) => {
     setSelectedRadioOption(event.target.value);
@@ -33,17 +33,17 @@ export default function ContactForm({ variant }) {
 
     if (!isChecked) {
       setAlertVisible(true);
-      setAlertType('error');
-      setAlertTitle('Manglende accept af persondatapolitik');
+      setAlertType("error");
+      setAlertTitle("Manglende accept af persondatapolitik");
       setAlertText(
-        'Venligst acceptér vilkårene og betingelserne for at fortsætte.'
+        "Venligst acceptér vilkårene og betingelserne for at fortsætte.",
       );
-      setTimeout(() => setAlertVisible(false), 5000);
+      setTimeout(() => setAlertVisible(false), 3000);
     } else {
       setAlertVisible(true);
-      setAlertType('success');
-      setAlertTitle('Tak for at kontakte os!');
-      setAlertText('Din kontaktformular er afsendt og du hører fra os snarest');
+      setAlertType("success");
+      setAlertTitle("Tak for at kontakte os!");
+      setAlertText("Din kontaktformular er afsendt og du hører fra os snarest");
       setTimeout(() => setAlertVisible(false), 5000);
     }
   }
@@ -55,192 +55,194 @@ export default function ContactForm({ variant }) {
   return (
     <form
       onSubmit={(event) => handleSubmit(event)}
-      className='bg-white w-fill p-5 md:p-7 lg:p-10 rounded-2xl min-w-80 max-w-md'>
-      <div className='space-y-3'>
-        <h4 className='font-h4 text-orange-600'>Kontakt os</h4>
-        <h2 className='font-h2'>Hvordan kan vi hjælpe dig?</h2>
+      className="w-fill min-w-80 max-w-md rounded-2xl bg-white p-5 md:p-7 lg:p-10"
+    >
+      <div className="space-y-3">
+        <h4 className="font-h4 text-orange-600">Kontakt os</h4>
+        <h2 className="font-h2">Hvordan kan vi hjælpe dig?</h2>
       </div>
-      <div className='space-y-6 pt-10 border-b-1 border-gray-300 pb-6'>
-        <p className='font-body-md'>
+      <div className="space-y-6 border-b-1 border-gray-300 pb-6 pt-10">
+        <p className="font-body-md">
           Uanset hvad du mangler svar på, sidder vores team af dygtige
           medarbejdere klar til at hjælpe dig. Udfyld kontaktformularen, så
           kontakter vi dig snarest muligt.
         </p>
       </div>
-      {variant === 'privat' && (
-        <div className='pt-6'>
-          <h6 className='font-h6'>Baggrund</h6>
+      {variant === "privat" && (
+        <div className="pt-6">
+          <h6 className="font-h6">Baggrund</h6>
           <p>Hvad drejer henvendelsen sig om?</p>
-          <div className='space-x-5'>
+          <div className="space-x-5">
             <RadioButton
-              type='radio'
-              value='abonnement'
-              label='Abonnement'
-              checked={selectedRadioOption === 'abonnement'}
+              type="radio"
+              value="abonnement"
+              label="Abonnement"
+              checked={selectedRadioOption === "abonnement"}
               onChange={handleOptionChange}
             />
             <RadioButton
-              type='radio'
-              value='kontrolafgift'
-              label='Kontrolafgift'
-              checked={selectedRadioOption === 'kontrolafgift'}
+              type="radio"
+              value="kontrolafgift"
+              label="Kontrolafgift"
+              checked={selectedRadioOption === "kontrolafgift"}
               onChange={handleOptionChange}
             />
           </div>
         </div>
       )}
-      <div className='border-b-1 border-gray-300 pb-2 mb-6 pt-4'>
-        <div className='flex space-x-3'>
+      <div className="mb-6 border-b-1 border-gray-300 pb-2 pt-4">
+        <div className="flex space-x-3">
           <InputField
-            label='Fornavn'
-            id='firstName'
-            type='text'
-            placeholder='Fornavn'
+            label="Fornavn"
+            id="firstName"
+            type="text"
+            placeholder="Fornavn"
           />
           <InputField
-            label='Efternavn'
-            id='lastName'
-            type='text'
-            placeholder='Efternavn'
+            label="Efternavn"
+            id="lastName"
+            type="text"
+            placeholder="Efternavn"
           />
         </div>
         <InputField
-          label='E-mail'
-          id='email'
-          type='email'
-          placeholder='Mailadresse'
+          label="E-mail"
+          id="email"
+          type="email"
+          placeholder="Mailadresse"
         />
-        <div className='flex space-x-3'>
+        <div className="flex space-x-3">
           <InputField
-            label='Mobil'
-            id='mobil'
-            type='tel'
-            placeholder='Mobilnummer'
+            label="Mobil"
+            id="mobil"
+            type="tel"
+            placeholder="Mobilnummer"
           />
-          <div className='w-full'></div>
+          <div className="w-full"></div>
         </div>
       </div>
-      {variant === 'erhverv' && (
+      {variant === "erhverv" && (
         <div>
           <Dropdown
-            label='Afdeling'
-            placeholder='Vælg den afdeling du ønsker at kontakte'
+            label="Afdeling"
+            placeholder="Vælg den afdeling du ønsker at kontakte"
             dropdownOptions={[
-              'Juridisk afdeling',
-              'Salgsafdeling',
-              'Kundeservice',
-              'Andet',
+              "Juridisk afdeling",
+              "Salgsafdeling",
+              "Kundeservice",
+              "Andet",
             ]}
             onSelect={handleDropdownSelect}
           />
-          <div className='flex w-full space-x-5 items-center'>
+          <div className="flex w-full items-center space-x-5">
             <div>
               <InputField
-                label='Løbenummer / Registreringsnummer'
-                id='regNumber'
-                type='text'
-                placeholder='F.eks 1234567'
-                className=''
+                label="Løbenummer / Registreringsnummer"
+                id="regNumber"
+                type="text"
+                placeholder="F.eks 1234567"
+                className=""
               />
             </div>
             <RadioButton
-              value='regNumbCheckbox'
-              label='Ej tildelt'
-              type='checkbox'
+              value="regNumbCheckbox"
+              label="Ej tildelt"
+              type="checkbox"
             />
           </div>
         </div>
       )}
-      {selectedRadioOption === 'kontrolafgift' && variant === 'privat' && (
+      {selectedRadioOption === "kontrolafgift" && variant === "privat" && (
         <div>
-          <div className='border-b-1 border-gray-300 pb-2'>
+          <div className="border-b-1 border-gray-300 pb-2">
             <InputField
-              label='Løbenummer'
-              id='serialNumber'
-              description='Du finder det 7-cifrede løbenummeret på din afgift eller betalingspåmindelse.'
-              type='text'
-              placeholder='F.eks 1234567'
-              className=''
+              label="Løbenummer"
+              id="serialNumber"
+              description="Du finder det 7-cifrede løbenummeret på din afgift eller betalingspåmindelse."
+              type="text"
+              placeholder="F.eks 1234567"
+              className=""
             />
             <InputField
-              label='Nummerplade'
-              id='licensePlate'
-              type='text'
-              placeholder='F.eks AA 12 345'
-              className=''
+              label="Nummerplade"
+              id="licensePlate"
+              type="text"
+              placeholder="F.eks AA 12 345"
+              className=""
             />
             <Dropdown
-              label='Hændelse'
-              placeholder='Vælg den mulighed som bedst beskriver din situation'
+              label="Hændelse"
+              placeholder="Vælg den mulighed som bedst beskriver din situation"
               dropdownOptions={[
-                'Modtaget rykker trods betaling',
-                'Afdragsordning',
-                'Modtaget afgift men ejer ikke bilen',
-                'Gyldig p-tilladelse eller p-billet',
-                'Hospitalet',
-                'Betalingsapp',
-                'Kameraparkering',
-                'Elektronisk eller manuel P-skive',
-                'ParkCare',
-                'Parkering uden for bås',
-                'Andet',
+                "Modtaget rykker trods betaling",
+                "Afdragsordning",
+                "Modtaget afgift men ejer ikke bilen",
+                "Gyldig p-tilladelse eller p-billet",
+                "Hospitalet",
+                "Betalingsapp",
+                "Kameraparkering",
+                "Elektronisk eller manuel P-skive",
+                "ParkCare",
+                "Parkering uden for bås",
+                "Andet",
               ]}
               onSelect={handleDropdownSelect}
             />
           </div>
-          <div className='py-6'>
-            <h6 className='font-h6 pb-1.5'>Vedhæftninger</h6>
-            <div className='relative cursor-pointer'>
+          <div className="py-6">
+            <h6 className="font-h6 pb-1.5">Vedhæftninger</h6>
+            <div className="relative cursor-pointer">
               <input
-                name='files[]'
-                type='file'
-                accept='.pdf, .jpg, .jpeg, .png, .doc, .docx, .xml'
-                className='block w-full py-2 font-league text-sm capsize text-slate-500 file:border-dotted file:border-marine-800
-              file:mr-4 file:py-2 file:pt-2.5 file:px-4 file:pl-8 file:rounded-full
-              file:font-league file:text-sm file:leading-none file:capsize
-              file:bg-transparent file:text-marine-800
-              hover:file:border-solid file:cursor-pointer'
-                multiple='multiple'
+                name="files[]"
+                type="file"
+                accept=".pdf, .jpg, .jpeg, .png, .doc, .docx, .xml"
+                className="block w-full py-2 text-slate-500 font-league text-sm capsize file:mr-4 file:cursor-pointer
+              file:rounded-full file:border-dotted file:border-marine-800 file:bg-transparent file:px-4 file:py-2
+              file:pl-8 file:pt-2.5 file:text-marine-800 file:font-league
+              file:text-sm file:leading-none
+              file:capsize hover:file:border-solid"
+                multiple="multiple"
               />
-              <FiPlus className='text-marine-800 h-3.5 w-auto absolute top-3.5 left-4' />
+              <FiPlus className="absolute left-4 top-3.5 h-3.5 w-auto text-marine-800" />
             </div>
           </div>
         </div>
       )}
 
-      {selectedRadioOption === 'abonnement' && variant === 'privat' && (
-        <div className=''>
+      {selectedRadioOption === "abonnement" && variant === "privat" && (
+        <div className="">
           <InputField
-            id='customerNumber'
-            type='text'
-            label='Kundenummer'
-            placeholder='F.eks. 1234567'
-            description='Du finder dit kundenummer i din kontrakt eller i en tidligere mail fra os.'
+            id="customerNumber"
+            type="text"
+            label="Kundenummer"
+            placeholder="F.eks. 1234567"
+            description="Du finder dit kundenummer i din kontrakt eller i en tidligere mail fra os."
           />
         </div>
       )}
 
-      <div className='pb-4 border-b-1 border-gray-300'>
-        <h6 className='font-h6 pb-1.5'>Besked</h6>
+      <div className="border-b-1 border-gray-300 pb-4">
+        <h6 className="font-h6 pb-1.5">Besked</h6>
         <textarea
-          {...(variant === 'privat' ? { required: true } : {})}
-          name='message'
-          id='message'
-          placeholder='Har du nogle bemærkninger kan de skrives her'
-          className=' bg-gray-100 resize-none rounded-sm font-body-xs text-xs p-3 w-full h-32 text-gray-400 outline-none focus:outline-sky-200 focus:outline-2 focus:-outline-offset-2'></textarea>
+          {...(variant === "privat" ? { required: true } : {})}
+          name="message"
+          id="message"
+          placeholder="Har du nogle bemærkninger kan de skrives her"
+          className=" font-body-s h-32 w-full resize-none rounded-sm bg-gray-100 p-3 text-gray-800 outline-none placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:-outline-offset-2 focus:outline-sky-200"
+        ></textarea>
       </div>
-      <div className='space-y-6'>
-        <div className='pt-6'>
+      <div className="space-y-6">
+        <div className="pt-6">
           <RadioButton
-            value='datapolicy'
-            type='checkbox'
-            label='Jeg accepterer ParkZones persondatapolitik. Du kan læse om hvordan vi behandler dine personoplysninger'
-            style='small'
+            value="datapolicy"
+            type="checkbox"
+            label="Jeg accepterer ParkZones persondatapolitik. Du kan læse om hvordan vi behandler dine personoplysninger"
+            style="small"
             checked={isChecked}
             onChange={handleRadioButtonChange}
           />
         </div>
-        <Button type='submit' size='md' variant='primary'>
+        <Button type="submit" size="md" variant="primary">
           Send
         </Button>
       </div>
@@ -256,5 +258,5 @@ export default function ContactForm({ variant }) {
 }
 
 ContactForm.propTypes = {
-  variant: PropTypes.oneOf(['privat', 'erhverv']).isRequired,
+  variant: PropTypes.oneOf(["privat", "erhverv"]).isRequired,
 };

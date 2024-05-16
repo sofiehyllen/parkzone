@@ -20,11 +20,12 @@ const ArticlePage = () => {
   let { loading, error, data } = useFetch(
     'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7'
   );
-  if (loading)
-    return <h1 className='font-h1 pl-5 mx-auto pt-40'>Indlæser...</h1>;
+  if (loading) return <div className='h-screen'></div>;
   if (error)
     return (
-      <h1 className='font-h1 pl-5 mx-auto pt-40'>Kunne ikke hente data</h1>
+      <h1 className='h-screen font-h1 pl-5 mx-auto pt-40'>
+        Kunne ikke hente data
+      </h1>
     );
 
   let articles = data;
@@ -40,7 +41,7 @@ const ArticlePage = () => {
       }
       if (attribs.class === 'wp-block-heading') {
         return (
-          <h2 className='font-h3 pb-7 pt-20'>
+          <h2 className='font-h3 pb-7 pt-10'>
             {domToReact(children, options)}
           </h2>
         );
@@ -50,7 +51,7 @@ const ArticlePage = () => {
 
   return (
     <PageWrapper breadcrumb={true}>
-      <div className='max-w-screen-2xl mx-auto flex flex-col items-center px-5 md:px-10'>
+      <div className='max-w-screen-2xl mx-auto flex flex-col items-center px-5 md:px-10 pb-10 lg:pb-16'>
         <div className='flex flex-col items-center pb-10 md:pb-16 max-w-4xl'>
           <Category
             className='mb-5'
@@ -75,8 +76,8 @@ const ArticlePage = () => {
           image={article.acf.coverImg}
           size='lg'
         />
-        <div className='flex flex-col px-5 md:px-10 lg:space-x-16 lg:flex-row'>
-          <div className='shrink-0 space-y-14 h-full sticky top-20 pb-10 order-last min-w-96 lg:order-first'>
+        <div className='flex flex-col h-full relative px-5 md:px-10 lg:space-x-10 lg:px-0 lg:flex-row xl:px-10 2xl:px-20'>
+          <div className='shrink-0 space-y-14 pb-10 order-last min-w-96 lg:order-first'>
             <div className='max-w-96 mx-auto'>
               <h4 className='font-h4 pb-5'>Kontakt</h4>
               <div className='border-b-1 border-gray-200 mb-7'>
@@ -105,79 +106,25 @@ const ArticlePage = () => {
                 email='rl@parkzone.dk'
                 phone='+45 60 33 45 44'
               />
-            </div>
-            <div>
-              <h4 className='font-h4 pb-5'>Del artikel</h4>
-              <div className='flex space-x-4'>
-                <a href='https://www.facebook.com/'>
-                  <img src={facebook} />
-                </a>
-                <a href='https://www.instagram.com/'>
-                  <img src={instagram} />
-                </a>
-                <a href='https://www.linkedin.com/'>
-                  <img src={linkedin} />
-                </a>
+              <div className='pt-10'>
+                <h4 className='font-h4 pb-5'>Del artikel</h4>
+                <div className='flex space-x-4'>
+                  <a href='https://www.facebook.com/'>
+                    <img src={facebook} />
+                  </a>
+                  <a href='https://www.instagram.com/'>
+                    <img src={instagram} />
+                  </a>
+                  <a href='https://www.linkedin.com/'>
+                    <img src={linkedin} />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
-          <div>{HTMLReactParser(article.content.rendered, options)}</div>
-          {/* <div>{HTMLReactParser(article.content.rendered)}</div>
-          <div className='w-full pb-10 md:pb-16 lg:pb-0'>
-            <BlocksRenderer
-              content={article.acf.content}
-              blocks={{
-                // You can use the default components to set class names...
-                paragraph: ({ children }) => (
-                  <p className='font-body-l pb-10 hyphens-auto'>{children}</p>
-                ),
-                heading: ({ children, level }) => {
-                  switch (level) {
-                    case 1:
-                      return <h1 className='font-h1'>{children}</h1>;
-                    case 2:
-                      return <h2 className='font-h2'>{children}</h2>;
-                    case 3:
-                      return <h3 className='font-h3 pb-7'>{children}</h3>;
-                    case 4:
-                      return <h4 className='font-h4'>{children}</h4>;
-                    case 5:
-                      return <h5 className='font-h5'>{children}</h5>;
-                    case 6:
-                      return <h6 className='font-h6'>{children}</h6>;
-                    default:
-                      return <h1 className='font-h1'>{children}</h1>;
-                  }
-                },
-                link: ({ children, url }) => <Link to={url}>{children}</Link>,
-                quote: ({ children }) => (
-                  <div className='py-5'>
-                    <div className='relative max-w-fit'>
-                      <img
-                        className='absolute -z-10 top-0 md:left-16'
-                        src={quoteTop}
-                        alt='Quotation mark'
-                      />
-                      <p className='font-h5 text-center mx-auto md:w-9/12 py-10 whitespace-pre-line'>
-                        {children}
-                      </p>
-                      <img
-                        className='absolute -z-10 bottom-0 right-0 md:right-16'
-                        src={quoteBottom}
-                        alt='Quotation mark'
-                      />
-                    </div>
-                  </div>
-                ),
-              }}
-              modifiers={{
-                bold: ({ children }) => <strong>{children}</strong>,
-                italic: ({ children }) => (
-                  <span className='italic'>{children}</span>
-                ),
-              }}
-            />
-          </div>*/}
+          <div id='wp-api-content' className='px-5 sm:px-0'>
+            {HTMLReactParser(article.content.rendered, options)}
+          </div>
         </div>
       </div>
     </PageWrapper>

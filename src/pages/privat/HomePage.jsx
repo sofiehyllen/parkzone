@@ -18,8 +18,9 @@ export default function HomePagePrivat() {
   let { loading, error, data } = useFetch(
     'https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=3'
   );
-  if (loading) return <h1 className='font-h1 pl-5'>Indlæser...</h1>;
-  if (error) return <h1 className='font-h1 pl-5'>Kunne ikke hente data</h1>;
+  if (loading) return <div className='h-screen'></div>;
+  if (error)
+    return <h1 className='h-screen font-h1 pl-5'>Kunne ikke hente data</h1>;
 
   return (
     <PageWrapper breadcrumb={false}>

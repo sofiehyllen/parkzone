@@ -15,19 +15,19 @@
     @apply font-mundial font-normal text-marine-800 capsize text-3xl sm:text-4xl md:text-5xl;
   }
   .font-h3 {
-    @apply font-mundial font-normal text-marine-800 capsize text-2xl sm:text-3xl 4xl:text-4xl;
+    @apply font-mundial font-normal text-marine-800 capsize text-2xl sm:text-3xl md:text-4xl;
   }
   .font-h4 {
-    @apply font-league font-medium text-marine-800 capsize leading-6 text-xl 4xl:text-2xl;
+    @apply font-league font-medium text-marine-800 capsize text-xl sm:text-2xl;
   }
   .font-h5 {
-    @apply font-league font-normal text-marine-800  capsize text-base md:text-lg md:leading-6;
+    @apply font-league font-normal text-marine-800 capsize text-lg md:text-xl;
   }
   .font-h6 {
     @apply font-league font-medium text-marine-800 capsize text-sm;
   }
   .font-body-l {
-    @apply font-league font-light text-gray-900 capsize text-xl 3xl:text-2xl;
+    @apply font-league font-light text-gray-900 capsize text-xl leading-8;
   }
   .font-body-md {
     @apply font-league font-light text-gray-900 capsize text-lg;
@@ -94,15 +94,78 @@ body {
   min-height: 100vh;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
+#wp-api-content p {
+  font-family: 'League Spartan', 'sans-serif';
+  font-weight: 300;
+  font-size: 20px;
+  padding-bottom: 40px;
+  color: #0f172a;
+}
+
+#wp-api-content blockquote {
+  text-align: center;
+  position: relative;
+}
+
+#wp-api-content blockquote cite {
+  font-family: 'League Spartan', 'sans-serif';
+  font-weight: 300;
+  font-size: 18px;
+  color: #0f172a;
+  position: absolute;
+  bottom: 0;
+  right: 28%;
+}
+
+#wp-api-content blockquote p {
+  text-align: center;
+  font-weight: 400;
+  font-size: 18px;
+  padding-top: 40px;
+  margin-bottom: 40px;
+  background: url(./assets/quote-top.svg) left top,
+    url(./assets/quote-bottom.svg) right bottom;
+  background-repeat: no-repeat;
+}
+
+#wp-api-content h3 {
+  font-family: 'Mundial', 'sans-serif';
+  font-weight: 400;
+  font-size: 24px;
+  color: #0a113b;
+  padding-bottom: 16px;
+  padding-top: 28px;
+}
+
+@media (min-width: 640px) and (max-width: 768px) {
+  #wp-api-content blockquote p {
+    margin-left: 20px;
+    margin-right: 20px;
   }
-  a:hover {
-    color: #747bff;
+  #wp-api-content h3 {
+    font-size: 30px;
   }
-  button {
-    background-color: #f9f9f9;
+}
+@media (min-width: 768px) and (max-width: 1280px) {
+  #wp-api-content blockquote p {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+  #wp-api-content h3 {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1280px) and (max-width: 1920px) {
+  #wp-api-content blockquote p {
+    margin-left: 80px;
+    margin-right: 80px;
+  }
+  #wp-api-content h3 {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1920px) {
+  #wp-api-content h3 {
+    font-size: 36px;
   }
 }

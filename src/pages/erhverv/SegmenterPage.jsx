@@ -9,7 +9,7 @@ import { segmenter1, segmenter2 } from '../../staticData';
 export default function SegmenterPage() {
   return (
     <PageWrapper breadcrumb={true}>
-      <div className='mx-5 pb-36 md:mx-10 relative md:pb-0 xl:mx-20 3xl:mx-40'>
+      <div className='mx-5 py-10 md:mx-10 relative md:pb-20 xl:mx-20 3xl:mx-40 3xl:pb-32'>
         <div className='w-full bg-sky-100 pt-12 rounded-2xl overflow-hidden h-fit sm:pb-10 lg:pr-0 lg:pb-10 xl:py-20'>
           <div className='flex flex-col lg:flex-row relative'>
             <div className='flex flex-col justify-center relative z-40 px-5 pb-10 sm:px-10 lg:pb-0 lg:w-full xl:ml-14 4xl:py-16 4xl:pr-28 4xl:pl-20'>
