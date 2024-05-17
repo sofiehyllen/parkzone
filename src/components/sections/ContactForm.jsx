@@ -6,6 +6,7 @@ import RadioButton from "../buttons/RadioButton";
 import { FiPlus } from "react-icons/fi";
 import Button from "../buttons/Button";
 import Alert from "../atoms/Alert";
+import Category from "../atoms/Category";
 
 export default function ContactForm({ variant }) {
   const [selectedRadioOption, setSelectedRadioOption] = useState("abonnement");
@@ -57,8 +58,8 @@ export default function ContactForm({ variant }) {
       onSubmit={(event) => handleSubmit(event)}
       className="w-fill min-w-80 max-w-md rounded-2xl bg-white p-5 md:p-7 lg:p-10"
     >
-      <div className="space-y-3">
-        <h4 className="font-h4 text-orange-600">Kontakt os</h4>
+      <div className="space-y-1">
+        <Category color="orange">Kontakt</Category>
         <h2 className="font-h2">Hvordan kan vi hjælpe dig?</h2>
       </div>
       <div className="space-y-6 border-b-1 border-gray-300 pb-6 pt-10">

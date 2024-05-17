@@ -53,7 +53,7 @@ export default function ParkingPage() {
       {data && (
         <>
           <div className=" mx-auto max-w-screen-3xl md:px-10">
-            <div className=" relative overflow-hidden bg-marine-200 px-5 pb-5 pt-20 md:rounded-xl md:px-10 xl:pt-28">
+            <div className=" relative overflow-hidden bg-sky-100 px-5 pb-5 pt-20 md:rounded-xl md:px-10 xl:pt-28">
               <div className="relative z-50">
                 <p className="font-h4 pb-2 text-marine-500">Parkering ved</p>
                 <h1 className="font-h1 pb-1 pr-10 leading-8">
@@ -62,13 +62,13 @@ export default function ParkingPage() {
                 <h2 className="font-h3">{data.fields.city.stringValue}</h2>
               </div>
               <div className="absolute left-0 top-0 -rotate-45  xl:scale-125 2xl:scale-150 3xl:left-20">
-                <Doodle2 color="#DBE9FD" />
+                <Doodle2 color="#EDF6FD" />
               </div>
               <div className="absolute -right-40 -top-40 hidden rotate-45 sm:block xl:scale-125 2xl:-right-52 2xl:scale-150">
-                <Doodle2 color="#DBE9FD" />
+                <Doodle2 color="#EDF6FD" />
               </div>
               <div className="2xl: absolute -top-52 right-72 hidden -rotate-90 lg:block xl:right-96 xl:scale-125 2xl:scale-150">
-                <Doodle1 color="#DBE9FD" />
+                <Doodle1 color="#EDF6FD" />
               </div>
             </div>
             <div className="mx-auto grid w-fit max-w-screen-xl grid-cols-1 divide-y divide-marine-200 py-10 sm:w-full sm:grid-cols-3 sm:divide-x sm:divide-y-0 sm:px-10 lg:py-20 xl:px-28">
@@ -133,7 +133,7 @@ export default function ParkingPage() {
                           variant={"secondary"}
                           size={"md"}
                           className="mt-8"
-                          to="/privat/check ud"
+                          to="/privat/checkud"
                         >
                           Check ud
                         </Button>
@@ -143,7 +143,7 @@ export default function ParkingPage() {
                       </div>
                     </div>
                   ) : (
-                    <div className="relative my-14 overflow-hidden rounded-xl bg-marine-100 px-7 py-10 md:px-10">
+                    <div className="relative my-14 overflow-hidden rounded-xl bg-sky-50 px-7 py-10 md:px-10">
                       <div className="relative z-20 flex w-full flex-col items-center md:flex-row md:justify-center">
                         <div className="md:pr-10">
                           <h6 className="font-h4 pb-4 text-center md:text-left">
@@ -164,7 +164,7 @@ export default function ParkingPage() {
                         </Button>
                       </div>
                       <div className="absolute left-0 top-0 -rotate-45 scale-125  xl:scale-125 2xl:scale-150 3xl:left-20">
-                        <Doodle1 color="#EDF6FD" />
+                        <Doodle1 color="#DAEEFA" />
                       </div>
                     </div>
                   )}
@@ -213,16 +213,16 @@ export default function ParkingPage() {
                       </p>
                     </div>
                   </div>
-                  <div className="rounded-xl bg-marine-50 px-8 py-7 xl:pb-7 ">
+                  <div className="rounded-xl bg-sky-50 px-8 py-7 xl:pb-7 ">
                     <h5 className="font-h4 pb-6">Takster</h5>
-                    <div className="flex justify-between border-b-1 border-marine-200 pb-2">
+                    <div className="flex justify-between border-b-1 border-sky-200 pb-2">
                       <p className="font-body-s">Pr. påbegyndt time:</p>
                       <p className="font-h5">
                         {data.fields.hourPrice.integerValue} kr.
                       </p>
                     </div>
                     {data.fields.otherPrice && data.fields.otherPriceText && (
-                      <div className="flex justify-between border-b-1 border-marine-200 pb-2 pt-4">
+                      <div className="flex justify-between border-b-1 border-sky-200 pb-2 pt-4">
                         <p className="font-body-s">
                           {data.fields.otherPriceText.stringValue}:
                         </p>

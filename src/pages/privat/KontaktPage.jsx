@@ -7,14 +7,14 @@ import ImageWrapper from '../../components/wrappers/ImageWrapper';
 export default function KontaktPagePrivat() {
   return (
     <PageWrapper breadcrumb={true}>
-      <div className='bg-gray-100 w-full'>
+      <div className='bg-sky-50 w-full'>
         <div className='grid grid-cols-1 md:grid-cols-2 py-16 px-5 md:px-16 lg:px-32 xl:px-40 w-fit gap-5 mx-auto'>
           <div className='row-span-3'>
             <ContactForm variant='privat' />
           </div>
           <ImageWrapper
             className='max-w-md'
-            color='#7CC9ED'
+            color='#91D5F5'
             size='md'
             image={driver}
             alt='Mand kørende i bil'

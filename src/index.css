@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap');
-@import url('https://use.typekit.net/jak0aup.css');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
+@import url("https://use.typekit.net/jak0aup.css");
 
 @tailwind base;
 @tailwind components;
@@ -9,34 +9,34 @@
 
 @layer base {
   .font-h1 {
-    @apply font-mundial font-normal text-marine-800 capsize  text-4xl sm:text-5xl md:text-6xl md:leading-12;
+    @apply font-normal text-marine-800 font-mundial text-4xl  capsize sm:text-5xl md:text-6xl md:leading-12;
   }
   .font-h2 {
-    @apply font-mundial font-normal text-marine-800 capsize text-3xl sm:text-4xl md:text-5xl;
+    @apply font-normal text-marine-800 font-mundial text-3xl capsize sm:text-4xl md:text-5xl;
   }
   .font-h3 {
-    @apply font-mundial font-normal text-marine-800 capsize text-2xl sm:text-3xl md:text-4xl;
+    @apply font-normal text-marine-800 font-mundial text-2xl capsize sm:text-3xl md:text-4xl;
   }
   .font-h4 {
-    @apply font-league font-medium text-marine-800 capsize text-xl sm:text-2xl;
+    @apply font-medium text-marine-800 font-league text-xl capsize sm:text-2xl;
   }
   .font-h5 {
-    @apply font-league font-normal text-marine-800 capsize text-lg md:text-xl;
+    @apply font-normal text-marine-800 font-league text-lg capsize md:text-xl;
   }
   .font-h6 {
-    @apply font-league font-medium text-marine-800 capsize text-sm;
+    @apply font-medium text-marine-800 font-league text-sm capsize;
   }
   .font-body-l {
-    @apply font-league font-light text-gray-900 capsize text-xl leading-8;
+    @apply font-light text-gray-900 font-league text-xl leading-8 capsize;
   }
   .font-body-md {
-    @apply font-league font-light text-gray-900 capsize text-lg;
+    @apply font-light text-gray-900 font-league text-lg capsize;
   }
   .font-body-s {
-    @apply font-league font-light text-gray-900 capsize text-base;
+    @apply font-light text-gray-900 font-league text-base capsize;
   }
   .font-body-xs {
-    @apply font-league font-light text-gray-900 leading-4 capsize text-sm;
+    @apply font-light text-gray-900 font-league text-sm leading-4 capsize;
   }
 }
 
@@ -73,7 +73,7 @@ video {
 }
 
 :root {
-  font-family: 'League Spartan', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: "League Spartan", system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-weight: 400;
 
   color-scheme: light dark;
@@ -95,7 +95,7 @@ body {
 }
 
 #wp-api-content p {
-  font-family: 'League Spartan', 'sans-serif';
+  font-family: "League Spartan", "sans-serif";
   font-weight: 300;
   font-size: 20px;
   padding-bottom: 40px;
@@ -108,7 +108,7 @@ body {
 }
 
 #wp-api-content blockquote cite {
-  font-family: 'League Spartan', 'sans-serif';
+  font-family: "League Spartan", "sans-serif";
   font-weight: 300;
   font-size: 18px;
   color: #0f172a;
@@ -123,18 +123,31 @@ body {
   font-size: 18px;
   padding-top: 40px;
   margin-bottom: 40px;
-  background: url(./assets/quote-top.svg) left top,
+  background:
+    url(./assets/quote-top.svg) left top,
     url(./assets/quote-bottom.svg) right bottom;
   background-repeat: no-repeat;
 }
 
 #wp-api-content h3 {
-  font-family: 'Mundial', 'sans-serif';
+  font-family: "Mundial", "sans-serif";
   font-weight: 400;
   font-size: 24px;
   color: #0a113b;
   padding-bottom: 16px;
   padding-top: 28px;
+}
+
+@media (max-width: 640px) {
+  #wp-api-content blockquote cite {
+    bottom: -10%;
+    right: 10%;
+  }
+  #wp-api-content blockquote p {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 80px;
+  }
 }
 
 @media (min-width: 640px) and (max-width: 768px) {

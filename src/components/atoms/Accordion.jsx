@@ -16,7 +16,7 @@ const Accordion = ({ title, body, image, altText, color }) => {
       )}
       onClick={() => setIsOpen((prev) => !prev)}>
       <div className='flex justify-between items-start'>
-        <h5 className='font-h4 font-normal text-marine-800'>{title}</h5>
+        <h5 className='font-h5 font-normal text-marine-800'>{title}</h5>
         <AnimatePresence initial={false} mode='wait'>
           <motion.div
             key={isOpen ? 'minus' : 'plus'}

@@ -26,6 +26,8 @@ export default function OmOsPage() {
           alt='Kontorfællesskab'
           image={office}
           size='lg'
+
+          className='max-w-screen-xl'
         />
       </div>
       <div className='px-14 pt-10 max-w-screen-xl mx-auto sm:px-36 md:px-10 md:pt-5 lg:px-12'>

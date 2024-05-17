@@ -25,7 +25,7 @@ const BlogPage = () => {
             Seneste nyt om ParkZone A/S
           </h1>
           <div className='absolute top-10 right-8 w-80 sm:-top-1 sm:-right-1 md:right-2'>
-            <Doodle3 color='#DBE9FD' />
+            <Doodle3 color='#EDF6FD' />
           </div>
         </div>
         <h3 className='font-body-l text-center px-5 md:w-4/5 lg:w-1/2 2xl:w-1/3 pb-8 sm:pb-16'>
