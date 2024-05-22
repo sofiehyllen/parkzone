@@ -5,10 +5,10 @@ const category = tv({
   base: "font-h6 uppercase px-4 py-3 w-fit rounded-full",
   variants: {
     color: {
-      orange: "text-pumpkin-500 bg-pumpkin-50",
-      green: "text-green-500 bg-green-50",
-      red: "text-red-500 bg-red-50",
-      darkRed: "text-red-500 bg-red-100",
+      orange: "text-warning-500 bg-warning-50",
+      green: "text-success-500 bg-success-50",
+      red: "text-error-500 bg-error-50",
+      darkRed: "text-error-500 bg-red-100",
       darkBlue: "text-white bg-marine-400",
       lightBlue: "text-marine-400 bg-marine-50",
       skyBlue: "text-sky-500 bg-sky-50",

@@ -65,7 +65,7 @@ export default function HomePagePrivat() {
           size="lg"
           color="#7CC9ED"
           alt="Kvinde kørende i bil"
-          className="relative mr-5 w-full self-end sm:mr-10 md:mr-0 md:h-96 md:place-self-center md:rounded-l-none xl:h-full"
+          className="relative mr-5 w-full self-end sm:mr-10 md:mr-0 md:h-96 md:place-self-center md:rounded-l-none lg:rounded-l-none xl:h-full"
         />
         <div className="relative z-10 flex w-full flex-col items-center justify-center px-5 py-10 sm:px-10 md:items-start md:py-0 lg:pr-14 xl:w-10/12 xl:px-16">
           <Category color="skyBlue">Parkering</Category>
@@ -146,6 +146,7 @@ export default function HomePagePrivat() {
             size="lg"
             variant="primary"
             icon={true}
+            to='/privat/faq'
             className="relative z-10 mx-auto hidden lg:inline-flex"
           >
             Læs alle FAQ

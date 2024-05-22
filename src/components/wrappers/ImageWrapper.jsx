@@ -2,23 +2,16 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import Doodle8 from "../svg/Doodle8";
 
-export default function ImageWrapper({
-  image,
-  alt,
-  className,
-  color,
-  mirror,
-  size,
-}) {
+export default function ImageWrapper({ image, alt, className, color, size }) {
   return (
     <div
       className={clsx(
         "relative h-fit w-fit overflow-hidden",
         className,
         size === "sm"
-          ? "rounded-xl"
+          ? "rounded-xl md:rounded-2xl"
           : size === "md"
-            ? "rounded-2xl"
+            ? "rounded-xl lg:rounded-2xl"
             : size === "lg"
               ? "rounded-xl md:rounded-2xl lg:rounded-3xl"
               : "",
@@ -33,8 +26,16 @@ export default function ImageWrapper({
       {color && (
         <div
           className={clsx(
-            "absolute -bottom-5 -left-40 scale-75 sm:-left-20 sm:bottom-5 sm:scale-100 md:bottom-8 md:left-0 md:scale-125 lg:bottom-14 lg:left-36 lg:scale-150 xl:bottom-20 xl:left-72 xl:scale-180 2xl:bottom-24",
-            mirror ? "scale-x-[-1]" : "",
+            "absolute -bottom-5 -left-40 scale-75 sm:-left-20 sm:bottom-5 sm:scale-100",
+            size === "md"
+              ? "md:bottom-8 md:left-0 md:scale-125"
+              : size === "lg"
+                ? "md:bottom-8 md:left-0 md:scale-125 lg:bottom-14 lg:left-36 lg:scale-150"
+                : size === "xl"
+                  ? "md:bottom-8 md:left-0 md:scale-125 lg:bottom-14 lg:left-36 lg:scale-150 xl:bottom-20 xl:left-72 xl:scale-180"
+                  : size === "2xl"
+                    ? "2xl:bottom-24"
+                    : "",
           )}
         >
           <Doodle8 color={color} />

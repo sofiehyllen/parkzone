@@ -1,53 +1,80 @@
-import { Link, useLocation } from 'react-router-dom';
-import BackButton from '../buttons/BackButton';
+import { Link, useLocation } from "react-router-dom";
+import BackButton from "../buttons/BackButton";
 
 const Breadcrumb = () => {
-  const location = useLocation();
-  const pathnames = location.pathname.split('/').filter((x) => x);
+  const location = useLocation(); //Finder nuværende sti for brugeren
+  const pathnames = location.pathname.split("/").filter((x) => x); //Deler stinavnet med '/'
+
+  const toggleState = JSON.parse(localStorage.getItem("toggleState"));
+
+  //Bestemmer titlen for hvert stinavn
   const pathMapping = {
-    '/omos': 'Om os',
-    '/erhverv/produkter': 'Produkter & services',
-    '/privat/checkud': 'Check ud',
-    '/privat/findparkering': 'Find parkering',
+    "/omos": "Om os",
+    "/erhverv/produkter": "Produkter & services",
+    "/privat/checkud": "Check ud",
+    "/privat/findparkering": "Find parkering",
+    "/privat/findparkering/bruunsgalleri": "Bruuns Galleri",
+    "/privat/findparkering/arosalle2": "Aros Allé 2",
+    "/privat/findparkering/strandbygade20": "Strandbygade 20",
+    "/privat/findparkering/havnegade10": "Havnegade 10",
+    "/privat/findparkering/osterfaelledtorv": "Østerfælled Torv",
+    "/privat/findparkering/vedvesterport3a": "Ved Vesterport 3 - 3A",
+    "/privat/findparkering/georgbrandesplads2": "Georg Brandes Plads 2",
+    "/privat/findparkering/blegdammen4": "Blegdammen 4 - 22",
+    "/privat/findparkering/borgvold12": "Borgvold 12",
+    "/privat/findparkering/vestrestationsvej8": "Vester Stationsvej 8 - 10",
+    "/blog/131": "Artikel",
+    "/blog/127": "Artikel",
+    "/blog/123": "Artikel",
+    "/blog/129": "Artikel",
+    "/blog/119": "Artikel",
+    "/blog/109": "Artikel",
+    "/blog/83": "Artikel",
   };
 
   const previousPage = () => {
+    //Navigere tilbage til forrige side
     window.history.back();
   };
 
   return (
-    <div className='flex sm:items-end justify-between w-full px-5 md:px-10 pb-10 relative '>
-      <BackButton onClick={previousPage} className='text-gray-800 font-h4' />
-      <nav aria-label='Breadcrumb'>
-        <ol className='list-none p-0 sm:inline-flex space-y-1 sm:space-y-0'>
-          <li className='flex items-center justify-end'>
+    <div className="relative flex w-full justify-between px-5 pb-10 sm:items-end md:px-10 ">
+      <BackButton onClick={previousPage} className="font-h4 text-gray-800" />
+      <nav aria-label="Breadcrumb">
+        <ol className="list-none space-y-1 p-0 sm:inline-flex sm:space-y-0">
+          <li className="flex items-center justify-end ">
             <Link
-              to='/'
-              className='text-gray-300 font-h6 sm:font-h5 hover:text-gray-400'>
+              to={toggleState ? "/erhverv" : "/privat"}
+              className="font-h6 sm:font-h5 text-gray-300 transition-colors duration-300 hover:text-gray-400  sm:text-gray-300"
+            >
               Home
             </Link>
-            <span className='text-gray-300 font-h6 sm:font-h5 mx-2'>/</span>
+            <span className="font-h6 sm:font-h5 mx-2 text-gray-300 sm:text-gray-300">
+              /
+            </span>
           </li>
           {pathnames.map((name, index) => {
             if (index === 0 && pathnames.length > 1) return null;
-            const routeTo = `/${pathnames.slice(0, index + 1).join('/')}`;
+            const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
             const isLast = index === pathnames.length - 1;
             return (
               <li
                 key={name}
-                className='flex items-center justify-end font-h6 sm:font-h5'>
+                className="font-h6 sm:font-h5 flex items-center justify-end"
+              >
                 {isLast ? (
-                  <span className='text-marine-500 bg-marine-50 px-3 pt-0.5 rounded-sm first-letter:uppercase'>
+                  <span className="rounded-sm bg-marine-50 px-3 pt-0.5 text-marine-500 first-letter:uppercase">
                     {pathMapping[routeTo] || name}
                   </span>
                 ) : (
                   <>
                     <Link
                       to={routeTo}
-                      className='text-gray-300 hover:text-gray-600'>
-                      {name}
+                      className="text-gray-300 transition-colors duration-300 hover:text-gray-400"
+                    >
+                      {pathMapping[routeTo] || name}
                     </Link>
-                    <span className='mx-2 text-gray-300'>/</span>
+                    <span className="mx-2 text-gray-300">/</span>
                   </>
                 )}
               </li>

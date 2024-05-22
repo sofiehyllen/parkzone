@@ -1,31 +1,31 @@
-import Accordion from '../../components/atoms/Accordion';
-import Doodle7 from '../../components/svg/Doodle7';
-import PageWrapper from '../../components/wrappers/PageWrapper';
-import { FAQ1, FAQ2 } from '../../staticData';
+import Accordion from "../../components/atoms/Accordion";
+import Doodle7 from "../../components/svg/Doodle7";
+import PageWrapper from "../../components/wrappers/PageWrapper";
+import { FAQ1, FAQ2 } from "../../staticData";
 
 export default function FAQPage() {
   return (
-    <PageWrapper breadcrumb={true} >
-      <div className='w-full bg-sky-300 relative overflow-hidden mt-10'>
-        <h1 className='font-h1 text-white text-center py-20 px-10 relative z-50 lg:py-28'>
+    <PageWrapper breadcrumb={true}>
+      <div className="relative mt-10 w-full overflow-hidden bg-sky-300">
+        <h1 className="font-h1 relative z-50 px-10 py-20 text-center text-white lg:py-28">
           Hvordan kan vi hjælpe dig?
         </h1>
-        <div className='absolute bottom-4 -left-32 w-[180%] sm:scale-150 sm:w-9/12 sm:left-20 md:bottom-0 xl:left-36 2xl:left-40'>
-          <Doodle7 color='#4FBAE8' />
+        <div className="absolute -left-32 bottom-4 w-[180%] sm:left-20 sm:w-9/12 sm:scale-150 md:bottom-0 xl:left-36 2xl:left-40">
+          <Doodle7 color="#4FBAE8" />
         </div>
       </div>
-      <div className='bg-sky-50 px-5 py-10 w-full mb-10 sm:px-16 md:px-24 lg:mb-16 lg:flex lg:px-20 lg:space-x-5 xl:px-32 2xl:px-40 3xl:px-72 3xl:mb-24'>
-        <div className='grid grid-cols-1 h-min w-full'>
+      <div className="mb-10 w-full bg-sky-50 px-5 py-10 sm:px-16 md:px-24 md:py-20 lg:mb-16 lg:flex lg:space-x-5 lg:px-20 lg:py-28 xl:px-32 2xl:px-40 3xl:mb-24 3xl:px-72">
+        <div className="grid h-min w-full grid-cols-1">
           {FAQ1.map((FAQ1, index) => (
-            <div key={index} className='w-full flex justify-center'>
-              <Accordion title={FAQ1.title} body={FAQ1.body} color='bg-white'/>
+            <div key={index} className="flex w-full justify-center">
+              <Accordion title={FAQ1.title} body={FAQ1.body} color="bg-white" />
             </div>
           ))}
         </div>
-        <div className='grid grid-cols-1 h-min w-full'>
+        <div className="grid h-min w-full grid-cols-1">
           {FAQ2.map((FAQ2, index) => (
-            <div key={index} className='w-full flex justify-center'>
-              <Accordion title={FAQ2.title} body={FAQ2.body} color='bg-white'/>
+            <div key={index} className="flex w-full justify-center">
+              <Accordion title={FAQ2.title} body={FAQ2.body} color="bg-white" />
             </div>
           ))}
         </div>

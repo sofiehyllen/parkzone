@@ -9,12 +9,15 @@ export default function IconCard({ icon, title, subtitle, email, phone }) {
           <div>{icon}</div>
         </div>
         <div className="space-y-3 pt-4">
-          <h4 className="font-h4 leading-5 font-normal">{title}</h4>
+          <h4 className="font-h4 font-normal leading-5">{title}</h4>
           <p className="font-body-l">{subtitle}</p>
         </div>
       </div>
       <div className="flex flex-col space-y-3 sm:flex-row sm:space-x-3 sm:space-y-0 lg:flex-col lg:space-x-0 lg:space-y-3 2xl:flex-row 2xl:space-x-3 2xl:space-y-0">
-        <div className="flex w-full items-start space-x-5 rounded-lg bg-gray-50 p-4 pb-6 pl-4 ">
+        <a
+          href={`mailto:${email}`}
+          className="flex w-full items-start space-x-5 rounded-xl bg-gray-50 p-4 pb-6 pl-4 transition duration-300 hover:bg-gray-100"
+        >
           <div className="rounded-full bg-sky-100 p-3">
             <div>
               <LuMail strokeWidth={2} className="h-5 w-auto text-marine-400" />
@@ -22,12 +25,15 @@ export default function IconCard({ icon, title, subtitle, email, phone }) {
           </div>
           <div className="space-y-3 pt-4">
             <h4 className="font-h5 font-medium">Email</h4>
-            <p className="font-body-l break-all leading-6 xl:font-body-md xl:leading-5">
-              <a href={`mailto:${email}`}>{email}</a>
+            <p className="font-body-l xl:font-body-md break-all leading-6 xl:leading-5">
+              {email}
             </p>
           </div>
-        </div>
-        <div className="flex w-full items-start space-x-5 rounded-lg bg-gray-50  p-4 pb-6 pl-4  ">
+        </a>
+        <a
+          href={`tel:${phone}`}
+          className="flex w-full items-start space-x-5 rounded-xl bg-gray-50 p-4 pb-6 pl-4 transition duration-300 hover:bg-gray-100"
+        >
           <div className="rounded-full bg-sky-100 p-3">
             <div>
               <LuPhone
@@ -38,11 +44,9 @@ export default function IconCard({ icon, title, subtitle, email, phone }) {
           </div>
           <div className="space-y-3 pt-4">
             <h4 className="font-h5 font-medium">Telefon</h4>
-            <p className="font-body-l xl:font-body-md">
-              <a href={`tel:${phone}`}>{phone}</a>
-            </p>
+            <p className="font-body-l xl:font-body-md">{phone}</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   );

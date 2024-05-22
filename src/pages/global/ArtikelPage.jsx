@@ -77,8 +77,8 @@ const ArticlePage = () => {
           image={article.acf.coverImg}
           size="lg"
         />
-        <div className=" flex h-fit flex-col md:px-10 lg:flex-row lg:space-x-10 lg:px-0 2xl:px-10 2xl:space-x-14">
-          <div className="order-last mx-auto  px-5 py-10 pt-16 sm:max-w-xl min-w-96 lg:order-first lg:px-0 lg:py-0 xl:w-4/12 2xl:w-8/12 ">
+        <div className=" flex h-fit flex-col md:px-10 lg:flex-row lg:space-x-10 lg:px-0 2xl:space-x-14 2xl:px-10">
+          <div className="order-last mx-auto  min-w-96 px-5 py-10 pt-16 sm:max-w-xl lg:order-first lg:px-0 lg:py-0 xl:w-4/12 2xl:w-8/12 ">
             <h4 className="font-h4 pb-5">Kontakt</h4>
             <div className="mb-10 border-b-1 border-gray-200 pb-3">
               <IconCard
@@ -107,16 +107,25 @@ const ArticlePage = () => {
               phone="+45 60 33 45 44"
             />
             <div className="pt-10">
-              <h4 className="font-h3 pb-8 md:font-h4">Del artikel</h4>
+              <h4 className="font-h3 md:font-h4 pb-8">Del artikel</h4>
               <div className="flex space-x-10 pl-2">
-                <a href="https://www.facebook.com/">
-                  <img src={facebook} className="scale-150" />
+                <a href="https://www.facebook.com/" className="">
+                  <img
+                    src={facebook}
+                    className="scale-150 transition duration-300 hover:scale-170"
+                  />
                 </a>
                 <a href="https://www.instagram.com/">
-                  <img src={instagram} className="scale-150" />
+                  <img
+                    src={instagram}
+                    className="scale-150 transition duration-300 hover:scale-170"
+                  />
                 </a>
                 <a href="https://www.linkedin.com/">
-                  <img src={linkedin} className="scale-150" />
+                  <img
+                    src={linkedin}
+                    className="scale-150 transition duration-300 hover:scale-170"
+                  />
                 </a>
               </div>
             </div>

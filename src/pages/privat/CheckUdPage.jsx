@@ -6,6 +6,7 @@ import { useState } from "react";
 import Button from "../../components/buttons/Button";
 import Doodle5 from "../../components/svg/Doodle5";
 import Alert from "../../components/atoms/Alert";
+import Category from "../../components/atoms/Category";
 
 export default function CheckUdPage() {
   const [alertVisible, setAlertVisible] = useState(false);
@@ -54,8 +55,8 @@ export default function CheckUdPage() {
               onSubmit={(event) => handleSubmit(event)}
               className="mx-auto max-w-sm rounded-2xl bg-gray-50 p-5 sm:mx-0 md:max-w-md md:p-7 lg:p-10"
             >
-              <div className="space-y-3">
-                <h4 className="font-h4 text-orange-600">Check ud</h4>
+              <div className="space-y-1">
+                <Category color='orange'>Check ud</Category>
                 <h2 className="font-h2">Glemt at checke ud?</h2>
               </div>
               <div className="mb-6 space-y-6 border-b-1 border-gray-200 pb-6 pt-10">

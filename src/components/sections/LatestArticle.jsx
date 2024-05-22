@@ -7,7 +7,7 @@ const LatestArticle = ({ articles }) => {
   return (
     <>
       {articles && (
-        <div className="hidden w-full flex-col px-5 sm:flex md:px-10 xl:px-20 3xl:px-40">
+        <div className="hidden w-full flex-col px-5 sm:flex md:px-10  3xl:px-40">
           <div className="relative mx-auto w-fit">
             <ImageWrapper
               className="self-center"
