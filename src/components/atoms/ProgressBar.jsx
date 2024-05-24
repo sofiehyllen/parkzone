@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const ProgressBar = ({ currentStep }) => {
   return (
-    <div className='mb-20 w-fit'>
+    <div className='mb-10 w-fit'>
       <ol className='flex items-center w-full font-h6 uppercase text-gray-300'>
         <li
           className={clsx(

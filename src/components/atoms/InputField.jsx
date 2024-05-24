@@ -10,13 +10,21 @@ const InputField = ({
   description,
   className,
   value,
+  onValidity,
 }) => {
   const [isValid, setIsValid] = useState(true);
 
   const handleInputChange = (event) => {
     const inputValue = event.target.value;
-    const isValidInput = inputValue.trim().length > 0; // Example validation, change as needed
+    let isValidInput = true;
+
+    // Conditionally handle input based on the type
+    if (type === "number") {
+      // Check if input is a valid number
+      isValidInput = !isNaN(inputValue) && inputValue.trim().length > 0;
+    }
     setIsValid(isValidInput);
+    onValidity(id, isValidInput);
   };
 
   return (
@@ -33,7 +41,7 @@ const InputField = ({
         className={clsx(
           "font-body-s w-full appearance-none rounded-sm border-none bg-gray-100 p-2 px-3 text-gray-800  outline-none placeholder:translate-y-0.5 placeholder:font-light placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:-outline-offset-2 focus:outline-sky-200",
           className,
-          !isValid && "outline-2 -outline-offset-2 outline-error",
+          !isValid && "outline-2 -outline-offset-2 outline-error-500",
         )}
         onChange={handleInputChange}
         required
@@ -50,6 +58,7 @@ InputField.propTypes = {
   description: PropTypes.string,
   className: PropTypes.string,
   value: PropTypes.any,
+  onValidity: PropTypes.func,
 };
 
 export default InputField;

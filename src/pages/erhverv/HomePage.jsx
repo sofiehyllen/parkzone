@@ -42,7 +42,7 @@ export default function HomePageErhverv() {
           Firmaer i hele landet stoler på os til administrering af deres
           parkeringsanlæg
         </h2>
-        <div className="grid grid-cols-2 items-center justify-items-center space-y-8 md:space-y-12 md:px-16 lg:flex lg:justify-between lg:space-y-0 lg:px-5 2xl:px-20 max-w-screen-3xl mx-auto">
+        <div className="mx-auto grid max-w-screen-3xl grid-cols-2 items-center justify-items-center space-y-8 md:space-y-12 md:px-16 lg:flex lg:justify-between lg:space-y-0 lg:px-5 2xl:px-20">
           <div>
             <p className="font-h3 font-bold text-gray-400">FIRMALOGO</p>
           </div>
@@ -141,7 +141,7 @@ export default function HomePageErhverv() {
           </div>
         </div>
       </div>
-      <div className="flex flex-col px-5 py-16 pt-20 md:px-20 lg:flex-row lg:pb-28 lg:pt-40 lg:items-center xl:px-40 xl:mx-auto 2xl:w-full 3xl:px-28 max-w-screen-3xl">
+      <div className="flex max-w-screen-3xl flex-col px-5 py-16 pt-20 md:px-20 lg:flex-row lg:items-center lg:pb-28 lg:pt-40 xl:mx-auto xl:px-40 2xl:w-full 3xl:px-28">
         <div className="flex flex-col items-center pb-10 sm:px-10 lg:w-11/12 lg:items-start lg:px-0 lg:pb-0 lg:pr-10 xl:w-8/12 3xl:w-6/12">
           <h4 className="font-h2 pb-8 text-center lg:text-left">
             Hold jer opdateret på de seneste nyheder
