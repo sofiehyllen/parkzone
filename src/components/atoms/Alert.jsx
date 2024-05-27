@@ -20,7 +20,7 @@ const Alert = ({ isVisible, type, text, title, onClose, children }) => {
           exit={{ x: "100%", opacity: 0 }}
           transition={{ duration: 0.3 }}
           className={clsx(
-            "fixed right-5 top-5 z-50 ml-5 flex max-w-lg rounded-lg border-l-3 bg-white px-5 pt-5 drop-shadow-xl sm:right-10 sm:top-10 sm:min-w-96",
+            "fixed bottom-5 right-5 z-50 ml-5 flex max-w-lg rounded-lg border-l-3 bg-white px-5 pt-5 drop-shadow-xl sm:bottom-10 sm:right-10 sm:min-w-96",
             type === "success"
               ? "border-success-500"
               : type === "error"
@@ -31,11 +31,11 @@ const Alert = ({ isVisible, type, text, title, onClose, children }) => {
           )}
         >
           {type === "success" ? (
-            <div className="bg-success-50 flex h-9 w-9 shrink-0 items-center justify-center rounded-full">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-success-50">
               <IoCheckmark className="text-success-500 text-xl" />
             </div>
           ) : type === "error" ? (
-            <div className="bg-error-50 flex h-9 w-9 shrink-0 items-center justify-center rounded-full">
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-error-50">
               <IoAlert className="text-error-500 text-xl" />
             </div>
           ) : type === "default" ? (

@@ -1,3 +1,4 @@
+// Dokument til statisk tekstindhold
 import familieplads from "./assets/familieplads.jpg";
 import betalingsparkering from "./assets/betalingsparkering.jpg";
 import anpr from "./assets/anpr.jpg";

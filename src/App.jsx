@@ -17,6 +17,7 @@ import ScrollToTop from "./components/functions/ScrollToTop";
 import BlogPage from "./pages/global/BlogPage";
 import ArtikelPage from "./pages/global/ArtikelPage";
 
+// Ruter og navigation med React Router
 function App() {
   return (
     <BrowserRouter>

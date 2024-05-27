@@ -1,3 +1,4 @@
+// Side for parkeringsområde
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PageWrapper from "../../components/wrappers/PageWrapper";
@@ -15,31 +16,38 @@ export default function ParkingPage() {
   const [data, setData] = useState(null);
   const [alertVisible, setAlertVisible] = useState(false);
 
+  // Gør det muligt at hente data fra specifikke id
   const params = useParams();
 
+  // Url til Firebase API
   const url = `https://firestore.googleapis.com/v1/projects/parkzone-f0f37/databases/(default)/documents/parking/${params.id}`;
 
+  // Fetch af Firebase Data
   useEffect(() => {
     async function getData() {
-      const response = await fetch(url);
-      const data = await response.json();
+      const response = await fetch(url); // Sender fetch forespørgsel til url
+      const data = await response.json(); // Konverterer svaret til json
       setData(data);
     }
     getData();
 
     getData();
 
+    // Viser en Alert efter 5 sek.
     const timeoutId = setTimeout(() => {
       setAlertVisible(true);
     }, 5000);
 
+    // Timeren rydes før useEffect kører igen
     return () => clearTimeout(timeoutId);
   }, [url]);
 
+  // Håndterer luk af Alert
   function handleCloseAlert() {
     setAlertVisible(false);
   }
 
+  // Scroller til Payment Flow når knappen i Alerten klikkes
   const scrollToPaymentFlow = () => {
     const paymentFlowSection = document.getElementById("paymentFlow");
     if (paymentFlowSection) {
@@ -117,7 +125,7 @@ export default function ParkingPage() {
                       )}
                     </div>
                   </div>
-                  {data.fields.checkOut.booleanValue ? (
+                  {data.fields.checkOut.booleanValue ? ( // Indholdet renderes afhængigt af om man kan checke ud fra området online
                     <div className="relative my-14 overflow-hidden rounded-xl bg-sky-50 px-7 py-10 md:px-10">
                       <div className="relative z-50 flex w-full flex-col items-center sm:px-20 lg:px-10 xl:px-16">
                         <h6 className="font-h4 pb-4 text-center">

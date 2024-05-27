@@ -10,7 +10,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@strapi/blocks-react-renderer": "^1.0.1",
     "clsx": "^2.1.1",
     "esbuild": "^0.20.2",
     "firebase": "^10.11.1",

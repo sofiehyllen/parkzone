@@ -4,7 +4,7 @@ import { IoCloseOutline } from "react-icons/io5";
 import { useState } from "react";
 import Button from "../buttons/Button";
 import ToggleButton from "../buttons/ToggleButton";
-import logo from "../../../public/logo-regular.svg";
+import logo from "/logo-regular.svg";
 import CustomNavLink from "../atoms/Navlink";
 
 //--- Header komponent ---//

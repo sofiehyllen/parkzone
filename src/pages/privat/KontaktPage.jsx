@@ -1,3 +1,4 @@
+// Kontaktside for privatkunder
 import ContactForm from "../../components/sections/ContactForm";
 import ContactInfo from "../../components/sections/ContactInfo";
 import PageWrapper from "../../components/wrappers/PageWrapper";

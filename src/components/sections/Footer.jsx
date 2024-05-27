@@ -1,7 +1,7 @@
 import Newsletter from "../atoms/Newsletter";
 import Button from "../buttons/Button";
 import { Link } from "react-router-dom";
-import logo from "../../../public/logo-regular.svg";
+import logo from "/logo-regular.svg";
 
 export default function Footer() {
   return (

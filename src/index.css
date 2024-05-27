@@ -1,3 +1,4 @@
+/* Import af fonts*/
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@500&display=swap");
@@ -7,6 +8,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Definition af font-klasser */
 @layer base {
   .font-h1 {
     @apply font-normal text-marine-800 font-mundial text-4xl  capsize sm:text-5xl md:text-6xl md:leading-12;
@@ -40,6 +42,7 @@
   }
 }
 
+/* Globale regler og klasser */
 blockquote,
 dl,
 dd,
@@ -85,7 +88,7 @@ video {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Hide arrows in input[type="number"] for Chrome, Safari, Edge, Opera */
+/* Klasse til at fjerne pile i input felter når type="number for Chrome, Safari, Edge, Opera */
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -93,7 +96,7 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-/* Hide arrows in input[type="number"] for Firefox */
+/* Klasse til at fjerne pile i input felter når type="number for Firefox */
 input[type="number"] {
   -moz-appearance: textfield;
   appearance: textfield;
@@ -108,6 +111,7 @@ body {
   min-height: 100vh;
 }
 
+/* Klasser til styling af brødtekst fra WordPress API */
 #wp-api-content p {
   font-family: "League Spartan", "sans-serif";
   font-weight: 300;

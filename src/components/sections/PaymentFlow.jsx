@@ -12,9 +12,9 @@ import BackButton from "../buttons/BackButton";
 import { subscriptions } from "../../staticData";
 import { FaRegHeart } from "react-icons/fa6";
 import Alert from "../atoms/Alert";
-import mastercard from "../../../public/ma_symbol.svg";
-import visa from "../../../public/visa-logo.svg";
-import dankort from "../../../public/DK_Logo_CMYK_Konturstreg.png";
+import mastercard from "/ma_symbol.svg";
+import visa from "/visa-logo.svg";
+import dankort from "/DK_Logo_CMYK_Konturstreg.png";
 
 const PaymentFlow = ({ map, address, city, hourPrice }) => {
   const [selectedOption, setSelectedOption] = useState(null);

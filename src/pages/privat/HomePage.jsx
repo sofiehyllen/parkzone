@@ -1,3 +1,4 @@
+// Homepage for privatkunder
 import ImageWrapper from "../../components/wrappers/ImageWrapper";
 import PageWrapper from "../../components/wrappers/PageWrapper";
 import driver from "../../assets/girl-driving.jpg";
@@ -15,6 +16,7 @@ import mobile from "../../assets/mobile.jpg";
 import useFetch from "../../hooks/useFetch";
 
 export default function HomePagePrivat() {
+  // Her hentes artiklernes indhold som data fra WordPress
   let { loading, error, data } = useFetch(
     "https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=3",
   );
@@ -146,7 +148,7 @@ export default function HomePagePrivat() {
             size="lg"
             variant="primary"
             icon={true}
-            to='/privat/faq'
+            to="/privat/faq"
             className="relative z-10 mx-auto hidden lg:inline-flex"
           >
             Læs alle FAQ
