@@ -12,31 +12,44 @@ import { domToReact } from "html-react-parser";
 import HTMLReactParser from "html-react-parser/lib/index";
 import useFetch from "../../hooks/useFetch";
 
+// Artikel siden
 const ArticlePage = () => {
-  const { id } = useParams();
+  const { id } = useParams(); // Henter id parametre fra url
 
+  // Fetch af artiklernes indhold fra WordPress
   let { loading, error, data } = useFetch(
     "https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7",
   );
-  if (loading) return <div className="h-screen"></div>;
-  if (error)
+  if (loading)
+    // Side mens der indlæses
     return (
-      <h1 className="font-h1 mx-auto h-screen pl-5 pt-40">
+      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-gray-300">
+        Indlæser
+      </h1>
+    );
+  if (error)
+    //Error besked hvis data ikke kan hentes
+    return (
+      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-error-500">
         Kunne ikke hente data
       </h1>
     );
 
+  // Gemmer det hentede data som variablen articles
   let articles = data;
 
+  // Finder den artikel som matcher id'et
   let article = {};
   let arr = articles.filter((article) => article.id == id);
   article = arr[0];
 
+  // Definerer options for HTMLReactParser
   const options = {
     replace({ attribs, children }) {
       if (!attribs) {
         return;
       }
+      // Erstatter elementer med class="wp-block-heading" med et stylet h2 element
       if (attribs.class === "wp-block-heading") {
         return (
           <h2 className="font-h3 pb-7 pt-10">
@@ -129,6 +142,8 @@ const ArticlePage = () => {
             </div>
           </div>
           <div id="wp-api-content" className="lg:pt-8 xl:w-8/12 2xl:w-full ">
+            {" "}
+            {/* Rendering af brødteksten */}
             {HTMLReactParser(article.content.rendered, options)}
           </div>
         </div>

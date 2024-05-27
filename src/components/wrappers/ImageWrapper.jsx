@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import clsx from "clsx";
 import Doodle8 from "../svg/Doodle8";
 
+// Komponent som omslutter billeder med styling og illustration
 export default function ImageWrapper({ image, alt, className, color, size }) {
   return (
     <div

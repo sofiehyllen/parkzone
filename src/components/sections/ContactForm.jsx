@@ -8,6 +8,7 @@ import Button from "../buttons/Button";
 import Alert from "../atoms/Alert";
 import Category from "../atoms/Category";
 
+// Komponenten for kontaktformular
 export default function ContactForm({ variant }) {
   const [selectedRadioOption, setSelectedRadioOption] = useState("abonnement");
   const [alertVisible, setAlertVisible] = useState(false);
@@ -15,40 +16,53 @@ export default function ContactForm({ variant }) {
   const [alertType, setAlertType] = useState("");
   const [alertTitle, setAlertTitle] = useState("");
   const [alertText, setAlertText] = useState("");
+  const [selectedDropdownOption, setSelectedDropdownOption] = useState(null);
 
+  // Funktion til håndtering af ændring i valgt radiooption
   const handleOptionChange = (event) => {
     setSelectedRadioOption(event.target.value);
   };
 
+  // Funktion til håndtering af ændring i valgt radioknap
   const handleRadioButtonChange = (event) => {
     setIsChecked(event.target.checked);
   };
 
-  const [, setSelectedDropdownOption] = useState(null);
   const handleDropdownSelect = (option) => {
     setSelectedDropdownOption(option);
   };
 
+  // Funktion til håndtering af submit af kontaktformularen
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); // Forhindrer standard opførsel af form så siden ikke genindlæses ved submit
 
     if (!isChecked) {
+      // Hvis checkbox ikke er markeret, vis fejlalert
       setAlertVisible(true);
       setAlertType("error");
       setAlertTitle("Manglende accept af persondatapolitik");
       setAlertText(
-        "Venligst acceptér vilkårene og betingelserne for at fortsætte.",
+        "Venligst acceptér vilkårene og betingelserne for at sende.",
       );
-      setTimeout(() => setAlertVisible(false), 3000);
+      setTimeout(() => setAlertVisible(false), 3000); // Skjul alert efter 3 sekunder
+    } else if (!selectedDropdownOption) {
+      // Hvis dropdown ikke er markeret, vis fejlalert
+      setAlertVisible(true);
+      setAlertType("error");
+      setAlertTitle("Manglende undfyldning");
+      setAlertText("Venligst udfyld de manglende felter for at sende.");
+      setTimeout(() => setAlertVisible(false), 3000); // Skjul alert efter 3 sekunder
     } else {
+      // Ellers vis succesalert
       setAlertVisible(true);
       setAlertType("success");
       setAlertTitle("Tak for at kontakte os!");
       setAlertText("Din kontaktformular er afsendt og du hører fra os snarest");
-      setTimeout(() => setAlertVisible(false), 5000);
+      setTimeout(() => setAlertVisible(false), 5000); // Skjul alert efter 5 sekunder
     }
   }
 
+  // Funktion til at lukke alerten
   function handleCloseAlert() {
     setAlertVisible(false);
   }
@@ -69,7 +83,7 @@ export default function ContactForm({ variant }) {
           kontakter vi dig snarest muligt.
         </p>
       </div>
-      {variant === "privat" && (
+      {variant === "privat" && ( // Kontaktformularens indhold på privatsiden
         <div className="pt-6">
           <h6 className="font-h6">Baggrund</h6>
           <p>Hvad drejer henvendelsen sig om?</p>
@@ -116,13 +130,13 @@ export default function ContactForm({ variant }) {
           <InputField
             label="Mobil"
             id="mobil"
-            type="tel"
+            type="number"
             placeholder="Mobilnummer"
           />
           <div className="w-full"></div>
         </div>
       </div>
-      {variant === "erhverv" && (
+      {variant === "erhverv" && ( // Kontaktformularens indhold på erhvervsiden
         <div>
           <Dropdown
             label="Afdeling"
@@ -140,9 +154,8 @@ export default function ContactForm({ variant }) {
               <InputField
                 label="Løbenummer / Registreringsnummer"
                 id="regNumber"
-                type="text"
+                type="number"
                 placeholder="F.eks 1234567"
-                className=""
               />
             </div>
             <RadioButton
@@ -153,79 +166,79 @@ export default function ContactForm({ variant }) {
           </div>
         </div>
       )}
-      {selectedRadioOption === "kontrolafgift" && variant === "privat" && (
-        <div>
-          <div className="border-b-1 border-gray-300 pb-2">
-            <InputField
-              label="Løbenummer"
-              id="serialNumber"
-              description="Du finder det 7-cifrede løbenummeret på din afgift eller betalingspåmindelse."
-              type="text"
-              placeholder="F.eks 1234567"
-              className=""
-            />
-            <InputField
-              label="Nummerplade"
-              id="licensePlate"
-              type="text"
-              placeholder="F.eks AA 12 345"
-              className=""
-            />
-            <Dropdown
-              label="Hændelse"
-              placeholder="Vælg den mulighed som bedst beskriver din situation"
-              dropdownOptions={[
-                "Modtaget rykker trods betaling",
-                "Afdragsordning",
-                "Modtaget afgift men ejer ikke bilen",
-                "Gyldig p-tilladelse eller p-billet",
-                "Hospitalet",
-                "Betalingsapp",
-                "Kameraparkering",
-                "Elektronisk eller manuel P-skive",
-                "ParkCare",
-                "Parkering uden for bås",
-                "Andet",
-              ]}
-              onSelect={handleDropdownSelect}
-            />
-          </div>
-          <div className="py-6">
-            <h6 className="font-h6 pb-1.5">Vedhæftninger</h6>
-            <div className="relative cursor-pointer">
-              <input
-                name="files[]"
-                type="file"
-                accept=".pdf, .jpg, .jpeg, .png, .doc, .docx, .xml"
-                className="block w-full py-2 text-slate-500 font-league text-sm capsize file:mr-4 file:cursor-pointer
+      {selectedRadioOption === "kontrolafgift" &&
+        variant === "privat" && ( // Kontaktformularens indhold på privatsiden når henvendelsen omhandler en kontrolafgift
+          <div>
+            <div className="border-b-1 border-gray-300 pb-2">
+              <InputField
+                label="Løbenummer"
+                id="serialNumber"
+                description="Du finder det 7-cifrede løbenummeret på din afgift eller betalingspåmindelse."
+                type="number"
+                placeholder="F.eks 1234567"
+              />
+              <InputField
+                label="Nummerplade"
+                id="licensePlate"
+                type="text"
+                placeholder="F.eks AA 12 345"
+              />
+              <Dropdown
+                label="Hændelse"
+                placeholder="Vælg den mulighed som bedst beskriver din situation"
+                dropdownOptions={[
+                  "Modtaget rykker trods betaling",
+                  "Afdragsordning",
+                  "Modtaget afgift men ejer ikke bilen",
+                  "Gyldig p-tilladelse eller p-billet",
+                  "Hospitalet",
+                  "Betalingsapp",
+                  "Kameraparkering",
+                  "Elektronisk eller manuel P-skive",
+                  "ParkCare",
+                  "Parkering uden for bås",
+                  "Andet",
+                ]}
+                onSelect={handleDropdownSelect}
+              />
+            </div>
+            <div className="py-6">
+              <h6 className="font-h6 pb-1.5">Vedhæftninger</h6>
+              <div className="relative cursor-pointer">
+                <input
+                  name="files[]"
+                  type="file"
+                  accept=".pdf, .jpg, .jpeg, .png, .doc, .docx, .xml"
+                  className="block w-full py-2 text-slate-500 font-league text-sm capsize file:mr-4 file:cursor-pointer
               file:rounded-full file:border-dotted file:border-marine-800 file:bg-transparent file:px-4 file:py-2
               file:pl-8 file:pt-2.5 file:text-marine-800 file:font-league
               file:text-sm file:leading-none
               file:capsize hover:file:border-solid"
-                multiple="multiple"
-              />
-              <FiPlus className="absolute left-4 top-3.5 h-3.5 w-auto text-marine-800" />
+                  multiple="multiple"
+                />
+                <FiPlus className="absolute left-4 top-3.5 h-3.5 w-auto text-marine-800" />
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {selectedRadioOption === "abonnement" && variant === "privat" && (
-        <div className="">
-          <InputField
-            id="customerNumber"
-            type="text"
-            label="Kundenummer"
-            placeholder="F.eks. 1234567"
-            description="Du finder dit kundenummer i din kontrakt eller i en tidligere mail fra os."
-          />
-        </div>
-      )}
+      {selectedRadioOption === "abonnement" &&
+        variant === "privat" && ( // Kontaktformularens indhold på privatsiden når henvendelsen omhandler abonnement
+          <div className="">
+            <InputField
+              id="customerNumber"
+              type="number"
+              label="Kundenummer"
+              placeholder="F.eks. 1234567"
+              description="Du finder dit kundenummer i din kontrakt eller i en tidligere mail fra os."
+            />
+          </div>
+        )}
 
       <div className="border-b-1 border-gray-300 pb-4">
         <h6 className="font-h6 pb-1.5">Besked</h6>
         <textarea
-          {...(variant === "privat" ? { required: true } : {})}
+          {...(variant === "privat" ? { required: true } : {})} // Besked-feltet gøres obligatorisk på privatsiden
           name="message"
           id="message"
           placeholder="Har du nogle bemærkninger kan de skrives her"

@@ -7,7 +7,7 @@ import ToggleButton from "../buttons/ToggleButton";
 import logo from "/logo-regular.svg";
 import CustomNavLink from "../atoms/Navlink";
 
-//--- Header komponent ---//
+// Header komponent
 export default function Header() {
   const [isNavOpen, setIsNavOpen] = useState(false); // State til styring af mobilnavigationens åbenhed/lukning
   const [isChecked, setIsChecked] = useState(
@@ -16,17 +16,20 @@ export default function Header() {
   const navigate = useNavigate(); // Hook til at styre navigation
   const location = useLocation(); // Hook til at bestemme brugeres lokation
 
+  // Funktion til håndtering af toggle
   const handleToggle = () => {
-    const toggleState = !isChecked;
-    setIsChecked(toggleState);
-    localStorage.setItem("toggleState", toggleState.toString());
+    const toggleState = !isChecked; // Inverterer toggle-status
+    setIsChecked(toggleState); // Opdaterer toggle-state
+    localStorage.setItem("toggleState", toggleState.toString()); // Gemmer toggle-state i localStorage
 
+    // Håndterer navigation baseret på toggle-status
     if (!toggleState) {
       navigate("/privat");
     } else {
       navigate("/erhverv");
     }
 
+    // Håndterer specifik navigation baseret på nuværende sti
     if (location.pathname === "/erhverv/kontakt") {
       navigate("/privat/kontakt");
     } else if (location.pathname === "/privat/kontakt") {
@@ -34,7 +37,6 @@ export default function Header() {
     }
   };
 
-  // JSX-struktur for header
   return (
     <section className="p-5 md:p-10">
       {/* Overordnet container med header-indhold, inkl. logo og navigation */}
@@ -74,6 +76,7 @@ export default function Header() {
                     >
                       Blog
                     </CustomNavLink>
+
                     <CustomNavLink
                       to="/omos"
                       variant="primary"
@@ -81,23 +84,15 @@ export default function Header() {
                     >
                       Om os
                     </CustomNavLink>
-                    {isChecked ? (
-                      <CustomNavLink
-                        to="/erhverv/kontakt"
-                        variant="primary"
-                        onClick={() => setIsNavOpen(false)}
-                      >
-                        Kontakt
-                      </CustomNavLink>
-                    ) : (
-                      <CustomNavLink
-                        to="/privat/kontakt"
-                        variant="primary"
-                        onClick={() => setIsNavOpen(false)}
-                      >
-                        Kontakt
-                      </CustomNavLink>
-                    )}
+
+                    <CustomNavLink
+                      to={isChecked ? "/erhverv/kontakt" : "/privat/kontakt"}
+                      variant="primary"
+                      onClick={() => setIsNavOpen(false)}
+                    >
+                      Kontakt
+                    </CustomNavLink>
+
                     <hr className="pb-2" />
                     {isChecked ? (
                       <div className="flex flex-col space-y-5 pb-2 pl-2.5">
@@ -169,15 +164,12 @@ export default function Header() {
             <CustomNavLink to="/omos" variant="primary">
               Om os
             </CustomNavLink>
-            {isChecked ? (
-              <CustomNavLink to="/erhverv/kontakt" variant="primary">
-                Kontakt
-              </CustomNavLink>
-            ) : (
-              <CustomNavLink to="/privat/kontakt" variant="primary">
-                Kontakt
-              </CustomNavLink>
-            )}
+            <CustomNavLink
+              to={isChecked ? "/erhverv/kontakt" : "/privat/kontakt"}
+              variant="primary"
+            >
+              Kontakt
+            </CustomNavLink>
 
             <ToggleButton isChecked={isChecked} handleToggle={handleToggle} />
           </div>

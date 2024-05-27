@@ -3,6 +3,7 @@ import Doodle7 from "../../components/svg/Doodle7";
 import PageWrapper from "../../components/wrappers/PageWrapper";
 import { FAQ1, FAQ2 } from "../../staticData";
 
+// FAQ-side med indhold fra staticData.js
 export default function FAQPage() {
   return (
     <PageWrapper breadcrumb={true}>
@@ -16,6 +17,7 @@ export default function FAQPage() {
       </div>
       <div className="mb-10 w-full bg-sky-50 px-5 py-10 sm:px-16 md:px-24 md:py-20 lg:mb-16 lg:flex lg:space-x-5 lg:px-20 lg:py-28 xl:px-32 2xl:px-40 3xl:mb-24 3xl:px-72">
         <div className="grid h-min w-full grid-cols-1">
+          {/* Mapper gennem FAQ1 data fra staticData.json og laver en Accordion for hver FAQ.  Dataene opdeles i to forskellige mappings for at sikre layoutet når en Accordian åbnes */}
           {FAQ1.map((FAQ1, index) => (
             <div key={index} className="flex w-full justify-center">
               <Accordion title={FAQ1.title} body={FAQ1.body} color="bg-white" />
@@ -23,6 +25,7 @@ export default function FAQPage() {
           ))}
         </div>
         <div className="grid h-min w-full grid-cols-1">
+          {/* Mapper gennem FAQ2 data fra staticData.json og laver en Accordion for hver FAQ */}
           {FAQ2.map((FAQ2, index) => (
             <div key={index} className="flex w-full justify-center">
               <Accordion title={FAQ2.title} body={FAQ2.body} color="bg-white" />

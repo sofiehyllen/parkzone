@@ -10,6 +10,7 @@ import { PiGearSixBold } from "react-icons/pi";
 import Doodle1 from "../../components/svg/Doodle1";
 import Doodle2 from "../../components/svg/Doodle2";
 
+// Om os side
 export default function OmOsPage() {
   return (
     <PageWrapper breadcrumb={true}>
@@ -159,7 +160,7 @@ export default function OmOsPage() {
               vores kunder.
             </p>
           </div>
-          <div className="mx-auto flex max-w-96 flex-col items-center md:px-7 lg:col-span-3 lg:w-4/6 lg:mx-0 lg:justify-self-end">
+          <div className="mx-auto flex max-w-96 flex-col items-center md:px-7 lg:col-span-3 lg:mx-0 lg:w-4/6 lg:justify-self-end">
             <div className="rounded-full bg-sky-100 p-4 ">
               <FaRegHandshake className="h-8 w-8 text-marine-400" />
             </div>

@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { LuMail, LuPhone } from "react-icons/lu";
 
+// Kortet for kontaktoplysninger på artikel siden
 export default function IconCard({ icon, title, subtitle, email, phone }) {
   return (
     <div className="w-full space-y-3 pb-7">

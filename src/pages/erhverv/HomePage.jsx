@@ -1,5 +1,4 @@
 import Button from "../../components/buttons/Button";
-import Hero from "../../components/sections/Hero";
 import PageWrapper from "../../components/wrappers/PageWrapper";
 import laptop from "../../assets/laptop.png";
 import ImageWrapper from "../../components/wrappers/ImageWrapper";
@@ -7,27 +6,39 @@ import card from "../../assets/kort.jpg";
 import Check from "../../components/atoms/Check";
 import Newsletter from "../../components/atoms/Newsletter";
 import nyhed from "../../assets/nyhedsbrev.jpg";
+import Category from "../../components/atoms/Category";
 
+// Homepage for erhverv
 export default function HomePageErhverv() {
   return (
     <PageWrapper breadcrumb={false}>
-      <div className=" relative overflow-hidden pb-10 sm:pb-16 md:flex lg:py-24 xl:py-32 3xl:py-44 4xl:py-60">
-        <div className="md:place-self-center md:pr-20 xl:w-11/12   xl:pl-20  4xl:w-10/12">
-          <Hero
-            color="lightBlue"
-            category="Parkeringsløsning"
-            title="Effektiviser og optimer jeres virksomhed med ParkCare"
-            body="Med vores digitale p-tilladelsessystem ParkCare sparer I tid og omkostninger på parkeringsadministration. Samtidig sikrer I nem og smidig parkering for dem, der skal parkere på jeres parkeringsområde. Læs mere om ParkCare samt vores andre parkeringsløsninger på siden Produkter & services."
-          >
-            <Button
-              size="lg"
-              variant="primary"
-              icon={true}
-              to="/erhverv/produkter"
-            >
-              Læs mere
-            </Button>
-          </Hero>
+      <div className="relative overflow-hidden pb-20 sm:pb-28 md:flex md:pb-48 lg:pb-60 lg:pt-24 xl:pt-32 3xl:pt-44 4xl:pt-60">
+        <div className="md:place-self-center md:pr-20 xl:w-11/12 xl:pl-20 4xl:w-10/12">
+          <div className="pt-10 sm:pt-16 md:flex md:items-center lg:pt-0">
+            <div className="flex w-full flex-col items-center px-5 pb-10 md:items-start md:px-0 md:py-0 md:pl-10 lg:pl-20 ">
+              <Category color="lightBlue">Parkeringsløsning</Category>
+              <div className="md:pb-">
+                <h1 className="font-h2 pb-8 pt-2 text-center md:text-left lg:pb-12">
+                  Effektiviser og optimer jeres virksomhed med ParkCare
+                </h1>
+                <p className="font-body-md lg:font-body-l mb-auto hyphens-auto pb-10 text-center sm:px-20 md:px-0 md:text-left">
+                  Med vores digitale p-tilladelsessystem ParkCare sparer I tid
+                  og omkostninger på parkeringsadministration. Samtidig sikrer I
+                  nem og smidig parkering for dem, der skal parkere på jeres
+                  parkeringsområde. Læs mere om ParkCare samt vores andre
+                  parkeringsløsninger på siden Produkter & services.
+                </p>
+              </div>
+              <Button
+                size="lg"
+                variant="primary"
+                icon={true}
+                to="/erhverv/produkter"
+              >
+                Læs mere
+              </Button>
+            </div>
+          </div>
         </div>
         <div className="relative h-full w-full ">
           <ImageWrapper
@@ -37,7 +48,7 @@ export default function HomePageErhverv() {
           />
         </div>
       </div>
-      <div className="mb-10 mt-20 bg-marine-900 px-5 py-20">
+      <div className="mb-10 bg-marine-900 px-5 py-20">
         <h2 className="font-h5 pb-9 text-center text-white sm:px-28 md:px-0">
           Firmaer i hele landet stoler på os til administrering af deres
           parkeringsanlæg

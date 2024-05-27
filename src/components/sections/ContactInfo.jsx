@@ -1,6 +1,7 @@
 import { LuMail, LuPhone } from "react-icons/lu";
 import PropTypes from "prop-types";
 
+// Komponent for kontaktinformation
 export default function ContactInfo({ variant }) {
   return (
     <div className="h-fit max-w-md space-y-2.5 rounded-2xl bg-white p-5">
@@ -36,7 +37,7 @@ export default function ContactInfo({ variant }) {
             <p className="font-body-l xl:font-body-md">+45 70 25 26 96</p>
           </div>
           <div className="w-full space-y-6 pt-7">
-            {variant === "privat" && (
+            {variant === "privat" && ( // Kontaktinformationen på privatsiden
               <div className="space-y-7">
                 <div className="space-y-3.5">
                   <h5 className="font-body-md font-normal">Kundeservice</h5>
@@ -66,7 +67,7 @@ export default function ContactInfo({ variant }) {
                 </div>
               </div>
             )}
-            {variant === "erhverv" && (
+            {variant === "erhverv" && ( // Kontaktinformationen på erhversiden
               <div className="grid grid-cols-1 space-y-2">
                 <div className="flex flex-wrap justify-between pr-10">
                   <p className="font-body-md w-24 pb-2">Man - tors:</p>

@@ -1,4 +1,3 @@
-// Side for parkeringsområde
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import PageWrapper from "../../components/wrappers/PageWrapper";
@@ -12,6 +11,7 @@ import Button from "../../components/buttons/Button";
 import PaymentFlow from "../../components/sections/PaymentFlow";
 import Alert from "../../components/atoms/Alert";
 
+// Side for parkeringsområde
 export default function ParkingPage() {
   const [data, setData] = useState(null);
   const [alertVisible, setAlertVisible] = useState(false);
@@ -31,8 +31,6 @@ export default function ParkingPage() {
     }
     getData();
 
-    getData();
-
     // Viser en Alert efter 5 sek.
     const timeoutId = setTimeout(() => {
       setAlertVisible(true);
@@ -42,7 +40,7 @@ export default function ParkingPage() {
     return () => clearTimeout(timeoutId);
   }, [url]);
 
-  // Håndterer luk af Alert
+  // Håndterer lukning af Alert
   function handleCloseAlert() {
     setAlertVisible(false);
   }

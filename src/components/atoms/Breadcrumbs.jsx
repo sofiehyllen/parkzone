@@ -1,10 +1,12 @@
 import { Link, useLocation } from "react-router-dom";
 import BackButton from "../buttons/BackButton";
 
+// Komponent for brødkrummer på hver side
 const Breadcrumb = () => {
   const location = useLocation(); //Finder nuværende sti for brugeren
   const pathnames = location.pathname.split("/").filter((x) => x); //Deler stinavnet med '/'
 
+  // Definition af toggleState ud fra hvad den er sat til i localStorage
   const toggleState = JSON.parse(localStorage.getItem("toggleState"));
 
   //Bestemmer titlen for hvert stinavn
@@ -32,8 +34,8 @@ const Breadcrumb = () => {
     "/blog/83": "Artikel",
   };
 
+  // Funktion til at navigere tilbage til forrige side
   const previousPage = () => {
-    //Navigere tilbage til forrige side
     window.history.back();
   };
 
@@ -44,7 +46,7 @@ const Breadcrumb = () => {
         <ol className="list-none space-y-1 p-0 sm:inline-flex sm:space-y-0">
           <li className="flex items-center justify-end ">
             <Link
-              to={toggleState ? "/erhverv" : "/privat"}
+              to={toggleState ? "/erhverv" : "/privat"} // Sender brugeren til homepage baseret på toggleState
               className="font-h6 sm:font-h5 text-gray-300 transition-colors duration-300 hover:text-gray-400  sm:text-gray-300"
             >
               Home
@@ -54,10 +56,11 @@ const Breadcrumb = () => {
             </span>
           </li>
           {pathnames.map((name, index) => {
-            if (index === 0 && pathnames.length > 1) return null;
-            const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
-            const isLast = index === pathnames.length - 1;
+            if (index === 0 && pathnames.length > 1) return null; // Skipper første element hvis der er flere elementer (så der ikke står endten "erhverv" eller "privat")
+            const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`; // Bygger sti til hvert niveau
+            const isLast = index === pathnames.length - 1; // Tjekker om det er sidste element
             return (
+              // Viser titel fra pathMapping eller stinavnet som styles i blå hvis det står sidst, og i grå og som et link til stien hvis det ikke gør
               <li
                 key={name}
                 className="font-h6 sm:font-h5 flex items-center justify-end"

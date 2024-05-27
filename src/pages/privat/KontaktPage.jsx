@@ -1,10 +1,10 @@
-// Kontaktside for privatkunder
 import ContactForm from "../../components/sections/ContactForm";
 import ContactInfo from "../../components/sections/ContactInfo";
 import PageWrapper from "../../components/wrappers/PageWrapper";
 import driver from "../../assets/driver.jpg";
 import ImageWrapper from "../../components/wrappers/ImageWrapper";
 
+// Kontaktside for privatkunder
 export default function KontaktPagePrivat() {
   return (
     <PageWrapper breadcrumb={true}>

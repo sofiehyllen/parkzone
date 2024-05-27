@@ -1,4 +1,3 @@
-// Homepage for privatkunder
 import ImageWrapper from "../../components/wrappers/ImageWrapper";
 import PageWrapper from "../../components/wrappers/PageWrapper";
 import driver from "../../assets/girl-driving.jpg";
@@ -15,14 +14,26 @@ import Category from "../../components/atoms/Category";
 import mobile from "../../assets/mobile.jpg";
 import useFetch from "../../hooks/useFetch";
 
+// Homepage for privatkunder
 export default function HomePagePrivat() {
-  // Her hentes artiklernes indhold som data fra WordPress
+  // Fetch af artiklernes indhold fra WordPress
   let { loading, error, data } = useFetch(
     "https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=3",
   );
-  if (loading) return <div className="h-screen"></div>;
+  // Side mens der indlæses
+  if (loading)
+    return (
+      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-gray-300">
+        Indlæser
+      </h1>
+    );
+  //Error besked hvis data ikke kan hentes
   if (error)
-    return <h1 className="font-h1 h-screen pl-5">Kunne ikke hente data</h1>;
+    return (
+      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-error-500">
+        Kunne ikke hente data
+      </h1>
+    );
 
   return (
     <PageWrapper breadcrumb={false}>
@@ -38,6 +49,7 @@ export default function HomePagePrivat() {
           </p>
 
           <div className="flex space-x-5 pb-10 sm:pb-16 md:pb-0">
+            {/* Embedded logo fra apple appstore */}
             <a href="https://apps.apple.com/us/app/parkzone-go-med-parkcare/id1429508099?itsct=apps_box_badge&amp;itscg=30200">
               <img
                 src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/da-dk?size=250x83&amp;releaseDate=1544140800"
@@ -45,7 +57,7 @@ export default function HomePagePrivat() {
                 style={{ width: "106px", height: "35px" }}
               />
             </a>
-
+            {/* Embedded logo fra google playstore */}
             <a href="https://play.google.com/store/apps/details?id=dk.parkzone.parkcare&hl=da&gl=US">
               <img
                 src={googlePlay}
@@ -155,6 +167,7 @@ export default function HomePagePrivat() {
           </Button>
         </div>
         <div className="relative z-10 w-full pb-5">
+          {/* Der hentes 4 FAQ */}
           {FAQ1.slice(1, 5).map((FAQ1, index) => (
             <div key={index} className="flex w-full justify-center">
               <Accordion

@@ -7,6 +7,7 @@ import ImageWrapper from "../wrappers/ImageWrapper";
 import Doodle4 from "../svg/Doodle4.jsx";
 import Category from "../atoms/Category.jsx";
 
+// Komponenten for indholdet af hver tab
 function TabsContent({ content }) {
   return (
     <div className="w-full overflow-hidden  whitespace-pre-line bg-marine-50 pb-10">
@@ -19,7 +20,7 @@ function TabsContent({ content }) {
         <div className="relative z-10 px-5 sm:px-0">
           <div className="flex space-x-3">
             <h3 className="font-h1 pb-10">{content.title}</h3>
-            {content.title === "Security" ? (
+            {content.title === "Security" ? ( // Visning af nyheds-kategori for Security
               <div>
                 <Category color="darkRed">Nyhed</Category>
               </div>

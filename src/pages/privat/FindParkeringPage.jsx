@@ -4,6 +4,7 @@ import Doodle1 from "../../components/svg/Doodle1";
 import Doodle2 from "../../components/svg/Doodle2";
 import PageWrapper from "../../components/wrappers/PageWrapper";
 
+// Side for Find Parkering
 export default function FindParkeringPage() {
   return (
     <PageWrapper breadcrumb={true}>

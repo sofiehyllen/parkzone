@@ -2,6 +2,7 @@ import clsx from "clsx";
 import PropTypes from "prop-types";
 import { useState } from "react";
 
+// Komponent for inputfield
 const InputField = ({
   label,
   id,
@@ -12,19 +13,21 @@ const InputField = ({
   value,
   onValidity,
 }) => {
+  // State til at holde styr på om inputtet er valid
   const [isValid, setIsValid] = useState(true);
 
+  // Funktion der håndterer ændringer i inputfeltet
   const handleInputChange = (event) => {
-    const inputValue = event.target.value;
+    const inputValue = event.target.value; // Henter værdien fra inputfeltet
     let isValidInput = true;
 
-    // Conditionally handle input based on the type
+    // Håndterer input baseret på typen
     if (type === "number") {
-      // Check if input is a valid number
+      // Tjekker om inputtet er et gyldigt tal
       isValidInput = !isNaN(inputValue) && inputValue.trim().length > 0;
     }
-    setIsValid(isValidInput);
-    onValidity(id, isValidInput);
+    setIsValid(isValidInput); // Opdaterer state for gyldigheden af inputtet
+    onValidity(id, isValidInput); // Kalder onValidity callback med input id og gyldighed
   };
 
   return (
@@ -41,7 +44,7 @@ const InputField = ({
         className={clsx(
           "font-body-s w-full appearance-none rounded-sm border-none bg-gray-100 p-2 px-3 text-gray-800  outline-none placeholder:translate-y-0.5 placeholder:font-light placeholder:text-gray-400 placeholder:text-sm focus:outline-2 focus:-outline-offset-2 focus:outline-sky-200",
           className,
-          !isValid && "outline-2 -outline-offset-2 outline-error-500",
+          !isValid && "outline-2 -outline-offset-2 outline-error-500", // Gør outline rød hvis ikke inputtet er valid
         )}
         onChange={handleInputChange}
         required

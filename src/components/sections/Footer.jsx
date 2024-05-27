@@ -3,6 +3,7 @@ import Button from "../buttons/Button";
 import { Link } from "react-router-dom";
 import logo from "/logo-regular.svg";
 
+// Footer komponent
 export default function Footer() {
   return (
     <div className="w-full px-5 pt-10 md:px-10">

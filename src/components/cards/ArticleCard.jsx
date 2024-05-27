@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import Category from "../atoms/Category";
 
+// Kortet for artiklerne på blog siden
 const ArticleCard = ({ articles }) => {
   return (
     <div className="mx-auto grid w-fit grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+      {/* Mapping af alle artikler og oprettelse af Link til hver */}
       {articles.map((article) => (
         <Link
           key={article.id}

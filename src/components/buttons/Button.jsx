@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import { BsArrowRight } from "react-icons/bs";
 
+// Komponent for knapperne med forskellige varianter og størrelser
 const button = tv({
   base: "rounded-full font-league text-base capsize w-fit text-nowrap",
   variants: {
@@ -87,6 +88,8 @@ const Button = (props) => {
   const buttonClass = button({ size, variant, icon });
   const combinedClassName = `${buttonClass} ${className}`;
 
+  // Button renderes som <Link/> hvis "to" har en værdi, som <a/> hvis "href" har en værdi,
+  // eller som <button/> hvis der ingen værdi er for "to" eller "href"
   if (to) {
     return (
       <Link to={to} {...rest}>

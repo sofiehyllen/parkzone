@@ -1,7 +1,8 @@
-import PropTypes from 'prop-types';
-import { FaCheck } from 'react-icons/fa6';
-import Button from './Button';
+import PropTypes from "prop-types";
+import { FaCheck } from "react-icons/fa6";
+import Button from "./Button";
 
+// Komponent for radio-knapper
 export default function RadioButton({
   value,
   label,
@@ -13,30 +14,31 @@ export default function RadioButton({
   return (
     <label
       htmlFor={value}
-      className='inline-flex items-start relative cursor-pointer'>
-      <FaCheck className='text-white h-2 w-auto absolute left-0.5 top-0.5' />
+      className="relative inline-flex cursor-pointer items-start"
+    >
+      <FaCheck className="absolute left-0.5 top-0.5 h-2 w-auto text-white" />
 
       <input
         type={type}
-        name='radio-button'
+        name="radio-button"
         id={value}
         value={value}
         checked={checked}
         onChange={onChange}
-        className='appearance-none h-3 w-3 flex-shrink-0 rounded-full border-1 border-marine-800 checked:bg-marine-800'
+        className="h-3 w-3 flex-shrink-0 appearance-none rounded-full border-1 border-marine-800 checked:bg-marine-800"
       />
-      {style === 'small' ? (
-        <div className='ml-2 font-body-xs cursor-pointer'>
+      {style === "small" ? (
+        <div className="font-body-xs ml-2 cursor-pointer">
           {label}
-          <span className='pl-1 w-fit'>
-            <Button variant='link' size='sm'>
+          <span className="w-fit pl-1">
+            <Button variant="link" size="sm">
               her
             </Button>
             .
           </span>
         </div>
       ) : (
-        <span className='ml-2 font-h6 cursor-pointer pt-0.5'>{label}</span>
+        <span className="font-h6 ml-2 cursor-pointer pt-0.5">{label}</span>
       )}
     </label>
   );

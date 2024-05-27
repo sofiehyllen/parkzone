@@ -1,11 +1,12 @@
-import PropTypes from 'prop-types';
-import Checkmark from '../svg/Checkmark.jsx';
+import PropTypes from "prop-types";
+import Checkmark from "../svg/Checkmark.jsx";
 
+// Komponent for checks på homepage for erhverv
 function Check({ text }) {
   return (
-    <div className='flex space-x-5 items-center '>
+    <div className="flex items-center space-x-5 ">
       <Checkmark />
-      <p className='font-body-s sm:font-body-md 4xl:font-body-l'>{text}</p>
+      <p className="font-body-s sm:font-body-md 4xl:font-body-l">{text}</p>
     </div>
   );
 }

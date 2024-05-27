@@ -8,6 +8,7 @@ import Doodle5 from "../../components/svg/Doodle5";
 import Alert from "../../components/atoms/Alert";
 import Category from "../../components/atoms/Category";
 
+// Check ud siden
 export default function CheckUdPage() {
   const [alertVisible, setAlertVisible] = useState(false);
   const [alertType, setAlertType] = useState("");
@@ -15,21 +16,24 @@ export default function CheckUdPage() {
   const [alertText, setAlertText] = useState("");
   const [selectedDropdownOption, setSelectedDropdownOption] = useState(null);
 
+  // Håndtering af det valgte element i dropdown listen
   const handleDropdownSelect = (option) => {
     setSelectedDropdownOption(option);
   };
 
+  // Funktion til håndtering af submit, som her er søg-knappen
   function handleSubmit(event) {
-    event.preventDefault();
+    event.preventDefault(); // Forhindrer standard opførsel af form så siden ikke genindlæses ved submit
 
     if (selectedDropdownOption === null) {
+      // Error-besked hvis der ikke er valgt et element i dropdown listen
       setAlertVisible(true);
       setAlertType("error");
       setAlertTitle("Manglende parkeringsområde");
       setAlertText("Vælg venligst et parkeringsområde fra listen");
-      setTimeout(() => setAlertVisible(false), 3000);
+      setTimeout(() => setAlertVisible(false), 3000); // Fjerner alerten efter 3 sek.
     } else {
-      setAlertVisible(true);
+      setAlertVisible(true); // Error-besked når der søges, for at simulerer en ægte UX. Brugeren får en besked om at nummerpladen ikke er i databasen.
       setAlertType("error");
       setAlertTitle("Ugyldig nummerplade");
       setAlertText("Den angivne nummerplade findes ikke i vores system");
@@ -37,6 +41,7 @@ export default function CheckUdPage() {
     }
   }
 
+  // Håndterer lukning af Alert
   function handleCloseAlert() {
     setAlertVisible(false);
   }
@@ -56,7 +61,7 @@ export default function CheckUdPage() {
               className="mx-auto max-w-sm rounded-2xl bg-gray-50 p-5 sm:mx-0 md:max-w-md md:p-7 lg:p-10"
             >
               <div className="space-y-1">
-                <Category color='orange'>Check ud</Category>
+                <Category color="orange">Check ud</Category>
                 <h2 className="font-h2">Glemt at checke ud?</h2>
               </div>
               <div className="mb-6 space-y-6 border-b-1 border-gray-200 pb-6 pt-10">

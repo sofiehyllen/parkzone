@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 import { tv } from "tailwind-variants";
 
+// Komponent for kategori-mærkatet med forskellige farve-varianter
 const category = tv({
   base: "font-h6 uppercase px-4 py-3 w-fit rounded-full",
   variants: {
@@ -22,7 +23,7 @@ const category = tv({
 const Category = ({ color, className, children }) => {
   const CategoryElement = category({ color });
   const combinedClassName = `${CategoryElement} ${className}`;
-  const ping = color === "red";
+  const ping = color === "red"; // Indsætter ping-animation hvis farven er "red"
 
   return (
     <div className="relative w-fit">

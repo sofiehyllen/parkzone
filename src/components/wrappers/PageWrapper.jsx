@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Breadcrumb from "../atoms/Breadcrumbs";
 import { motion } from "framer-motion";
 
+// Komponent som omslutter alle sider med styling og animation
 const PageWrapper = ({ children, breadcrumb }) => {
   return (
     <motion.div
