@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Breadcrumb from "../atoms/Breadcrumbs";
+import Breadcrumb from "../ui/atoms/Breadcrumbs";
 import { motion } from "framer-motion";
 
 // Komponent som omslutter alle sider med styling og animation

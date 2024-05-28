@@ -1,8 +1,8 @@
-import CitiesMap from "../../components/sections/CitiesMap";
-import Doodle6 from "../../components/svg/Doodle6";
-import Doodle1 from "../../components/svg/Doodle1";
-import Doodle2 from "../../components/svg/Doodle2";
-import PageWrapper from "../../components/wrappers/PageWrapper";
+import CitiesMap from "../../ui/sections/CitiesMap";
+import Doodle6 from "../../svg/Doodle6";
+import Doodle1 from "../../svg/Doodle1";
+import Doodle2 from "../../svg/Doodle2";
+import PageWrapper from "../../wrappers/PageWrapper";
 
 // Side for Find Parkering
 export default function FindParkeringPage() {

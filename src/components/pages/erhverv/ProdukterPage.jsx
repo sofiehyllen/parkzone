@@ -1,10 +1,10 @@
-import Tabs from "../../components/sections/Tabs";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import talking from "../../assets/talking.jpg";
-import Doodle1 from "../../components/svg/Doodle1";
-import Doodle6 from "../../components/svg/Doodle6";
-import { tabs } from "../../staticData";
-import Button from "../../components/buttons/Button";
+import Tabs from "../../ui/sections/Tabs";
+import PageWrapper from "../../wrappers/PageWrapper";
+import talking from "../../../assets/talking.jpg";
+import Doodle1 from "../../svg/Doodle1";
+import Doodle6 from "../../svg/Doodle6";
+import { tabs } from "../../../staticData";
+import Button from "../../ui/buttons/Button";
 
 // Siden for Produkter & Services med indhold fra staticData.js
 export default function ProdukterPage() {

@@ -1,21 +1,21 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
-import CheckUdPage from "./pages/privat/CheckUdPage";
-import HomePagePrivat from "./pages/privat/HomePage";
-import HomePageErhverv from "./pages/erhverv/HomePage";
-import OmOsPage from "./pages/global/OmOsPage";
-import FindParkeringPage from "./pages/privat/FindParkeringPage";
-import FAQPage from "./pages/privat/FAQPage";
-import ProdukterPage from "./pages/erhverv/ProdukterPage";
-import SegmenterPage from "./pages/erhverv/SegmenterPage";
-import ParkeringsområdePage from "./pages/privat/ParkeringsområdePage";
-import Header from "./components/sections/Header";
-import Footer from "./components/sections/Footer";
-import KontaktPagePrivat from "./pages/privat/KontaktPage";
-import KontaktPageErhverv from "./pages/erhverv/KontaktPage";
-import ScrollToTop from "./components/functions/ScrollToTop";
-import BlogPage from "./pages/global/BlogPage";
-import ArtikelPage from "./pages/global/ArtikelPage";
+import CheckUdPage from "./components/pages/privat/CheckUdPage";
+import HomePagePrivat from "./components/pages/privat/HomePage";
+import HomePageErhverv from "./components/pages/erhverv/HomePage";
+import OmOsPage from "./components/pages/global/OmOsPage";
+import FindParkeringPage from "./components/pages/privat/FindParkeringPage";
+import FAQPage from "./components/pages/privat/FAQPage";
+import ProdukterPage from "./components/pages/erhverv/ProdukterPage";
+import SegmenterPage from "./components/pages/erhverv/SegmenterPage";
+import ParkeringsområdePage from "./components/pages/privat/ParkeringsområdePage";
+import Header from "./components/ui/sections/Header";
+import Footer from "./components/ui/sections/Footer";
+import KontaktPagePrivat from "./components/pages/privat/KontaktPage";
+import KontaktPageErhverv from "./components/pages/erhverv/KontaktPage";
+import ScrollToTop from "./components/hooksAndFunctions/ScrollToTop";
+import BlogPage from "./components/pages/global/BlogPage";
+import ArtikelPage from "./components/pages/global/ArtikelPage";
 
 // Ruter og navigation med React Router
 function App() {

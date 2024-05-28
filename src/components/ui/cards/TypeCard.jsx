@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import hashtag from "../../assets/hashtag.svg";
+import hashtag from "../../../assets/svg/hashtag.svg";
 import Button from "../buttons/Button";
 
 // Komponent for kortet til parkeringstyper i PaymentFlow

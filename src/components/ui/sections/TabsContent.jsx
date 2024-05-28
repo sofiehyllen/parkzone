@@ -3,8 +3,8 @@ import IconBox from "../atoms/IconBox";
 import { TbChecks } from "react-icons/tb";
 import { IoSparkles } from "react-icons/io5";
 import { FaRegThumbsUp } from "react-icons/fa6";
-import ImageWrapper from "../wrappers/ImageWrapper";
-import Doodle4 from "../svg/Doodle4.jsx";
+import ImageWrapper from "../../wrappers/ImageWrapper";
+import Doodle4 from "../../svg/Doodle4.jsx";
 import Category from "../atoms/Category.jsx";
 
 // Komponenten for indholdet af hver tab

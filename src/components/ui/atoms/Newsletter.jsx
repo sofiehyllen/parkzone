@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Button from "../buttons/Button";
-import Alert from "./Alert";
+import Alert from "../sections/Alert";
 
 // Komponent for tilmelding til nyhedsbrev
 export default function Newsletter() {

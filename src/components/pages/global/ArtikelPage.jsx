@@ -1,16 +1,16 @@
 import { useParams } from "react-router-dom";
-import PageWrapper from "../../components/wrappers/PageWrapper";
+import PageWrapper from "../../wrappers/PageWrapper";
 import PropTypes from "prop-types";
-import Category from "../../components/atoms/Category";
-import ImageWrapper from "../../components/wrappers/ImageWrapper";
-import IconCard from "../../components/cards/IconCard";
+import Category from "../../ui/atoms/Category";
+import ImageWrapper from "../../wrappers/ImageWrapper";
+import IconCard from "../../ui/cards/IconCard";
 import { LuUserCircle2 } from "react-icons/lu";
 import facebook from "/facebook.svg";
 import instagram from "/instagram.svg";
 import linkedin from "/linkedin.svg";
 import { domToReact } from "html-react-parser";
 import HTMLReactParser from "html-react-parser/lib/index";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../hooksAndFunctions/useFetch";
 
 // Artikel siden
 const ArticlePage = () => {

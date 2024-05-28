@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { collection, onSnapshot } from "firebase/firestore";
-import { parkingDatabase } from "../../firebase.config";
+import { parkingDatabase } from "../../../firebase.config";
 
 // Komponent til at hente data fra Firebase og kald onFetchData med det opdaterede data ---//
 const useFirebase = (onFetchData) => {

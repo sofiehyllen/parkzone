@@ -1,8 +1,8 @@
-import ContactForm from "../../components/sections/ContactForm";
-import ContactInfo from "../../components/sections/ContactInfo";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import driver from "../../assets/driver.jpg";
-import ImageWrapper from "../../components/wrappers/ImageWrapper";
+import ContactForm from "../../ui/sections/ContactForm";
+import ContactInfo from "../../ui/sections/ContactInfo";
+import PageWrapper from "../../wrappers/PageWrapper";
+import driver from "../../../assets/driver.jpg";
+import ImageWrapper from "../../wrappers/ImageWrapper";
 
 // Kontaktside for privatkunder
 export default function KontaktPagePrivat() {

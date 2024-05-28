@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import RadioButton from "../buttons/RadioButton";
 import { FiPlus } from "react-icons/fi";
 import Button from "../buttons/Button";
-import Alert from "../atoms/Alert";
+import Alert from "./Alert";
 import Category from "../atoms/Category";
 
 // Komponenten for kontaktformular

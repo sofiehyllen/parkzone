@@ -1,8 +1,8 @@
-import ContactForm from "../../components/sections/ContactForm";
-import ContactInfo from "../../components/sections/ContactInfo";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import advice from "../../assets/advice.jpg";
-import Doodle7 from "../../components/svg/Doodle7";
+import ContactForm from "../../ui/sections/ContactForm";
+import ContactInfo from "../../ui/sections/ContactInfo";
+import PageWrapper from "../../wrappers/PageWrapper";
+import advice from "../../../assets/advice.jpg";
+import Doodle7 from "../../svg/Doodle7";
 
 // Kontaktside for erhverv
 export default function KontaktPageErhverv() {

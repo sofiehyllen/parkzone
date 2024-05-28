@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Checkmark from "../svg/Checkmark.jsx";
+import Checkmark from "../../svg/Checkmark";
 
 // Komponent for checks på homepage for erhverv
 function Check({ text }) {

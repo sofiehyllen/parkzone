@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { useCallback, useEffect, useMemo, useState } from "react";
-import useFirebase from "../../hooks/fetchFirebase";
+import useFirebase from "../../hooksAndFunctions/fetchFirebase";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
 import Filter from "../atoms/Filter";

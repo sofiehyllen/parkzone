@@ -1,11 +1,11 @@
-import ArticleCard from "../../components/cards/ArticleCard";
-import LatestArticle from "../../components/sections/LatestArticle";
-import Doodle1 from "../../components/svg/Doodle1";
-import Doodle2 from "../../components/svg/Doodle2";
-import Doodle3 from "../../components/svg/Doodle3";
-import PageWrapper from "../../components/wrappers/PageWrapper";
+import ArticleCard from "../../ui/cards/ArticleCard";
+import LatestArticle from "../../ui/sections/LatestArticle";
+import Doodle1 from "../../svg/Doodle1";
+import Doodle2 from "../../svg/Doodle2";
+import Doodle3 from "../../svg/Doodle3";
+import PageWrapper from "../../wrappers/PageWrapper";
 import PropTypes from "prop-types";
-import useFetch from "../../hooks/useFetch";
+import useFetch from "../../hooksAndFunctions/useFetch";
 
 // Blog siden
 const BlogPage = () => {

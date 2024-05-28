@@ -1,12 +1,12 @@
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import kameraparkering from "../../assets/kameraparkering.jpg";
-import InputField from "../../components/atoms/InputField";
-import Dropdown from "../../components/atoms/Dropdown";
+import PageWrapper from "../../wrappers/PageWrapper";
+import kameraparkering from "../../../assets/kameraparkering.jpg";
+import InputField from "../../ui/atoms/InputField";
+import Dropdown from "../../ui/atoms/Dropdown";
 import { useState } from "react";
-import Button from "../../components/buttons/Button";
-import Doodle5 from "../../components/svg/Doodle5";
-import Alert from "../../components/atoms/Alert";
-import Category from "../../components/atoms/Category";
+import Button from "../../ui/buttons/Button";
+import Doodle5 from "../../svg/Doodle5";
+import Alert from "../../ui/sections/Alert";
+import Category from "../../ui/atoms/Category";
 
 // Check ud siden
 export default function CheckUdPage() {

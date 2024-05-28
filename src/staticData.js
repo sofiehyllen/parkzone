@@ -10,17 +10,17 @@ import radgivning from "./assets/radgivning.jpg";
 import skiltning from "./assets/skiltning.jpg";
 import udlejning from "./assets/udlejning.jpg";
 import security from "./assets/security.jpg";
-import admin from "./assets/SVG/admin.svg";
-import kamera from "./assets/SVG/kamera.svg";
-import betaling from "./assets/SVG/betaling.svg";
-import lade from "./assets/SVG/lade.svg";
-import opmark from "./assets/SVG/opmark.svg";
-import pladser from "./assets/SVG/pladser.svg";
-import radgiv from "./assets/SVG/radgiv.svg";
-import secure from "./assets/SVG/security.svg";
-import skilt from "./assets/SVG/skilt.svg";
-import tilladelse from "./assets/SVG/tilladelse.svg";
-import udlej from "./assets/SVG/udlej.svg";
+import admin from "./assets/svg/admin.svg";
+import kamera from "./assets/svg/kamera.svg";
+import betaling from "./assets/svg/betaling.svg";
+import lade from "./assets/svg/lade.svg";
+import opmark from "./assets/svg/opmark.svg";
+import pladser from "./assets/svg/pladser.svg";
+import radgiv from "./assets/svg/radgiv.svg";
+import secure from "./assets/svg/security.svg";
+import skilt from "./assets/svg/skilt.svg";
+import tilladelse from "./assets/svg/tilladelse.svg";
+import udlej from "./assets/svg/udlej.svg";
 
 export const FAQ1 = [
   {

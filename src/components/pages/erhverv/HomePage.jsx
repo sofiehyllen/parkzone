@@ -1,12 +1,12 @@
-import Button from "../../components/buttons/Button";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import laptop from "../../assets/laptop.png";
-import ImageWrapper from "../../components/wrappers/ImageWrapper";
-import card from "../../assets/kort.jpg";
-import Check from "../../components/atoms/Check";
-import Newsletter from "../../components/atoms/Newsletter";
-import nyhed from "../../assets/nyhedsbrev.jpg";
-import Category from "../../components/atoms/Category";
+import Button from "../../ui/buttons/Button";
+import PageWrapper from "../../wrappers/PageWrapper";
+import laptop from "../../../assets/laptop.png";
+import ImageWrapper from "../../wrappers/ImageWrapper";
+import card from "../../../assets/kort.jpg";
+import Check from "../../ui/atoms/Check";
+import Newsletter from "../../ui/atoms/Newsletter";
+import nyhed from "../../../assets/nyhedsbrev.jpg";
+import Category from "../../ui/atoms/Category";
 
 // Homepage for erhverv
 export default function HomePageErhverv() {

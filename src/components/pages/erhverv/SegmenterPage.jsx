@@ -1,10 +1,10 @@
-import Button from "../../components/buttons/Button";
-import Doodle1 from "../../components/svg/Doodle1";
-import ImageWrapper from "../../components/wrappers/ImageWrapper";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import tilbud from "../../assets/tilbud.jpg";
-import Accordion from "../../components/atoms/Accordion";
-import { segmenter1, segmenter2 } from "../../staticData";
+import Button from "../../ui/buttons/Button";
+import Doodle1 from "../../svg/Doodle1";
+import ImageWrapper from "../../wrappers/ImageWrapper";
+import PageWrapper from "../../wrappers/PageWrapper";
+import tilbud from "../../../assets/tilbud.jpg";
+import Accordion from "../../ui/atoms/Accordion";
+import { segmenter1, segmenter2 } from "../../../staticData";
 
 // Segmenter siden med indhold fra staticData.js
 export default function SegmenterPage() {

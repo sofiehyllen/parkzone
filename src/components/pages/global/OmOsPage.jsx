@@ -1,14 +1,14 @@
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import office from "../../assets/office.jpg";
-import Button from "../../components/buttons/Button";
-import ImageWrapper from "../../components/wrappers/ImageWrapper";
+import PageWrapper from "../../wrappers/PageWrapper";
+import office from "../../../assets/office.jpg";
+import Button from "../../ui/buttons/Button";
+import ImageWrapper from "../../wrappers/ImageWrapper";
 import { FaRegHeart } from "react-icons/fa6";
 import { PiHandHeartBold } from "react-icons/pi";
 import { IoBulbOutline } from "react-icons/io5";
 import { FaRegHandshake } from "react-icons/fa6";
 import { PiGearSixBold } from "react-icons/pi";
-import Doodle1 from "../../components/svg/Doodle1";
-import Doodle2 from "../../components/svg/Doodle2";
+import Doodle1 from "../../svg/Doodle1";
+import Doodle2 from "../../svg/Doodle2";
 
 // Om os side
 export default function OmOsPage() {

@@ -1,18 +1,18 @@
-import ImageWrapper from "../../components/wrappers/ImageWrapper";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import driver from "../../assets/girl-driving.jpg";
-import Button from "../../components/buttons/Button";
-import Doodle2 from "../../components/svg/Doodle2";
-import Doodle1 from "../../components/svg/Doodle1";
-import ArticleCard from "../../components/cards/ArticleCard";
+import ImageWrapper from "../../wrappers/ImageWrapper";
+import PageWrapper from "../../wrappers/PageWrapper";
+import driver from "../../../assets/girl-driving.jpg";
+import Button from "../../ui/buttons/Button";
+import Doodle2 from "../../svg/Doodle2";
+import Doodle1 from "../../svg/Doodle1";
+import ArticleCard from "../../ui/cards/ArticleCard";
 import PropTypes from "prop-types";
-import Accordion from "../../components/atoms/Accordion";
-import { FAQ1 } from "../../staticData";
-import Doodle8 from "../../components/svg/Doodle8";
-import googlePlay from "../../assets/google-play.png";
-import Category from "../../components/atoms/Category";
-import mobile from "../../assets/mobile.jpg";
-import useFetch from "../../hooks/useFetch";
+import Accordion from "../../ui/atoms/Accordion";
+import { FAQ1 } from "../../../staticData";
+import Doodle8 from "../../svg/Doodle8";
+import googlePlay from "../../../assets/google-play.png";
+import Category from "../../ui/atoms/Category";
+import mobile from "../../../assets/mobile.jpg";
+import useFetch from "../../hooksAndFunctions/useFetch";
 
 // Homepage for privatkunder
 export default function HomePagePrivat() {

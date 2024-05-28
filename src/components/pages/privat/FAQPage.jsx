@@ -1,7 +1,7 @@
-import Accordion from "../../components/atoms/Accordion";
-import Doodle7 from "../../components/svg/Doodle7";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import { FAQ1, FAQ2 } from "../../staticData";
+import Accordion from "../../ui/atoms/Accordion";
+import Doodle7 from "../../svg/Doodle7";
+import PageWrapper from "../../wrappers/PageWrapper";
+import { FAQ1, FAQ2 } from "../../../staticData";
 
 // FAQ-side med indhold fra staticData.js
 export default function FAQPage() {

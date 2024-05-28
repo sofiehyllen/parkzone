@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import PageWrapper from "../../components/wrappers/PageWrapper";
-import Doodle1 from "../../components/svg/Doodle1";
-import Doodle2 from "../../components/svg/Doodle2";
+import PageWrapper from "../../wrappers/PageWrapper";
+import Doodle1 from "../../svg/Doodle1";
+import Doodle2 from "../../svg/Doodle2";
 import { MdOutlineDirectionsCarFilled } from "react-icons/md";
 import { FiCamera } from "react-icons/fi";
 import { BiHandicap } from "react-icons/bi";
 import { TbElevator } from "react-icons/tb";
-import Button from "../../components/buttons/Button";
-import PaymentFlow from "../../components/sections/PaymentFlow";
-import Alert from "../../components/atoms/Alert";
+import Button from "../../ui/buttons/Button";
+import PaymentFlow from "../../ui/sections/PaymentFlow";
+import Alert from "../../ui/sections/Alert";
 
 // Side for parkeringsområde
 export default function ParkingPage() {

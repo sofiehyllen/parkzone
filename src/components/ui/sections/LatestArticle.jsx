@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import Category from "../atoms/Category";
-import ImageWrapper from "../wrappers/ImageWrapper";
+import ImageWrapper from "../../wrappers/ImageWrapper";
 import Button from "../buttons/Button";
 
 // Komponenten for seneste artikel på blogsiden
