@@ -137,7 +137,16 @@ export default function Header() {
                       </div>
                     )}
                     <hr className="" />
-                    <Button size="md" variant="tertiary">
+                    <Button
+                      size="md"
+                      variant="tertiary"
+                      target="_blank"
+                      href={
+                        isChecked
+                          ? "https://parkweb.parkzone.dk/login/"
+                          : "https://parkcare.parkzone.dk/"
+                      }
+                    >
                       Log ind
                     </Button>
                   </div>
@@ -155,7 +164,16 @@ export default function Header() {
 
           {/* Desktopmenu til laptop */}
           <div className="md:align-center hidden items-center space-x-3 md:flex">
-            <Button size="md" variant="tertiary">
+            <Button
+              size="md"
+              variant="tertiary"
+              target="_blank"
+              href={
+                isChecked
+                  ? "https://parkweb.parkzone.dk/login/"
+                  : "https://parkcare.parkzone.dk/"
+              }
+            >
               Log ind
             </Button>
             <CustomNavLink to="/blog" variant="primary">
