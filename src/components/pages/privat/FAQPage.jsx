@@ -6,7 +6,11 @@ import { FAQ1, FAQ2 } from "../../../staticData";
 // FAQ-side med indhold fra staticData.js
 export default function FAQPage() {
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Ofte Stillede Spørgsmål - ParkZone A/S"
+      metaDescription="Har du spørgsmål? Find svar på de mest almindelige spørgsmål om parkering, betaling og mere på vores FAQ-side. Læs mere her."
+    >
       <div className="relative mt-10 w-full overflow-hidden bg-sky-300">
         <h1 className="font-h1 relative z-50 px-10 py-20 text-center text-white lg:py-28">
           Hvordan kan vi hjælpe dig?

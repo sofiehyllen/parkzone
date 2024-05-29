@@ -31,7 +31,7 @@ export default function ContactInfo({ variant }) {
             <LuPhone strokeWidth={2} className="h-5 w-auto text-marine-400 " />
           </div>
         </div>
-        <div>
+        <div className="w-full">
           <div className="pt-4">
             <h4 className="font-h5 pb-3 font-medium">Telefon</h4>
             <p className="font-body-l xl:font-body-md">+45 70 25 26 96</p>

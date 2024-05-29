@@ -11,7 +11,11 @@ import Category from "../../ui/atoms/Category";
 // Homepage for erhverv
 export default function HomePageErhverv() {
   return (
-    <PageWrapper breadcrumb={false}>
+    <PageWrapper
+      breadcrumb={false}
+      title="Effektiviser og optimer jeres virksomhed med ParkCare"
+      metaDescription="Med vores digitale p-tilladelsessystem, ParkCare, sparer du tid og omkostninger på parkeringsadministration. Læs mere om vores skræddersyede parkeringsløsninger og tjenester til erhvervskunder."
+    >
       <div className="relative overflow-hidden pb-20 sm:pb-28 md:flex md:pb-48 lg:pb-60 lg:pt-24 xl:pt-32 3xl:pt-44 4xl:pt-60">
         <div className="md:place-self-center md:pr-20 xl:w-11/12 xl:pl-20 4xl:w-10/12">
           <div className="pt-10 sm:pt-16 md:flex md:items-center lg:pt-0">
@@ -109,7 +113,7 @@ export default function HomePageErhverv() {
             size="lg"
             color="#4A8CED"
             alt="Kvinde kørende i bil"
-            className="relative mr-5 w-full self-end sm:mr-10 md:rounded-l-none lg:h-96 lg:place-self-center xl:h-full "
+            className="relative mr-5 w-full self-end sm:mr-10 md:rounded-l-none lg:h-96 lg:place-self-center lg:rounded-l-none xl:h-full "
           />
           <div className="flex flex-col items-center justify-center space-y-10 px-5 pt-10 sm:space-y-14 sm:px-20 sm:pt-16 md:px-28 lg:space-y-8 lg:px-0 lg:pr-10 lg:pt-0 xl:w-11/12 2xl:space-y-10 3xl:space-y-14 3xl:px-10 4xl:px-20">
             <Check text="Med mere end 20 års erfaring som parkeringsvirksomhed, har vi i ParkZone opbygget en solid ekspertise og erfaring, som vores kunder ved de kan stole på." />

@@ -8,7 +8,7 @@ import FindParkeringPage from "./components/pages/privat/FindParkeringPage";
 import FAQPage from "./components/pages/privat/FAQPage";
 import ProdukterPage from "./components/pages/erhverv/ProdukterPage";
 import SegmenterPage from "./components/pages/erhverv/SegmenterPage";
-import ParkeringsområdePage from "./components/pages/privat/ParkeringsområdePage";
+import ParkeringPage from "./components/pages/privat/ParkeringPage";
 import Header from "./components/ui/sections/Header";
 import Footer from "./components/ui/sections/Footer";
 import KontaktPagePrivat from "./components/pages/privat/KontaktPage";
@@ -16,6 +16,7 @@ import KontaktPageErhverv from "./components/pages/erhverv/KontaktPage";
 import ScrollToTop from "./components/hooksAndFunctions/ScrollToTop";
 import BlogPage from "./components/pages/global/BlogPage";
 import ArtikelPage from "./components/pages/global/ArtikelPage";
+import Persondata from "./components/pages/global/Persondata";
 
 // Ruter og navigation med React Router
 function App() {
@@ -29,13 +30,11 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/blog/:id" element={<ArtikelPage />} />
         <Route path="/omos" element={<OmOsPage />} />
+        <Route path="/persondata" element={<Persondata />} />
         <Route path="/privat" element={<HomePagePrivat />} />
         <Route path="/privat/kontakt" element={<KontaktPagePrivat />} />
         <Route path="/privat/findparkering" element={<FindParkeringPage />} />
-        <Route
-          path="/privat/findparkering/:id"
-          element={<ParkeringsområdePage />}
-        />
+        <Route path="/privat/findparkering/:id" element={<ParkeringPage />} />
         <Route path="/privat/checkud" element={<CheckUdPage />} />
         <Route path="/privat/FAQ" element={<FAQPage />} />
         <Route path="/erhverv" element={<HomePageErhverv />} />

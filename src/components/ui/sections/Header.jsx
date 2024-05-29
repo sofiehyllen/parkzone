@@ -101,7 +101,7 @@ export default function Header() {
                           to="/erhverv/produkter"
                           variant="secondary"
                         >
-                          Produkter & services
+                          Produkter & Services
                         </CustomNavLink>
                         <CustomNavLink
                           onClick={() => setIsNavOpen(false)}
@@ -179,7 +179,7 @@ export default function Header() {
         {isChecked ? (
           <div className="flex space-x-10">
             <CustomNavLink to="/erhverv/produkter" variant="secondary">
-              Produkter & services
+              Produkter & Services
             </CustomNavLink>
             <CustomNavLink to="/erhverv/segmenter" variant="secondary">
               Segmenter

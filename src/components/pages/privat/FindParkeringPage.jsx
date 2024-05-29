@@ -7,7 +7,11 @@ import PageWrapper from "../../wrappers/PageWrapper";
 // Side for Find Parkering
 export default function FindParkeringPage() {
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Find parkering nær dig"
+      metaDescription="Find nemt og hurtigt parkeringspladser i hele Danmark med ParkZone. Få information om priser, faciliteter og book din næste parkering online."
+    >
       <div className="relative flex w-full flex-col items-center px-5 md:px-10">
         <div className="mb-96 w-full max-w-screen-3xl overflow-hidden rounded-xl bg-sky-100 px-6 py-10 pb-44 sm:pt-20">
           <div className="relative mx-auto w-fit">

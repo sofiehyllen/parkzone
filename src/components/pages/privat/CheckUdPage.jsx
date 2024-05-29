@@ -46,7 +46,11 @@ export default function CheckUdPage() {
     setAlertVisible(false);
   }
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Glemt at Checke Ud? - ParkZone A/S"
+      metaDescription="Glemt at checke ud af parkeringen? På denne side kan du nemt søge efter din nummerplade og checke ud af parkeringsområdet uden ekstra gebyrer. Læs mere her."
+    >
       <div className="px-5 sm:px-16 md:px-20 lg:px-32">
         <div className="relative mx-auto max-w-screen-lg">
           <div className="absolute right-0 top-0 -z-10 overflow-hidden rounded-3xl sm:ml-20">

@@ -25,6 +25,9 @@ const InputField = ({
     if (type === "number") {
       // Tjekker om inputtet er et gyldigt tal
       isValidInput = !isNaN(inputValue) && inputValue.trim().length > 0;
+    } else {
+      // For andre typer skal inputtet minimum indeholde 1 tegn
+      isValidInput = inputValue.trim().length > 0;
     }
     setIsValid(isValidInput); // Opdaterer state for gyldigheden af inputtet
     onValidity(id, isValidInput); // Kalder onValidity callback med input id og gyldighed
@@ -61,7 +64,7 @@ InputField.propTypes = {
   description: PropTypes.string,
   className: PropTypes.string,
   value: PropTypes.any,
-  onValidity: PropTypes.func,
+  onValidity: PropTypes.any,
 };
 
 export default InputField;

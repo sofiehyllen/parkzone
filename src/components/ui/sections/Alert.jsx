@@ -23,8 +23,8 @@ const Alert = ({ isVisible, type, text, title, onClose, children }) => {
           exit={{ x: "100%", opacity: 0 }}
           transition={{ duration: 0.3 }}
           className={clsx(
-            "fixed bottom-5 right-5 z-50 ml-5 flex max-w-lg rounded-lg border-l-3 bg-white px-5 pt-5 drop-shadow-xl sm:bottom-10 sm:right-10 sm:min-w-96",
-            type === "success" // Farveskift på baggrund af type
+            "fixed bottom-5 right-5 z-50 ml-5 flex max-w-lg rounded-lg border-l-3 bg-white px-5 pt-5 shadow-xl sm:bottom-10 sm:right-10 sm:min-w-96",
+            type === "success" // Farveskift ud fra type
               ? "border-success-500"
               : type === "error"
                 ? "border-error-500"
@@ -33,7 +33,7 @@ const Alert = ({ isVisible, type, text, title, onClose, children }) => {
                   : "",
           )}
         >
-          {type === "success" ? ( // Ikon på baggrund af type
+          {type === "success" ? ( // Ikon ud fra type
             <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-success-50">
               <IoCheckmark className="text-success-500 text-xl" />
             </div>
@@ -54,7 +54,7 @@ const Alert = ({ isVisible, type, text, title, onClose, children }) => {
           <div className="px-5 pb-2 pt-3">
             <p
               className={clsx(
-                // Titelfarve på baggrund af type
+                // Titelfarve ud fra type
                 "font-h4 pb-4 ",
                 type === "success"
                   ? "text-success-500"

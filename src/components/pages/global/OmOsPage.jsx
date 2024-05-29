@@ -13,7 +13,11 @@ import Doodle2 from "../../svg/Doodle2";
 // Om os side
 export default function OmOsPage() {
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Hvem er vi? - Om ParkZone A/S"
+      metaDescription="På denne side kan du lære os bedre at kende. ParkZone tilbyder brugervenlige løsninger, der forenkler parkering i din dagligdag. Læs om vores virksomhed og kerneværdier her."
+    >
       <div className="mx-auto flex w-fit flex-col items-center px-5 sm:px-10 lg:px-20">
         <h1 className="font-h1">Hvem er vi?</h1>
         <p className="font-body-l max-w-screen-md pb-10 pt-6 text-center sm:w-4/5 xl:pb-20">
@@ -33,13 +37,14 @@ export default function OmOsPage() {
       <div className="mx-auto max-w-screen-xl px-14 pt-10 sm:px-36 md:px-10 md:pt-5 lg:px-12">
         <div className="mx-auto flex w-full max-w-screen-xl flex-col items-center justify-center space-y-7 pt-5 md:flex-row md:items-start md:space-y-0">
           <div className="flex flex-col items-center sm:px-10 md:w-full md:px-5 md:pl-0 xl:px-10">
-            <h4 className="font-h4 pb-4 text-center">Søger du nyt job?</h4>
+            <h4 className="font-h4 pb-4 text-center">
+              Vil du lære os at kende?
+            </h4>
             <p className="font-body-md hyphens-auto text-center">
-              Hos ParkZone er vi lige nu på jagt efter dygtige og engagerede
-              kollegaer til vores team. Måske er det dig? Se vores ledige
-              stillinger{" "}
+              Læs spændende artikler omkring os og vores bedrifter, og blive
+              klogere på ParkZone som virksomhed. Du kan læse mere{" "}
               <span>
-                <Button variant="link" size="lg">
+                <Button variant="link" size="lg" to="/blog">
                   her
                 </Button>
                 .
@@ -53,7 +58,7 @@ export default function OmOsPage() {
             <p className="font-body-md hyphens-auto text-center">
               Din sikkerhed er vores topprioritet. Derfor passer vi på dine data
               med omhu. Læs vores{" "}
-              <Button variant="link" size="lg">
+              <Button variant="link" size="lg" to="/persondata">
                 Persondatapolitik
               </Button>{" "}
               for at få mere at vide om, hvordan vi beskytter dine oplysninger.

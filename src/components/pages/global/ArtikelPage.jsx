@@ -61,7 +61,13 @@ const ArticlePage = () => {
   };
 
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title={"Artikel - ParkZone Danmark"}
+      metaDescription={
+        "Læs de seneste nyheder og artikler om ParkZone, og få indsigt i os som virksomheden og de produkter vi tilbyder."
+      }
+    >
       <div className="mx-auto flex max-w-screen-3xl flex-col items-center px-5 pb-10 md:px-10 lg:pb-16 3xl:px-20">
         <div className="flex max-w-4xl flex-col items-center pb-10 md:pb-16">
           <Category

@@ -2,7 +2,6 @@ import ArticleCard from "../../ui/cards/ArticleCard";
 import LatestArticle from "../../ui/sections/LatestArticle";
 import Doodle1 from "../../svg/Doodle1";
 import Doodle2 from "../../svg/Doodle2";
-import Doodle3 from "../../svg/Doodle3";
 import PageWrapper from "../../wrappers/PageWrapper";
 import PropTypes from "prop-types";
 import useFetch from "../../hooksAndFunctions/useFetch";
@@ -32,15 +31,16 @@ const BlogPage = () => {
   let articles = data;
 
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Seneste nyt om ParkZone A/S - Blog"
+      metaDescription="Her på siden kan du læse de seneste nyheder og artikler om ParkZone, og få indsigt i os som virksomheden og de produkter vi tilbyder."
+    >
       <div className="flex flex-col items-center">
-        <div className="relative mx-auto w-fit">
+        <div className=" mx-auto w-fit">
           <h1 className="font-h1 relative z-40 px-5 pb-10 text-center">
             Seneste nyt om ParkZone A/S
           </h1>
-          <div className="absolute right-8 top-10 w-80 sm:-right-1 sm:-top-1 md:right-2">
-            <Doodle3 color="#EDF6FD" />
-          </div>
         </div>
         <h3 className="font-body-l px-5 pb-8 text-center sm:pb-16 md:w-4/5 lg:w-1/2 2xl:w-1/3">
           Her på siden kan du læse de seneste nyheder og artikler om ParkZone,

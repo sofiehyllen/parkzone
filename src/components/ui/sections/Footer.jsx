@@ -42,10 +42,16 @@ export default function Footer() {
               >
                 Om ParkZone
               </Link>
-              <Link className="font-h5 text-gray-600 hover:text-gray-900">
-                Ledige stillinger
+              <Link
+                className="font-h5 text-gray-600 hover:text-gray-900"
+                to="/privat/FAQ"
+              >
+                FAQ
               </Link>
-              <Link className="font-h5 text-gray-600 hover:text-gray-900">
+              <Link
+                className="font-h5 text-gray-600 hover:text-gray-900"
+                to="/persondata"
+              >
                 Persondatapolitik
               </Link>
             </div>
@@ -76,11 +82,21 @@ export default function Footer() {
       <div className="border-t-1 border-gray-200 py-4">
         <p className="font-body-xs text-center text-gray-400">
           Copyright &copy; ParkZone A/S &#124; All Rights Reserved |{" "}
-          <Button size="sm" variant="link" className="text-gray-500">
+          <Button
+            size="sm"
+            variant="link"
+            className="text-gray-500"
+            to="/persondata"
+          >
             Terms and Conditions
           </Button>{" "}
           |{" "}
-          <Button size="sm" variant="link" className="text-gray-500">
+          <Button
+            size="sm"
+            variant="link"
+            className="text-gray-500"
+            to="/persondata"
+          >
             Persondatapolitik
           </Button>
         </p>

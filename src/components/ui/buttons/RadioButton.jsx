@@ -31,7 +31,7 @@ export default function RadioButton({
         <div className="font-body-xs ml-2 cursor-pointer">
           {label}
           <span className="w-fit pl-1">
-            <Button variant="link" size="sm">
+            <Button variant="link" size="sm" to="/persondata">
               her
             </Button>
             .

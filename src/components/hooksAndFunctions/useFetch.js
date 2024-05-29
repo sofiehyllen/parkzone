@@ -25,7 +25,6 @@ const useFetch = (url) => {
     };
     fetchData(); // Kalder fetchData funktionen
   }, [url]);
-  console.log(data);
   return { loading, error, data };
 };
 

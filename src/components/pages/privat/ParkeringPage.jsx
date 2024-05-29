@@ -8,11 +8,11 @@ import { FiCamera } from "react-icons/fi";
 import { BiHandicap } from "react-icons/bi";
 import { TbElevator } from "react-icons/tb";
 import Button from "../../ui/buttons/Button";
-import PaymentFlow from "../../ui/sections/PaymentFlow";
+import PaymentFlow from "../../ui/sections/paymentFlow/PaymentFlow";
 import Alert from "../../ui/sections/Alert";
 
 // Side for parkeringsområde
-export default function ParkingPage() {
+export default function ParkeringPage() {
   const [data, setData] = useState(null);
   const [alertVisible, setAlertVisible] = useState(false);
 
@@ -54,8 +54,36 @@ export default function ParkingPage() {
     setAlertVisible(false);
   };
 
+  // useEffect som fjerne Alerten
+  useEffect(() => {
+    const handleScroll = () => {
+      const paymentFlowSection = document.getElementById("paymentFlow");
+      // Tjekker om Payment Flow sektionen er synlig i viewporten
+      if (paymentFlowSection) {
+        const paymentFlowPosition = paymentFlowSection.getBoundingClientRect();
+        if (paymentFlowPosition.top <= window.innerHeight) {
+          setTimeout(() => {
+            setAlertVisible(false);
+          }, 2000); // Lukker Alerten 2 sekunder efter PaymentFlow er synlig
+        }
+      }
+    };
+
+    // Tilføjer event listener til window for at lytte efter scroll begivenheder
+    window.addEventListener("scroll", handleScroll);
+
+    // Rydder event listener når komponenten unmounter
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title={`Parkeringsområde - ParkZone A/S`}
+      metaDescription="Få alle oplysninger om parkeringsområdet, herunder antal pladser, timespriser og faciliteter. Book din parkering på forhånd og spar tid på billetkøb."
+    >
       {data && (
         <>
           <div className=" mx-auto max-w-screen-3xl md:px-10">
@@ -111,7 +139,7 @@ export default function ParkingPage() {
               <div className="grid grid-cols-1 gap-x-10 lg:grid-cols-3">
                 <div className="col-span-2 grid grid-cols-1 px-5">
                   <div>
-                    <h5 className="font-h4 pb-4">Om området</h5>
+                    <h3 className="font-h4 pb-4">Om området</h3>
                     <div className="space-y-7">
                       <p className="font-body-md">
                         {data.fields.text11.stringValue}
@@ -126,9 +154,9 @@ export default function ParkingPage() {
                   {data.fields.checkOut.booleanValue ? ( // Indholdet renderes afhængigt af om man kan checke ud fra området online
                     <div className="relative my-14 overflow-hidden rounded-xl bg-sky-50 px-7 py-10 md:px-10">
                       <div className="relative z-50 flex w-full flex-col items-center sm:px-20 lg:px-10 xl:px-16">
-                        <h6 className="font-h4 pb-4 text-center">
+                        <h4 className="font-h4 pb-4 text-center">
                           Har du glemt at checke ud
-                        </h6>
+                        </h4>
                         <p className="font-body-md text-center">
                           Bare rolig, med kameraparkering kan du checke ud
                           online op til 48 timer efter du har afsluttet din
@@ -152,9 +180,9 @@ export default function ParkingPage() {
                     <div className="relative my-14 overflow-hidden rounded-xl bg-sky-50 px-7 py-10 md:px-10">
                       <div className="relative z-20 flex w-full flex-col items-center md:flex-row md:justify-center">
                         <div className="md:pr-10">
-                          <h6 className="font-h4 pb-4 text-center md:text-left">
+                          <h4 className="font-h4 pb-4 text-center md:text-left">
                             Har du spørgsmål til dette område?
-                          </h6>
+                          </h4>
                           <p className="font-body-md text-center md:text-left">
                             Vores team sidder klar til at hjælpe dig, hvis du
                             har spørgsmål omkring vores forskellige områder.
@@ -220,7 +248,7 @@ export default function ParkingPage() {
                     </div>
                   </div>
                   <div className="rounded-xl bg-sky-50 px-8 py-7 xl:pb-7 ">
-                    <h5 className="font-h4 pb-6">Takster</h5>
+                    <h6 className="font-h4 pb-6">Takster</h6>
                     <div className="flex justify-between border-b-1 border-sky-200 pb-2">
                       <p className="font-body-s">Pr. påbegyndt time:</p>
                       <p className="font-h5">
@@ -240,6 +268,7 @@ export default function ParkingPage() {
                   </div>
                   <div className="py-5 pt-10 sm:pb-14 lg:order-first lg:py-0 lg:pb-0 lg:pt-0">
                     <iframe
+                      title="Google Maps"
                       src={data.fields.maps.stringValue}
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"

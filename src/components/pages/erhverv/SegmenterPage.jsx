@@ -9,9 +9,13 @@ import { segmenter1, segmenter2 } from "../../../staticData";
 // Segmenter siden med indhold fra staticData.js
 export default function SegmenterPage() {
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Skræddersyede parkeringsløsninger til alle erhverv - ParkZone Danmark"
+      metaDescription="Opdag vores skræddersyede parkeringsløsninger til erhvervslivet. Vi administrerer parkering fra beboelse og hoteller til shoppingcentre og lufthavne. Kontakt os for skræddersyede løsninger"
+    >
       <div className="relative mx-5 py-10 md:mx-10 md:pb-20 xl:mx-20 3xl:mx-40 3xl:pb-32">
-        <div className="h-fit w-full overflow-hidden rounded-2xl bg-sky-100 pt-12 sm:pb-10 lg:pb-10 lg:pr-0 xl:py-20">
+        <div className="mx-auto h-fit w-full max-w-screen-3xl overflow-hidden rounded-2xl bg-sky-100 pt-12 sm:pb-10 lg:pb-10 lg:pr-0 xl:py-20">
           <div className="relative flex flex-col lg:flex-row">
             <div className="relative z-40 flex flex-col justify-center px-5 pb-10 sm:px-10 lg:w-full lg:pb-0 xl:ml-14 4xl:py-16 4xl:pl-20 4xl:pr-28">
               <h2 className="font-h1 lg:font-h2 2xl:font-h1 pb-8 text-center lg:text-left 2xl:pb-12">
@@ -28,15 +32,15 @@ export default function SegmenterPage() {
                 <Button size={"lg"} variant={"primary"} to="/erhverv/kontakt">
                   Kontakt os
                 </Button>
-                <Button size={"lg"} variant={"tertiary"} to="/erhverv/kontakt">
+                <Button size={"lg"} variant={"tertiary"} to="/erhverv/produkter">
                   Se produkter
                 </Button>
               </div>
             </div>
-            <div className="absolute -right-10 top-0 rotate-12 sm:w-3/4 md:-left-28 md:-right-0 md:-top-28 md:-rotate-45 lg:-top-40 lg:w-1/2 xl:-left-32 xl:-top-64">
+            <div className="absolute -right-10 top-0 rotate-12 scale-200  md:-left-5 md:-right-0 md:-top-60 md:-rotate-45 lg:-top-40 lg:w-1/2 xl:-top-64 xl:left-40 xl:scale-250">
               <Doodle1 color="#EDF6FD" />
             </div>
-            <div className="absolute -bottom-full -left-20 -rotate-45 scale-125 sm:w-3/4 md:-right-32 md:left-auto md:rotate-30 md:scale-105 lg:w-1/2 xl:-right-5 xl:top-32">
+            <div className="absolute -bottom-full -left-20 -rotate-45 scale-200 md:-right-0 md:left-auto md:rotate-30 xl:-right-5 xl:top-96">
               <Doodle1 color="#EDF6FD" />
             </div>
             <ImageWrapper

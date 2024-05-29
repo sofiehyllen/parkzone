@@ -36,7 +36,11 @@ export default function HomePagePrivat() {
     );
 
   return (
-    <PageWrapper breadcrumb={false}>
+    <PageWrapper
+      breadcrumb={false}
+      title="Spar Tid og Besvær med ParkZone Go - Parkering, FAQ og Seneste Nyt - ParkZone A/S"
+      metaDescription="Med ParkZone Go appen kan du nemt parkere og administrere dine parkeringstilladelser. Få svar på spørgsmål om parkering, kontakt os for hjælp og hold dig opdateret med seneste nyheder fra ParkZone."
+    >
       <div className="pb-24 pt-5  md:flex md:items-center xl:pb-40 xl:pt-10 ">
         <div className="flex w-full flex-col items-center px-5 md:ml-20 md:min-w-96 md:max-w-96 md:items-start md:px-0 lg:ml-32 xl:w-10/12 xl:max-w-screen-sm xl:pb-20 2xl:w-8/12 2xl:pb-32 3xl:ml-48 3xl:w-6/12">
           <h1 className="font-h1 md:font-h2 lg:font-h1 pb-8 text-center md:text-left lg:pb-12">
@@ -50,7 +54,10 @@ export default function HomePagePrivat() {
 
           <div className="flex space-x-5 pb-10 sm:pb-16 md:pb-0">
             {/* Embedded logo fra apple appstore */}
-            <a href="https://apps.apple.com/us/app/parkzone-go-med-parkcare/id1429508099?itsct=apps_box_badge&amp;itscg=30200">
+            <a
+              href="https://apps.apple.com/us/app/parkzone-go-med-parkcare/id1429508099?itsct=apps_box_badge&amp;itscg=30200"
+              target="_blank"
+            >
               <img
                 src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/white/da-dk?size=250x83&amp;releaseDate=1544140800"
                 alt="Download on the App Store"
@@ -58,7 +65,10 @@ export default function HomePagePrivat() {
               />
             </a>
             {/* Embedded logo fra google playstore */}
-            <a href="https://play.google.com/store/apps/details?id=dk.parkzone.parkcare&hl=da&gl=US">
+            <a
+              href="https://play.google.com/store/apps/details?id=dk.parkzone.parkcare&hl=da&gl=US"
+              target="_blank"
+            >
               <img
                 src={googlePlay}
                 alt="Download in the Google Play Store"

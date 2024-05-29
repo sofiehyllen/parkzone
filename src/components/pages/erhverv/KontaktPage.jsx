@@ -7,7 +7,11 @@ import Doodle7 from "../../svg/Doodle7";
 // Kontaktside for erhverv
 export default function KontaktPageErhverv() {
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Kontakt Erhverv - ParkZone Danmark"
+      metaDescription="Kontakt ParkZone for skræddersyede parkeringsløsninger til erhverv. Udfyld vores formular eller få vores kontaktinformationer her."
+    >
       <div className="w-full bg-marine-50">
         <div className="mx-auto grid w-fit grid-cols-1 gap-5 px-5 py-16 md:grid-cols-2 md:px-16 lg:px-32 xl:px-40">
           <div className="row-span-3">

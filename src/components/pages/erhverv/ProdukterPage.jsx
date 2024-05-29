@@ -9,7 +9,11 @@ import Button from "../../ui/buttons/Button";
 // Siden for Produkter & Services med indhold fra staticData.js
 export default function ProdukterPage() {
   return (
-    <PageWrapper breadcrumb={true}>
+    <PageWrapper
+      breadcrumb={true}
+      title="Produkter og Services - ParkZone Danmark"
+      metaDescription="Opdag vores skræddersyede parkeringsløsninger og services tilpasset jeres behov. Læs om vores produkter og tjenester, herunder rådgivning, administration og meget mere."
+    >
       <div className="w-full sm:pb-16 md:pt-10">
         <div className="flex px-5 pb-16 sm:px-10 md:px-20 md:pb-20 3xl:pb-32">
           <div className="mx-auto">

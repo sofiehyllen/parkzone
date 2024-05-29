@@ -132,6 +132,7 @@ export default {
       boxShadow: {
         md: "1px 3px 9px 0 rgb(0 0 0 / 0.03)",
         lg: "2px 4px 7px 0 rgb(0 0 0 / 0.045)",
+        xl: "0 0 7px 4px rgb(0 0 0 / 0.045)",
       },
       scale: {
         160: "1.60",
