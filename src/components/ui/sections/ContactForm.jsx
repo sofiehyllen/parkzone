@@ -45,11 +45,11 @@ export default function ContactForm({ variant }) {
         "Venligst acceptér vilkårene og betingelserne for at sende.",
       );
       setTimeout(() => setAlertVisible(false), 3000); // Skjul alert efter 3 sekunder
-    } else if (!selectedDropdownOption) {
+    } else if (selectedDropdownOption && !selectedDropdownOption) {
       // Hvis dropdown ikke er markeret, vis fejlalert
       setAlertVisible(true);
       setAlertType("error");
-      setAlertTitle("Manglende undfyldning");
+      setAlertTitle("Manglende udfyldning");
       setAlertText("Venligst udfyld de manglende felter for at sende.");
       setTimeout(() => setAlertVisible(false), 3000); // Skjul alert efter 3 sekunder
     } else {
