@@ -1,11 +1,27 @@
 import clsx from "clsx";
 import PropTypes from "prop-types";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import TabsContent from "./TabsContent";
+import { useLocation, useNavigate } from "react-router-dom";
 
 // Komponenten for tabs på siden for Produkter & Services
 export default function Tabs({ tabs }) {
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState(0);
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const tabIndex = query.get("tab");
+    if (tabIndex) {
+      setActiveTab(parseInt(tabIndex, 11));
+    }
+  }, [location.search]);
+
+  const handleTabClick = (index) => {
+    setActiveTab(index);
+    navigate(`?tab=${index}`);
+  };
 
   return (
     <>
@@ -20,7 +36,7 @@ export default function Tabs({ tabs }) {
                 "relative h-fit w-fit cursor-pointer rounded-full px-6 py-4 transition-colors duration-300 hover:bg-marine-100",
                 activeTab === index ? "bg-marine-100" : "bg-sky-50",
               )}
-              onClick={() => setActiveTab(index)}
+              onClick={() => handleTabClick(index)}
             >
               <p className="font-h5 text-marine-500">{tab.title}</p>
               {tab.title === "Security" ? ( // Viser rød ping-animation for Security-tab
