@@ -16,7 +16,7 @@ export default function Newsletter() {
   }
 
   // Funktion der håndterer form submit
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault(); // Forhindrer standard form submit
 
     // Tjekker om e-mailen er gyldig og viser error-alert hvis den ikke er, og en succes-alert hvis den er
@@ -27,11 +27,29 @@ export default function Newsletter() {
       setAlertText("Indtast venligt en gyldig email");
       setTimeout(() => setAlertVisible(false), 3000); // Skjuler alert efter 3 sekunder
     } else {
-      setEmail("");
-      setAlertVisible(true);
-      setAlertType("success");
-      setAlertTitle("Tak for din tilmelding");
-      setAlertText("Du er nu tilmeldt vores nyhedsbrev");
+      try {
+        const response = await fetch("http://localhost:4000/send-email", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email }),
+        });
+        if (response.ok) {
+          setEmail("");
+          setAlertVisible(true);
+          setAlertType("success");
+          setAlertTitle("Tak for din tilmelding");
+          setAlertText("Du er nu tilmeldt vores nyhedsbrev");
+        } else {
+          throw new Error("Network response was not ok.");
+        }
+      } catch (error) {
+        setAlertVisible(true);
+        setAlertType("error");
+        setAlertTitle("Fejl");
+        setAlertText("Der opstod en fejl ved tilmeldingen. Prøv igen senere.");
+      }
       setTimeout(() => setAlertVisible(false), 3000); // Skjuler alert efter 3 sekunder
     }
   }
