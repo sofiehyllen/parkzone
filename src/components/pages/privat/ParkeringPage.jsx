@@ -88,7 +88,7 @@ export default function ParkeringPage() {
         <>
           <div className=" mx-auto max-w-screen-3xl md:px-10">
             <div className=" relative overflow-hidden bg-sky-100 px-5 pb-5 pt-20 md:rounded-xl md:px-10 xl:pt-28">
-              <div className="relative z-50">
+              <div className="relative z-30">
                 <p className="font-h4 pb-2 text-marine-500">Parkering ved</p>
                 <h1 className="font-h1 pb-1 pr-10 leading-8">
                   {data.fields.address.stringValue}

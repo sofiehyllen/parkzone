@@ -7,9 +7,16 @@ import Check from "../../ui/atoms/Check";
 import Newsletter from "../../ui/atoms/Newsletter";
 import nyhed from "../../../assets/nyhedsbrev.jpg";
 import Category from "../../ui/atoms/Category";
+import { useNavigate } from "react-router-dom";
 
 // Homepage for erhverv
 export default function HomePageErhverv() {
+  const navigate = useNavigate();
+
+  const navigateToTab = (tabIndex) => {
+    navigate(`/erhverv/produkter?tab=${tabIndex}`);
+  };
+
   return (
     <PageWrapper
       breadcrumb={false}
@@ -37,7 +44,7 @@ export default function HomePageErhverv() {
                 size="lg"
                 variant="primary"
                 icon={true}
-                to="/erhverv/produkter"
+                onClick={() => navigateToTab(2)}
               >
                 Læs mere
               </Button>

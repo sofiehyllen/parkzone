@@ -9,11 +9,10 @@ import useFetch from "../../hooksAndFunctions/useFetch";
 // Blog siden
 const BlogPage = () => {
   // Fetch af artiklernes indhold fra WordPress
-  let { loading, error, data } = useFetch(
-    "https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7",
-  );
+  const apiUrl = import.meta.env.VITE_API_URL;
+  let { loading, error, data } = useFetch(apiUrl,);
   if (loading)
-    // Side mens der indlæses
+    // Side mens der indlæses 
     return (
       <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-gray-300">
         Indlæser
@@ -22,9 +21,9 @@ const BlogPage = () => {
   if (error)
     //Error besked hvis data ikke kan hentes
     return (
-      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-error-500">
-        Kunne ikke hente data
-      </h1>
+      <h1 className="font-h4 flex h-screen w-2/3 font-normal pt-20 mx-auto text-error-500 text-center">
+        Indholdet på denne side blev implementeret med WordPress. Da mit tidligere domæne ikke længere er aktivt, er siden desværre ikke tilgængelig online – men du kan stadig se koden for at få et indblik i, hvordan løsningen blev opbygget.      
+        </h1>
     );
 
   // Gemmer det hentede data som variablen articles

@@ -21,7 +21,7 @@ export default function ProdukterPage() {
               <h1 className="font-h1 relative z-40 mx-auto w-fit max-w-screen-md pb-16 text-center md:px-14 ">
                 Produkter og services tilpasset jeres behov
               </h1>
-              <div className="xl:right-50 absolute right-12 top-24 w-96 sm:top-16 md:right-20 md:top-16 lg:right-36">
+              <div className="xl:right-50 absolute right-12 top-20 w-96 sm:top-12 md:right-20 md:top-16 lg:right-36">
                 <Doodle6 color="#DBE9FD" />
               </div>
             </div>

@@ -4,7 +4,6 @@ import driver from "../../../assets/girl-driving.jpg";
 import Button from "../../ui/buttons/Button";
 import Doodle2 from "../../svg/Doodle2";
 import Doodle1 from "../../svg/Doodle1";
-import ArticleCard from "../../ui/cards/ArticleCard";
 import PropTypes from "prop-types";
 import Accordion from "../../ui/atoms/Accordion";
 import { FAQ1 } from "../../../staticData";
@@ -12,28 +11,27 @@ import Doodle8 from "../../svg/Doodle8";
 import googlePlay from "../../../assets/google-play.png";
 import Category from "../../ui/atoms/Category";
 import mobile from "../../../assets/mobile.jpg";
-import useFetch from "../../hooksAndFunctions/useFetch";
+// import useFetch from "../../hooksAndFunctions/useFetch";
 
 // Homepage for privatkunder
 export default function HomePagePrivat() {
   // Fetch af artiklernes indhold fra WordPress
-  let { loading, error, data } = useFetch(
-    "https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=3",
-  );
-  // Side mens der indlæses
-  if (loading)
-    return (
-      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-gray-300">
-        Indlæser
-      </h1>
-    );
-  //Error besked hvis data ikke kan hentes
-  if (error)
-    return (
-      <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-error-500">
-        Kunne ikke hente data
-      </h1>
-    );
+  // const apiUrl = import.meta.env.VITE_API_URL;
+  // let { loading, error, data } = useFetch(apiUrl,);
+  // // Side mens der indlæses
+  // if (loading)
+  //   return (
+  //     <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-gray-300">
+  //       Indlæser
+  //     </h1>
+  //   );
+  // //Error besked hvis data ikke kan hentes
+  // if (error)
+  //   return (
+  //     <h1 className="font-h3 flex h-screen w-full justify-center pt-20 text-error-500">
+  //       Kunne ikke hente data
+  //     </h1>
+  //   );
 
   return (
     <PageWrapper
@@ -145,7 +143,7 @@ export default function HomePagePrivat() {
       </div>
       <div className="w-full px-5 py-20 sm:px-10 xl:px-0 xl:pt-40">
         <h3 className="font-h1 pb-10 text-center">Seneste nyt om ParkZone</h3>
-        <ArticleCard articles={data} />
+        {/* <ArticleCard articles={data} /> */}
         <Button
           variant="tertiary"
           size="lg"
