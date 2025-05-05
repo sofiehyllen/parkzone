@@ -5,7 +5,7 @@ import InputField from "../../atoms/InputField";
 import RadioButton from "../../buttons/RadioButton";
 import Button from "../../buttons/Button";
 import Alert from "../../sections/Alert";
-import pin from "../../../../assets/svg/pin.svg";
+import pin from "/assets/svg/pin.svg";
 
 // Komponent for vinduet med "Dine oplysninger" i betalingsflowet
 const UserInfoView = ({

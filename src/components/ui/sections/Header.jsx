@@ -168,11 +168,7 @@ export default function Header() {
               size="md"
               variant="tertiary"
               target="_blank"
-              href={
-                isChecked
-                  ? "https://parkweb.parkzone.dk/login/"
-                  : "https://parkcare.parkzone.dk/"
-              }
+              href={isChecked ? "https://parkweb.parkzone.dk/login/" : "/login"}
             >
               Log ind
             </Button>

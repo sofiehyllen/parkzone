@@ -10,17 +10,6 @@ import radgivning from "./assets/radgivning.jpg";
 import skiltning from "./assets/skiltning.jpg";
 import udlejning from "./assets/udlejning.jpg";
 import security from "./assets/security.jpg";
-import admin from "./assets/svg/admin.svg";
-import kamera from "./assets/svg/kamera.svg";
-import betaling from "./assets/svg/betaling.svg";
-import lade from "./assets/svg/lade.svg";
-import opmark from "./assets/svg/opmark.svg";
-import pladser from "./assets/svg/pladser.svg";
-import radgiv from "./assets/svg/radgiv.svg";
-import secure from "./assets/svg/security.svg";
-import skilt from "./assets/svg/skilt.svg";
-import tilladelse from "./assets/svg/tilladelse.svg";
-import udlej from "./assets/svg/udlej.svg";
 
 export const FAQ1 = [
   {
@@ -84,7 +73,7 @@ export const tabs = [
       boxText3: "24/7 parkeringskontrol",
       image: anpr,
       altText: "Bil kører ved kameraparkering",
-      illustration: kamera,
+      illustration: "/assets/svg/kamera.svg",
       heading1: "Brugervenlig parkeringsløsning",
       subheading1:
         "Ved hjælp af kameraerne kan jeres besøgende nemt og gnidningsfrit parkere. Når jeres besøgende kører ind på parkeringsområdet, tjekker systemet om den parkerende er registreret på forhånd. Det vil sige, at jeres faste besøgende – f.eks. abonnenter og medarbejdere – kun skal fokusere på at finde en ledig plads. Jeres andre besøgende kan også nemt registrere deres parkering. De har mulighed for let at betale med betalingsapps, -automater eller online op til 48 timer efter endt besøg.",
@@ -110,7 +99,7 @@ export const tabs = [
       boxText3: "Større udskiftning af biler og dermed større kundestrøm",
       image: betalingsparkering,
       altText: "Kvinder står ved betalingsparkering",
-      illustration: betaling,
+      illustration: "/assets/svg/betaling.svg",
       heading1: "Pay & Display",
       subheading1:
         "Pay & Display er navnet på vores betalingsautomater. Disse kan implementeres, hvis I har betalingsparkering eller ønsker betalingsparkering på parkeringsområdet.  Vi kommer selv og opsætter betalingsautomaterne, og derfor vil omstillingsprocessen være gnidningsfri for jer.",
@@ -136,7 +125,7 @@ export const tabs = [
       boxText3: "Online selvbetjeningsløsning til registrering",
       image: digital,
       altText: "Kvinde køber digital parkeringstilladelse",
-      illustration: tilladelse,
+      illustration: "/assets/svg/tilladelse.svg",
       heading1: "Fleksible løsninger",
       subheading1:
         "Vi udsteder flere forskellige digitale p-tilladelser, såsom permanente, tidsbestemte og områdebestemte. Vores digitale p-tilladelser kan kombineres på mange forskellige måder. Vi sammensætter og skræddersyr en løsning, der passer bedst til parkeringsområdet. Løsningen afhænger blandt andet af, hvad I ønsker parkeringsområdet skal anvendes til. Vi rådgiver jer i, hvad der er mest optimalt ud fra en grundig vurdering af jeres område.",
@@ -162,7 +151,7 @@ export const tabs = [
       boxText3: "Adgang via app og nøglebrik",
       image: ladestander,
       altText: "Ladestander på parkeringsplads",
-      illustration: lade,
+      illustration: "/assets/svg/lade.svg",
       heading1: "Lad os hjælpe dig",
       subheading1:
         "Som parkeringsadministrator med mere end 180.000 p-pladser i administation, er vi hos ParkZone godt klædt på til at fortsætte udrulningen af ladepladser på både offentlige og private arealer. Vi installerede vores første ladestandere i 2020 og har hjulpet flere af vores kunder med at gøre ladepladser til en del af deres parkeringstilbud - og en del af forretningen.",
@@ -188,7 +177,7 @@ export const tabs = [
       boxText3: "Hjælp til en smart indretning af jeres område",
       image: familieplads,
       altText: "Parkeringsplads",
-      illustration: opmark,
+      illustration: "/assets/svg/opmark.svg",
       heading1: "Professionel rådgivning og tilpassede løsninger",
       subheading1:
         "Vi optegner både p-pladser, kørebaner, streger og symboler mm. og kan afmærke i mange forskellige farver. Vi kan afmærke båse, gangarealer eller cykelstier for at skabe tryghed og for at sikre, at uvedkommende ikke parkerer på handikap- eller ladepladser ved en fejl.",
@@ -214,7 +203,7 @@ export const tabs = [
       boxText3: "Parkering i et trygt og sikkert miljø",
       image: opsyn,
       altText: "Parkeringsvagt holder opsyn med parkeringsplads",
-      illustration: pladser,
+      illustration: "/assets/svg/pladser.svg",
       heading1: "Vores parkeringsvagter",
       subheading1:
         "Vores vagter er blandt de dygtigste og mest veluddannede i branchen. Da ParkZone er et vagtautoriseret selskab, bliver alle vores vagter godkendt ved Politiet inden ansættelse. Vi sørger løbende for at videreuddanne vores vagtpersonale for at styrke og udvikle deres kompetencer – til gavn for dig og dine parkerende. Inden for de seneste år har vores vagter bl.a. deltaget i kurser om udvidet førstehjælp, brandbekæmpelse samt glatbane.",
@@ -240,7 +229,7 @@ export const tabs = [
       boxText3: "Selvbetjening af p-tilladelser på vores platform ParkCare",
       image: administration,
       altText: "Kvinde køber parkering",
-      illustration: admin,
+      illustration: "/assets/svg/admin",
       heading1: "Få kontrol over jeres område",
       subheading1:
         "I en travl hverdag, hvor det i stigende grad er blevet sværere at finde en p-plads, hjælper vi med at skabe plads. Vi kan hjælpe jer med at få kontrol over, hvem der parkerer på jeres parkeringsområde, hvis det er en prioritet eller med at sikre, at de regler på området, som vi sammen fastsætter, håndhæves. Det kan vi gøre ved løbende at holde opsyn med området eller ved at implementere en ANPR-løsning (automatisk nummerpladeregistrering), som vha. kameraer registrerer og genkender køretøjer, når de kører ind og ud af et parkeringsområde.",
@@ -266,7 +255,7 @@ export const tabs = [
       boxText3: "Løbende rådgivning for øget indtjening",
       image: radgivning,
       altText: "Mand og kvinde taler om parkeringsrådgivning",
-      illustration: radgiv,
+      illustration: "/assets/svg/radgiv.svg",
       heading1: "Optimal udnyttelse af parkeringsområdet",
       subheading1:
         "Vi tilbyder rådgivning om, hvordan I kan optimere jeres parkeringsområde. Vi har fokus på, hvordan vi kan udnytte pladsen bedst muligt gennem en smart indretning og opdeling af området, og ved at sikre et bedre parkeringsflow. Det er også muligt at optimere området ved at opmærke p-pladser og optegne andre adfærdsregulerende elementer, som samtidig sikrer en brugervenlig parkeringsoplevelse.",
@@ -292,7 +281,7 @@ export const tabs = [
       boxText3: "Personlig marketing efter jeres behov",
       image: skiltning,
       altText: "ParkZone parkeringsskilt",
-      illustration: skilt,
+      illustration: "/assets/svg/skilt.svg",
       heading1: "Hurtig opsætning af skilte",
       subheading1:
         "Vores administrationssystem, ParkWeb, tillader, at vi hurtigt kan generere trygklare bestemmelsesskilte, som vores leverandører kan producere. Når vi opretter skiltebestillinger i systemet, sendes de automatisk direkte til leverandøren, som hurtigt kan producere dem. Vi har igennem mange år udviklet og forfinet tilgangen til bestilling af bestemmelsesskilte. En strømlinet proces betyder hurtig implementering.",
@@ -318,7 +307,7 @@ export const tabs = [
       boxText3: "Tryghed for jeres virksomhed",
       image: security,
       altText: "Parkzone servicevagt",
-      illustration: secure,
+      illustration: "/assets/svg/security.svg",
       heading1: "Tryghed for jer",
       subheading1:
         "En sikkerhedsvagt hjælper med at skabe tryghed og forebygge hærværk, tyveri og andre ubehagelige hændelser. Selvom jeres virksomhed er udstyret med videoovervågning, er der ting, som kameraet ikke fanger og ikke kan agere på – såsom vandskader. Derudover kan kameraer ikke slukke jeres kaffemaskine, lukke et vindue eller betjene en brandslukker. Vagten aflægger daglig rapport, så I kan følge med og optimere jeres interne processer.",
@@ -344,7 +333,7 @@ export const tabs = [
       boxText3: "Online booking af jeres pladser på ParkZone.dk",
       image: udlejning,
       altText: "Parkeringsplads",
-      illustration: udlej,
+      illustration: "/assets/svg/udlej.svg",
       heading1: "Markedsføring af jeres pladser",
       subheading1:
         "Udover, at vi kan varetage administrationen i forbindelse med udlejning af jeres p-pladser, kan vores marketingafdeling hjælpe med forskellige tiltag, der kan øge salget af abonnementer. Vi udarbejder en plan ud fra jeres behov og en analyse af de målgrupper, der er relevante for netop jeres parkeringsområde. Det er ofte en god start at tilføje jeres plads til Google og andre korttjenester.",

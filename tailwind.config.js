@@ -5,6 +5,7 @@ export default {
     "./src/ui/**/*.{js,jsx}",
     "./src/svg/**/*.{js,jsx}",
     "./index.html",
+    "./email_template.html",
   ],
   theme: {
     fontFamily: {
