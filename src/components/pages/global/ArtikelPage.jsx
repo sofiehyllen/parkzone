@@ -17,9 +17,8 @@ const ArticlePage = () => {
   const { id } = useParams(); // Henter id parametre fra url
 
   // Fetch af artiklernes indhold fra WordPress
-  let { loading, error, data } = useFetch(
-    "https://wp.sofiehyllen.dk/wp-json/wp/v2/articles?_embed&per_page=7",
-  );
+  const apiUrl = import.meta.env.VITE_API_URL;
+  let { loading, error, data } = useFetch(apiUrl,);
   if (loading)
     // Side mens der indlæses
     return (

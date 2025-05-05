@@ -41,8 +41,6 @@ export default function Newsletter() {
           setAlertType("success");
           setAlertTitle("Tak for din tilmelding");
           setAlertText("Du er nu tilmeldt vores nyhedsbrev");
-        } else {
-          throw new Error("Network response was not ok.");
         }
       } catch (error) {
         setAlertVisible(true);

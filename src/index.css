@@ -142,8 +142,8 @@ body {
   padding-top: 40px;
   margin-bottom: 40px;
   background:
-    url(./assets/quote-top.svg) left top,
-    url(./assets/quote-bottom.svg) right bottom;
+    url(./assets/svg/quote-top.svg) left top,
+    url(./assets/svg/quote-bottom.svg) right bottom;
   background-repeat: no-repeat;
 }
 
