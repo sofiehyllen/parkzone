@@ -10,7 +10,7 @@ import radgivning from "./assets/radgivning.jpg";
 import skiltning from "./assets/skiltning.jpg";
 import udlejning from "./assets/udlejning.jpg";
 import security from "./assets/security.jpg";
-import admin from "./assets/svg/admin.svg";
+// import admin from "./assets/svg/admin.svg";
 import kamera from "./assets/svg/kamera.svg";
 import betaling from "./assets/svg/betaling.svg";
 import lade from "./assets/svg/lade.svg";
@@ -240,7 +240,7 @@ export const tabs = [
       boxText3: "Selvbetjening af p-tilladelser på vores platform ParkCare",
       image: administration,
       altText: "Kvinde køber parkering",
-      illustration: admin,
+      illustration: "/assets/svg/admin",
       heading1: "Få kontrol over jeres område",
       subheading1:
         "I en travl hverdag, hvor det i stigende grad er blevet sværere at finde en p-plads, hjælper vi med at skabe plads. Vi kan hjælpe jer med at få kontrol over, hvem der parkerer på jeres parkeringsområde, hvis det er en prioritet eller med at sikre, at de regler på området, som vi sammen fastsætter, håndhæves. Det kan vi gøre ved løbende at holde opsyn med området eller ved at implementere en ANPR-løsning (automatisk nummerpladeregistrering), som vha. kameraer registrerer og genkender køretøjer, når de kører ind og ud af et parkeringsområde.",
