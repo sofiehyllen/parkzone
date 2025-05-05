@@ -23,12 +23,10 @@ export default function HomePageErhverv() {
       title="Effektiviser og optimer jeres virksomhed med ParkCare"
       metaDescription="Med vores digitale p-tilladelsessystem, ParkCare, sparer du tid og omkostninger på parkeringsadministration. Læs mere om vores skræddersyede parkeringsløsninger og tjenester til erhvervskunder."
     >
-      <div className="relative overflow-hidden pb-20 sm:pb-28 md:flex md:pb-48 lg:pb-60 lg:pt-24 xl:pt-32 3xl:pt-44 4xl:pt-60">
-        <div className="md:place-self-center md:pr-20 xl:w-11/12 xl:pl-20 4xl:w-10/12">
-          <div className="pt-10 sm:pt-16 md:flex md:items-center lg:pt-0">
-            <div className="flex w-full flex-col items-center px-5 pb-10 md:items-start md:px-0 md:py-0 md:pl-10 lg:pl-20 ">
+      <div className="relative overflow-hidden pb-20 sm:pb-28  lg:flex lg:items-center lg:pb-60 lg:pt-24 xl:pt-32 3xl:pt-44 4xl:pt-60">
+            <div className="flex w-full flex-col items-center px-5 pb-10 lg:items-start lg:px-0 lg:py-0 lg:pl-20 lg:w-1/2 shrink">
               <Category color="lightBlue">Parkeringsløsning</Category>
-              <div className="md:pb-">
+              <div className="">
                 <h1 className="font-h2 pb-8 pt-2 text-center md:text-left lg:pb-12">
                   Effektiviser og optimer jeres virksomhed med ParkCare
                 </h1>
@@ -49,15 +47,7 @@ export default function HomePageErhverv() {
                 Læs mere
               </Button>
             </div>
-          </div>
-        </div>
-        <div className="relative h-full w-full ">
-          <ImageWrapper
-            image={laptop}
-            alt="ParkWeb"
-            className="px-5 sm:px-10 md:absolute md:-left-32 md:-right-96 md:top-16 md:px-0 lg:-right-72 lg:-top-10 xl:-left-16 2xl:-left-5 2xl:-right-32 3xl:-top-16 4xl:-right-60 4xl:-top-36 4xl:left-40"
-          />
-        </div>
+          <div className="lg:w-1/2 shrink-0"><img src={laptop} alt="" className="px-5 h-auto w-full sm:px-10 "/></div>
       </div>
       <div className="mb-10 bg-marine-900 px-5 py-20">
         <h2 className="font-h5 pb-9 text-center text-white sm:px-28 md:px-0">
