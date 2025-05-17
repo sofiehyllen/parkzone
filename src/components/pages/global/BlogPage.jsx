@@ -21,9 +21,12 @@ const BlogPage = () => {
   if (error)
     //Error besked hvis data ikke kan hentes
     return (
-      <h1 className="font-h4 flex h-screen w-2/3 font-normal pt-20 mx-auto text-error-500 text-center">
-        Indholdet på denne side blev implementeret med WordPress. Da mit tidligere domæne ikke længere er aktivt, er siden desværre ikke tilgængelig online – men du kan stadig se koden for at få et indblik i, hvordan løsningen blev opbygget.      
-        </h1>
+      <div className="px-5 mx-auto my-32 sm:px-20 md:mb-56 lg:w-2/3 lg:mx-auto">
+        <p className="font-h4 font-normal text-error-500 text-center">
+          Indholdet på denne side blev implementeret med WordPress. Da mit tidligere domæne ikke længere er aktivt, er siden desværre ikke tilgængelig online – men du kan stadig se koden for at få et indblik i, hvordan løsningen blev opbygget: <span><a className="underline" target="_blank"
+      rel="noopener noreferrer" href="https://github.com/sofiehyllen/parkzone">github.com/sofiehyllen/parkzone</a></span>       
+          </p>
+      </div>
     );
 
   // Gemmer det hentede data som variablen articles
