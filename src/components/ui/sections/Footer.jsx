@@ -30,12 +30,12 @@ export default function Footer() {
           <div className="space-y-6">
             <h4 className="font-h4 uppercase">Om os</h4>
             <div className="font-mobile-h4 md:font-laptop-h5 flex flex-col space-y-4">
-              <Link
+              {/* <Link
                 className="font-h5 text-gray-600 hover:text-gray-900"
                 to="/blog"
               >
                 Blog
-              </Link>
+              </Link> */}
               <Link
                 className="font-h5 text-gray-600 hover:text-gray-900"
                 to="/omos"

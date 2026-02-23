@@ -69,13 +69,13 @@ export default function Header() {
                     />
                   </div>
                   <div className="font-h3 flex flex-col space-y-5 pb-10 pt-20">
-                    <CustomNavLink
+                    {/* <CustomNavLink
                       to="/blog"
                       variant="primary"
                       onClick={() => setIsNavOpen(false)}
                     >
                       Blog
-                    </CustomNavLink>
+                    </CustomNavLink> */}
 
                     <CustomNavLink
                       to="/omos"
@@ -172,9 +172,9 @@ export default function Header() {
             >
               Log ind
             </Button>
-            <CustomNavLink to="/blog" variant="primary">
+            {/* <CustomNavLink to="/blog" variant="primary">
               Blog
-            </CustomNavLink>
+            </CustomNavLink> */}
             <CustomNavLink to="/omos" variant="primary">
               Om os
             </CustomNavLink>
