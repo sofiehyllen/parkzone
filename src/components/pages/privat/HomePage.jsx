@@ -141,9 +141,9 @@ export default function HomePagePrivat() {
           color="#EDF6FD"
         />
       </div>
-      <div className="w-full px-5 py-20 sm:px-10 xl:px-0 xl:pt-40">
+      {/*<div className="w-full px-5 py-20 sm:px-10 xl:px-0 xl:pt-40">
         <h3 className="font-h1 pb-10 text-center">Seneste nyt om ParkZone</h3>
-        {/* <ArticleCard articles={data} /> */}
+         <ArticleCard articles={data} /> 
         <Button
           variant="tertiary"
           size="lg"
@@ -153,7 +153,7 @@ export default function HomePagePrivat() {
         >
           Se alle artikler
         </Button>
-      </div>
+      </div>*/}
       <div className="relative mx-auto max-w-screen-4xl overflow-hidden px-5 pb-20 pt-5 sm:px-10 sm:pb-28 md:px-20 lg:flex xl:pt-28 3xl:px-40 3xl:pb-24 3xl:pl-52">
         <div className="relative z-10 lg:w-10/12 lg:pr-10">
           <h4 className="font-h2 pb-5 text-center lg:pb-10 lg:text-left">

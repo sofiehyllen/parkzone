@@ -42,13 +42,7 @@ export default function OmOsPage() {
             </h4>
             <p className="font-body-md hyphens-auto text-center">
               Læs spændende artikler omkring os og vores bedrifter, og blive
-              klogere på ParkZone som virksomhed. Du kan læse mere{" "}
-              <span>
-                <Button variant="link" size="lg" to="/blog">
-                  her
-                </Button>
-                .
-              </span>
+              klogere på ParkZone som virksomhed.
             </p>
           </div>
           <div className="flex flex-col items-center py-4 sm:px-10 sm:py-8 md:w-full md:px-5 md:py-0 xl:px-10">
